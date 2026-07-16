@@ -1,0 +1,22 @@
+{
+  "id": "seed_143",
+  "sender_email": "marcus@contoso.com",
+  "sender_name": "Marcus Bell",
+  "sender_domain": "contoso.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "FYI: search reindex weekly digest",
+  "body_text": "Weekly rollup for search reindex. Nothing needs your input this week.",
+  "snippet": "Weekly rollup for search reindex. Nothing needs your input this week.",
+  "received_at": "2026-07-03T05:23:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

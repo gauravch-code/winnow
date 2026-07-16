@@ -1,0 +1,22 @@
+{
+  "id": "seed_115",
+  "sender_email": "team@mail.notion.so",
+  "sender_name": "Notion",
+  "sender_domain": "notion.so",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Jamal Wright shared a document with you",
+  "body_text": "A document has been shared. Click to view.",
+  "snippet": "A document has been shared. Click to view.",
+  "received_at": "2026-07-14T20:04:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
+  "ground_truth_lane": "informational"
+}

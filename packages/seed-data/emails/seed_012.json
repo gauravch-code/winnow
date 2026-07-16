@@ -1,0 +1,22 @@
+{
+  "id": "seed_012",
+  "sender_email": "ben@stratechery.com",
+  "sender_name": "Stratechery",
+  "sender_domain": "stratechery.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[Stratechery] why one-on-ones are broken",
+  "body_text": "This week's issue: why one-on-ones are broken.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: why one-on-ones are broken.",
+  "received_at": "2026-07-14T21:23:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "seed_138",
+  "sender_email": "kenji@umbrella.com",
+  "sender_name": "Kenji Ito",
+  "sender_domain": "umbrella.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [
+      "yara@umbrella.com"
+    ],
+    "bcc": []
+  },
+  "subject": "Re: auth migration — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-05T12:52:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

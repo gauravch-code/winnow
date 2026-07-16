@@ -1,0 +1,22 @@
+{
+  "id": "seed_070",
+  "sender_email": "receipts@stripe.com",
+  "sender_name": "Stripe",
+  "sender_domain": "stripe.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Receipt from Acme Co #16625",
+  "body_text": "Amount charged: $244.48\nCard ending 4242.",
+  "snippet": "Amount charged: $244.48",
+  "received_at": "2026-07-12T12:19:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
+}

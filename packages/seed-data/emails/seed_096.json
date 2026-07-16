@@ -1,0 +1,22 @@
+{
+  "id": "seed_096",
+  "sender_email": "leads@growth-hackers-pro.biz",
+  "sender_name": "SEO Growth",
+  "sender_domain": "growth-hackers-pro.biz",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Urgent: your account will be suspended",
+  "body_text": "We noticed unusual activity. Verify your identity within 24 hours or lose access.",
+  "snippet": "We noticed unusual activity. Verify your identity within 24 hours or lose access.",
+  "received_at": "2026-07-03T06:46:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "spam",
+  "ground_truth_lane": "hidden"
+}

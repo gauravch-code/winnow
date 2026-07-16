@@ -1,0 +1,22 @@
+{
+  "id": "seed_132",
+  "sender_email": "diego@globex.com",
+  "sender_name": "Diego Alvarez",
+  "sender_domain": "globex.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Quick question about billing v2",
+  "body_text": "Do you have 15 min today to walk me through the billing v2 rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the billing v2 rollout plan? I want to make sure I understand the phase 2 de",
+  "received_at": "2026-07-02T22:11:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "seed_091",
+  "sender_email": "winner@lucky-token-airdrop.xyz",
+  "sender_name": "Crypto Winners",
+  "sender_domain": "lucky-token-airdrop.xyz",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "You've been selected — claim your $500 airdrop",
+  "body_text": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
+  "snippet": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
+  "received_at": "2026-07-08T23:02:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "spam",
+  "ground_truth_lane": "hidden"
+}

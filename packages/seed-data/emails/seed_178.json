@@ -1,0 +1,22 @@
+{
+  "id": "seed_178",
+  "sender_email": "winner@lucky-token-airdrop.xyz",
+  "sender_name": "Crypto Winners",
+  "sender_domain": "lucky-token-airdrop.xyz",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Urgent: your account will be suspended",
+  "body_text": "We noticed unusual activity. Verify your identity within 24 hours or lose access.",
+  "snippet": "We noticed unusual activity. Verify your identity within 24 hours or lose access.",
+  "received_at": "2026-07-11T09:17:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "spam",
+  "ground_truth_lane": "hidden"
+}

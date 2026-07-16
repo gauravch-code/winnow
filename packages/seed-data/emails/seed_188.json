@@ -1,0 +1,22 @@
+{
+  "id": "seed_188",
+  "sender_email": "notifications@slack.com",
+  "sender_name": "Slack",
+  "sender_domain": "slack.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "New message from Nadia Farouk in #eng-general",
+  "body_text": "Nadia Farouk: quick q — got a sec to look at the deploy?\n\nReply in Slack.",
+  "snippet": "Nadia Farouk: quick q — got a sec to look at the deploy?",
+  "received_at": "2026-07-15T18:42:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
+  "ground_truth_lane": "informational"
+}

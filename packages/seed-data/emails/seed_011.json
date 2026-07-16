@@ -1,0 +1,22 @@
+{
+  "id": "seed_011",
+  "sender_email": "elena@globex.com",
+  "sender_name": "Elena Rossi",
+  "sender_domain": "globex.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "FYI: Q3 planning weekly digest",
+  "body_text": "Weekly rollup for Q3 planning. Nothing needs your input this week.",
+  "snippet": "Weekly rollup for Q3 planning. Nothing needs your input this week.",
+  "received_at": "2026-07-09T03:45:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

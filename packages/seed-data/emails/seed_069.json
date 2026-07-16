@@ -1,0 +1,22 @@
+{
+  "id": "seed_069",
+  "sender_email": "recruiter@totally-real-hr.top",
+  "sender_name": "HR at BigCo",
+  "sender_domain": "totally-real-hr.top",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Urgent: your account will be suspended",
+  "body_text": "We noticed unusual activity. Verify your identity within 24 hours or lose access.",
+  "snippet": "We noticed unusual activity. Verify your identity within 24 hours or lose access.",
+  "received_at": "2026-07-04T09:28:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "spam",
+  "ground_truth_lane": "hidden"
+}

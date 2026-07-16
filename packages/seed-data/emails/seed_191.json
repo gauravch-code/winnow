@@ -1,0 +1,24 @@
+{
+  "id": "seed_191",
+  "sender_email": "diego@northwind.com",
+  "sender_name": "Diego Alvarez",
+  "sender_domain": "northwind.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [
+      "sasha@northwind.com"
+    ],
+    "bcc": []
+  },
+  "subject": "Quick question about auth migration",
+  "body_text": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase ",
+  "received_at": "2026-07-11T08:04:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

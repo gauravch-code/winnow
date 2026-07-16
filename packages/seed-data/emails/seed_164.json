@@ -1,0 +1,22 @@
+{
+  "id": "seed_164",
+  "sender_email": "receipts@uber.com",
+  "sender_name": "Uber",
+  "sender_domain": "uber.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Your Wednesday morning trip with Uber",
+  "body_text": "Trip total: $130.51\nThanks for riding.",
+  "snippet": "Trip total: $130.51",
+  "received_at": "2026-07-12T19:27:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
+}

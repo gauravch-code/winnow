@@ -1,0 +1,22 @@
+{
+  "id": "seed_182",
+  "sender_email": "automated@airbnb.com",
+  "sender_name": "Airbnb",
+  "sender_domain": "airbnb.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Reservation confirmed: Portland",
+  "body_text": "Total: $205.39\nCheck-in Aug 3.",
+  "snippet": "Total: $205.39",
+  "received_at": "2026-07-12T18:08:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
+}

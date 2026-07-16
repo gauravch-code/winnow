@@ -1,0 +1,22 @@
+{
+  "id": "seed_146",
+  "sender_email": "diego@gmail.com",
+  "sender_name": "Diego Alvarez",
+  "sender_domain": "gmail.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: hiking next month",
+  "body_text": "yeah that trail works! let's do the 8am start so we're back before it gets hot.",
+  "snippet": "yeah that trail works! let's do the 8am start so we're back before it gets hot.",
+  "received_at": "2026-07-12T01:49:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "personal",
+  "ground_truth_lane": "needs_you"
+}

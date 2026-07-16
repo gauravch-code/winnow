@@ -1,0 +1,22 @@
+{
+  "id": "seed_079",
+  "sender_email": "no-reply@doordash.com",
+  "sender_name": "DoorDash",
+  "sender_domain": "doordash.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Order confirmed from The Corner Bistro",
+  "body_text": "Total: $41.41\nEstimated arrival 25-35 min.",
+  "snippet": "Total: $41.41",
+  "received_at": "2026-07-05T15:49:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
+}

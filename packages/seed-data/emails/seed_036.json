@@ -1,0 +1,22 @@
+{
+  "id": "seed_036",
+  "sender_email": "recruiter@totally-real-hr.top",
+  "sender_name": "HR at BigCo",
+  "sender_domain": "totally-real-hr.top",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Boost your SEO by 300% — free consultation",
+  "body_text": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
+  "snippet": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
+  "received_at": "2026-07-05T16:29:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "spam",
+  "ground_truth_lane": "hidden"
+}

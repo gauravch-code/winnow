@@ -1,0 +1,22 @@
+{
+  "id": "seed_087",
+  "sender_email": "jamal@initech.com",
+  "sender_name": "Jamal Wright",
+  "sender_domain": "initech.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "auth migration: meeting notes",
+  "body_text": "Notes from the auth migration sync are attached. No action items for you — sharing for visibility.",
+  "snippet": "Notes from the auth migration sync are attached. No action items for you — sharing for visibility.",
+  "received_at": "2026-07-11T08:59:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

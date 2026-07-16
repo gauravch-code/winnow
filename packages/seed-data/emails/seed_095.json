@@ -1,0 +1,22 @@
+{
+  "id": "seed_095",
+  "sender_email": "calendar-notification@google.com",
+  "sender_name": "Google Calendar",
+  "sender_domain": "google.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Invitation: Q3 planning sync @ Thu 2:00 PM",
+  "body_text": "Yara Haddad has invited you to 'Q3 planning sync'. Accept, Decline, or Maybe.",
+  "snippet": "Yara Haddad has invited you to 'Q3 planning sync'. Accept, Decline, or Maybe.",
+  "received_at": "2026-07-02T10:24:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "calendar",
+  "ground_truth_lane": "informational"
+}

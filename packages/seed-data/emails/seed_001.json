@@ -1,0 +1,22 @@
+{
+  "id": "seed_001",
+  "sender_email": "calendar-notification@google.com",
+  "sender_name": "Google Calendar",
+  "sender_domain": "google.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Updated: 1:1 with Nadia Farouk",
+  "body_text": "The event '1:1 with Nadia Farouk' has been moved to next Tuesday at 3 PM.",
+  "snippet": "The event '1:1 with Nadia Farouk' has been moved to next Tuesday at 3 PM.",
+  "received_at": "2026-07-16T00:44:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "calendar",
+  "ground_truth_lane": "informational"
+}

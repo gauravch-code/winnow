@@ -1,0 +1,22 @@
+{
+  "id": "seed_168",
+  "sender_email": "yara@initech.com",
+  "sender_name": "Yara Haddad",
+  "sender_domain": "initech.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: search reindex — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-13T06:50:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

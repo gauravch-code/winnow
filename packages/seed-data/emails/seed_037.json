@@ -1,0 +1,22 @@
+{
+  "id": "seed_037",
+  "sender_email": "yara@northwind.com",
+  "sender_name": "Yara Haddad",
+  "sender_domain": "northwind.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "FYI: billing v2 weekly digest",
+  "body_text": "Weekly rollup for billing v2. Nothing needs your input this week.",
+  "snippet": "Weekly rollup for billing v2. Nothing needs your input this week.",
+  "received_at": "2026-07-03T18:05:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

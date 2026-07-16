@@ -1,0 +1,22 @@
+{
+  "id": "seed_017",
+  "sender_email": "calendar-notification@google.com",
+  "sender_name": "Google Calendar",
+  "sender_domain": "google.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Reminder: All-hands @ 10:00 AM tomorrow",
+  "body_text": "Reminder: you have an event 'All-hands' tomorrow at 10:00 AM.",
+  "snippet": "Reminder: you have an event 'All-hands' tomorrow at 10:00 AM.",
+  "received_at": "2026-07-08T11:06:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "calendar",
+  "ground_truth_lane": "informational"
+}

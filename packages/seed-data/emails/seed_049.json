@@ -1,0 +1,22 @@
+{
+  "id": "seed_049",
+  "sender_email": "noreply@github.com",
+  "sender_name": "GitHub",
+  "sender_domain": "github.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[search-reindex] Pull request #105 was merged",
+  "body_text": "Priya Shah merged pull request #105 into main.\n\nView on GitHub.",
+  "snippet": "Priya Shah merged pull request #105 into main.",
+  "received_at": "2026-07-02T15:15:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
+  "ground_truth_lane": "informational"
+}

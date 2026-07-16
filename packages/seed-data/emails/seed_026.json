@@ -1,0 +1,24 @@
+{
+  "id": "seed_026",
+  "sender_email": "sasha@umbrella.com",
+  "sender_name": "Sasha Kim",
+  "sender_domain": "umbrella.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [
+      "jamal@umbrella.com"
+    ],
+    "bcc": []
+  },
+  "subject": "Quick question about search reindex",
+  "body_text": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase ",
+  "received_at": "2026-07-11T19:10:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "seed_155",
+  "sender_email": "hi@lennysnewsletter.com",
+  "sender_name": "Lenny's Newsletter",
+  "sender_domain": "lennysnewsletter.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[Lenny's Newsletter] the case for tiny teams",
+  "body_text": "This week's issue: the case for tiny teams.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: the case for tiny teams.",
+  "received_at": "2026-07-10T01:09:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
+}

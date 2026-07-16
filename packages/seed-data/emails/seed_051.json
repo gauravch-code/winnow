@@ -1,0 +1,22 @@
+{
+  "id": "seed_051",
+  "sender_email": "notifications@slack.com",
+  "sender_name": "Slack",
+  "sender_domain": "slack.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "New message from Sasha Kim in #eng-general",
+  "body_text": "Sasha Kim: quick q — got a sec to look at the deploy?\n\nReply in Slack.",
+  "snippet": "Sasha Kim: quick q — got a sec to look at the deploy?",
+  "received_at": "2026-07-16T07:24:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
+  "ground_truth_lane": "informational"
+}

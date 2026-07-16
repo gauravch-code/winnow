@@ -1,0 +1,22 @@
+{
+  "id": "seed_129",
+  "sender_email": "kenji@umbrella.com",
+  "sender_name": "Kenji Ito",
+  "sender_domain": "umbrella.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: billing v2 — comments by Thursday?",
+  "body_text": "Hey — could you leave your comments on the billing v2 doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
+  "snippet": "Hey — could you leave your comments on the billing v2 doc by end of Thursday? I want to circulate the revised draft on F",
+  "received_at": "2026-07-13T07:11:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

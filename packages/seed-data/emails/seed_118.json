@@ -1,0 +1,22 @@
+{
+  "id": "seed_118",
+  "sender_email": "crew@morningbrew.com",
+  "sender_name": "Morning Brew",
+  "sender_domain": "morningbrew.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[Morning Brew] vector DBs, one year later",
+  "body_text": "This week's issue: vector DBs, one year later.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: vector DBs, one year later.",
+  "received_at": "2026-07-08T16:44:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "seed_197",
+  "sender_email": "auto-confirm@amazon.com",
+  "sender_name": "Amazon",
+  "sender_domain": "amazon.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Your Amazon.com order of item(s)",
+  "body_text": "Order total: $217.72\nArriving Friday.",
+  "snippet": "Order total: $217.72",
+  "received_at": "2026-07-06T20:57:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
+}

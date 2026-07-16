@@ -1,0 +1,22 @@
+{
+  "id": "seed_060",
+  "sender_email": "elena@contoso.com",
+  "sender_name": "Elena Rossi",
+  "sender_domain": "contoso.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: Q3 planning — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-13T06:59:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

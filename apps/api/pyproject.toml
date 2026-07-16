@@ -1,0 +1,48 @@
+[project]
+name = "winnow-api"
+version = "0.1.0"
+description = "Winnow backend: real app + demo mode."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "psycopg[binary]>=3.2",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "cryptography>=43",
+    "uuid-utils>=0.9",
+    "structlog>=24.4",
+    "winnow-seed-data",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.7",
+    "mypy>=1.13",
+]
+
+[tool.uv.sources]
+winnow-seed-data = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["winnow_api"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

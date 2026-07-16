@@ -1,0 +1,22 @@
+{
+  "id": "seed_156",
+  "sender_email": "sasha@protonmail.com",
+  "sender_name": "Sasha Kim",
+  "sender_domain": "protonmail.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: hiking next month",
+  "body_text": "yeah that trail works! let's do the 8am start so we're back before it gets hot.",
+  "snippet": "yeah that trail works! let's do the 8am start so we're back before it gets hot.",
+  "received_at": "2026-07-14T06:01:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "personal",
+  "ground_truth_lane": "needs_you"
+}

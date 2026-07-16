@@ -1,0 +1,22 @@
+{
+  "id": "seed_097",
+  "sender_email": "marcus@initech.com",
+  "sender_name": "Marcus Bell",
+  "sender_domain": "initech.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: auth migration — comments by Thursday?",
+  "body_text": "Hey — could you leave your comments on the auth migration doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
+  "snippet": "Hey — could you leave your comments on the auth migration doc by end of Thursday? I want to circulate the revised draft ",
+  "received_at": "2026-07-07T01:25:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

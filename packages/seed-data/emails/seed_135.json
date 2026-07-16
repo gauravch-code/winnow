@@ -1,0 +1,22 @@
+{
+  "id": "seed_135",
+  "sender_email": "newsletter@pragmaticengineer.com",
+  "sender_name": "The Pragmatic Engineer",
+  "sender_domain": "pragmaticengineer.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[The Pragmatic Engineer] the incident that changed our on-call",
+  "body_text": "This week's issue: the incident that changed our on-call.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: the incident that changed our on-call.",
+  "received_at": "2026-07-09T20:37:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
+}

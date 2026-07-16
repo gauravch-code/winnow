@@ -1,0 +1,22 @@
+{
+  "id": "seed_019",
+  "sender_email": "elena@initech.com",
+  "sender_name": "Elena Rossi",
+  "sender_domain": "initech.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Quick question about auth migration",
+  "body_text": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase ",
+  "received_at": "2026-07-13T10:42:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

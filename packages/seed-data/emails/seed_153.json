@@ -1,0 +1,22 @@
+{
+  "id": "seed_153",
+  "sender_email": "tomas@contoso.com",
+  "sender_name": "Tomas Brandt",
+  "sender_domain": "contoso.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: auth migration — comments by Thursday?",
+  "body_text": "Hey — could you leave your comments on the auth migration doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
+  "snippet": "Hey — could you leave your comments on the auth migration doc by end of Thursday? I want to circulate the revised draft ",
+  "received_at": "2026-07-10T07:44:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

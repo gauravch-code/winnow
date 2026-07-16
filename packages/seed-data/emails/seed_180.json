@@ -1,0 +1,22 @@
+{
+  "id": "seed_180",
+  "sender_email": "jack@importai.substack.com",
+  "sender_name": "Import AI",
+  "sender_domain": "substack.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[Import AI] vector DBs, one year later",
+  "body_text": "This week's issue: vector DBs, one year later.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: vector DBs, one year later.",
+  "received_at": "2026-07-13T12:04:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
+}

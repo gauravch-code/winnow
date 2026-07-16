@@ -1,0 +1,22 @@
+{
+  "id": "seed_084",
+  "sender_email": "notifications@linear.app",
+  "sender_name": "Linear",
+  "sender_domain": "linear.app",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[onboarding revamp] Issue assigned to you",
+  "body_text": "You've been assigned a new issue. View in Linear.",
+  "snippet": "You've been assigned a new issue. View in Linear.",
+  "received_at": "2026-07-08T19:36:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
+  "ground_truth_lane": "informational"
+}

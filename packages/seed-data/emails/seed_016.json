@@ -1,0 +1,22 @@
+{
+  "id": "seed_016",
+  "sender_email": "marcus@acme.com",
+  "sender_name": "Marcus Bell",
+  "sender_domain": "acme.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: search reindex — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-14T03:41:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

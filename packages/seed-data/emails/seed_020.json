@@ -1,0 +1,24 @@
+{
+  "id": "seed_020",
+  "sender_email": "tomas@umbrella.com",
+  "sender_name": "Tomas Brandt",
+  "sender_domain": "umbrella.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [
+      "sasha@umbrella.com"
+    ],
+    "bcc": []
+  },
+  "subject": "FYI: auth migration weekly digest",
+  "body_text": "Weekly rollup for auth migration. Nothing needs your input this week.",
+  "snippet": "Weekly rollup for auth migration. Nothing needs your input this week.",
+  "received_at": "2026-07-14T01:40:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

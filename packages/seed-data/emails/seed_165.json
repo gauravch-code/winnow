@@ -1,0 +1,24 @@
+{
+  "id": "seed_165",
+  "sender_email": "nadia@contoso.com",
+  "sender_name": "Nadia Farouk",
+  "sender_domain": "contoso.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [
+      "elena@contoso.com"
+    ],
+    "bcc": []
+  },
+  "subject": "Re: auth migration — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-13T20:29:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

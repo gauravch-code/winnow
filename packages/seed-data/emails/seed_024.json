@@ -1,0 +1,22 @@
+{
+  "id": "seed_024",
+  "sender_email": "drive-shares-noreply@google.com",
+  "sender_name": "Google Drive",
+  "sender_domain": "google.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Priya Shah shared a document with you",
+  "body_text": "A document has been shared. Click to view.",
+  "snippet": "A document has been shared. Click to view.",
+  "received_at": "2026-07-15T13:52:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
+  "ground_truth_lane": "informational"
+}

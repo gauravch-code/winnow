@@ -1,0 +1,22 @@
+{
+  "id": "seed_005",
+  "sender_email": "jamal@northwind.com",
+  "sender_name": "Jamal Wright",
+  "sender_domain": "northwind.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Quick question about search reindex",
+  "body_text": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase ",
+  "received_at": "2026-07-10T07:23:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

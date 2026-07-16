@@ -1,0 +1,22 @@
+{
+  "id": "seed_160",
+  "sender_email": "tomas@northwind.com",
+  "sender_name": "Tomas Brandt",
+  "sender_domain": "northwind.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: Q3 planning — comments by Thursday?",
+  "body_text": "Hey — could you leave your comments on the Q3 planning doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
+  "snippet": "Hey — could you leave your comments on the Q3 planning doc by end of Thursday? I want to circulate the revised draft on ",
+  "received_at": "2026-07-12T22:31:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

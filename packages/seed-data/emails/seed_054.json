@@ -1,0 +1,22 @@
+{
+  "id": "seed_054",
+  "sender_email": "yara@gmail.com",
+  "sender_name": "Yara Haddad",
+  "sender_domain": "gmail.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "did you see this?",
+  "body_text": "sent you an article, curious what you think when you get a chance",
+  "snippet": "sent you an article, curious what you think when you get a chance",
+  "received_at": "2026-07-12T01:11:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "personal",
+  "ground_truth_lane": "needs_you"
+}

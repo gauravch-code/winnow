@@ -1,0 +1,24 @@
+{
+  "id": "seed_081",
+  "sender_email": "priya@contoso.com",
+  "sender_name": "Priya Shah",
+  "sender_domain": "contoso.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [
+      "sasha@contoso.com"
+    ],
+    "bcc": []
+  },
+  "subject": "Quick question about onboarding revamp",
+  "body_text": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the pha",
+  "received_at": "2026-07-05T23:40:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

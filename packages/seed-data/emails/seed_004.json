@@ -1,0 +1,22 @@
+{
+  "id": "seed_004",
+  "sender_email": "elena@acme.com",
+  "sender_name": "Elena Rossi",
+  "sender_domain": "acme.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Re: search reindex — comments by Thursday?",
+  "body_text": "Hey — could you leave your comments on the search reindex doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
+  "snippet": "Hey — could you leave your comments on the search reindex doc by end of Thursday? I want to circulate the revised draft ",
+  "received_at": "2026-07-15T12:46:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
+}

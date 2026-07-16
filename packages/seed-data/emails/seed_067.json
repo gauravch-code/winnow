@@ -1,0 +1,22 @@
+{
+  "id": "seed_067",
+  "sender_email": "sasha@contoso.com",
+  "sender_name": "Sasha Kim",
+  "sender_domain": "contoso.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Q3 planning: meeting notes",
+  "body_text": "Notes from the Q3 planning sync are attached. No action items for you — sharing for visibility.",
+  "snippet": "Notes from the Q3 planning sync are attached. No action items for you — sharing for visibility.",
+  "received_at": "2026-07-09T14:49:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "work",
+  "ground_truth_lane": "informational"
+}

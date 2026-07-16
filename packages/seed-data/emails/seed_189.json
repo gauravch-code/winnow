@@ -1,0 +1,22 @@
+{
+  "id": "seed_189",
+  "sender_email": "calendar-notification@google.com",
+  "sender_name": "Google Calendar",
+  "sender_domain": "google.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "Invitation: onboarding revamp sync @ Thu 2:00 PM",
+  "body_text": "Nadia Farouk has invited you to 'onboarding revamp sync'. Accept, Decline, or Maybe.",
+  "snippet": "Nadia Farouk has invited you to 'onboarding revamp sync'. Accept, Decline, or Maybe.",
+  "received_at": "2026-07-14T03:32:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": false,
+  "is_reply": false,
+  "category": "calendar",
+  "ground_truth_lane": "informational"
+}

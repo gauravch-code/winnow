@@ -1,0 +1,22 @@
+{
+  "id": "seed_055",
+  "sender_email": "noreply@github.com",
+  "sender_name": "GitHub",
+  "sender_domain": "github.com",
+  "recipients": {
+    "to": [
+      "me@winnow.dev"
+    ],
+    "cc": [],
+    "bcc": []
+  },
+  "subject": "[auth-migration] Pull request #158 was merged",
+  "body_text": "Elena Rossi merged pull request #158 into main.\n\nView on GitHub.",
+  "snippet": "Elena Rossi merged pull request #158 into main.",
+  "received_at": "2026-07-12T15:45:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
+  "ground_truth_lane": "informational"
+}
