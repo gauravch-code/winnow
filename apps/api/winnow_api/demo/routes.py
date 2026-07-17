@@ -28,6 +28,8 @@ from sqlalchemy.orm import Session, aliased
 
 from winnow_api.db.models import Action, DemoSession, Email, TriageDecision
 from winnow_api.demo.seeder import ensure_session_seeded
+from winnow_api.learning.action_labels import label_from_action
+from winnow_api.learning.training_writer import write_training_example
 from winnow_api.triage import TriageRouteDecision, orchestrate_triage
 
 log = structlog.get_logger(__name__)
@@ -171,6 +173,19 @@ def move_email(
             to_lane=body.to_lane,
         )
     )
+    # Feed the learning loop: user's explicit correction is the strongest
+    # possible training signal. Session-scoped rows cascade-delete with
+    # the session, so this doesn't leak visitor labels into the owner's
+    # future retrains.
+    resolved = label_from_action("lane_moved", body.to_lane)
+    if resolved is not None:
+        write_training_example(
+            db,
+            email,
+            label=resolved[0],
+            label_source=resolved[1],
+            session_id=sid,
+        )
     new_decision = TriageDecision(
         email_id=email.id,
         session_id=sid,

@@ -106,6 +106,22 @@ class Settings(BaseSettings):
         description="How many days to backfill on first sync.",
     )
 
+    # Learning loop — real mode only.
+    retrain_cron: str = Field(
+        default="0 2 * * *",
+        description="Cron for the nightly retrain job. UTC.",
+    )
+    retrain_min_examples: int = Field(
+        default=20,
+        description="Refuse to retrain until we have at least this many user-labeled examples.",
+    )
+    retrain_regression_threshold: float = Field(
+        default=0.05,
+        description="Reject a new model whose holdout accuracy is > threshold below the current one.",
+        ge=0.0,
+        le=1.0,
+    )
+
     @model_validator(mode="after")
     def _check_mode_dependent_vars(self) -> "Settings":
         missing: list[str] = []

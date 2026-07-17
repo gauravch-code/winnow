@@ -357,7 +357,8 @@ class TrainingExample(Base):
             name="ck_training_label_enum",
         ),
         CheckConstraint(
-            "label_source IN ('user_move','user_archive','initial_seed')",
+            "label_source IN ('initial_seed','user_move','user_archive',"
+            "'user_star','user_draft_edit','user_snooze')",
             name="ck_training_source_enum",
         ),
         # If embedding is present, its metadata must be too. Enforces
@@ -376,6 +377,43 @@ class TrainingExample(Base):
             "session_id",
             postgresql_where="session_id IS NOT NULL",
         ),
+    )
+
+
+class ClassifierMetric(Base):
+    """One row per retrain attempt (deployed or rejected).
+
+    Structured logs are useful for the moment, but a small metrics table
+    is what lets me chart accuracy over time and audit the "why was the
+    new model rejected?" question weeks later. Real users only — demo
+    sessions never trigger a retrain, so no need for a dual-scope.
+    """
+
+    __tablename__ = "classifier_metrics_history"
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        primary_key=True,
+        default=new_uuid,
+        server_default=text("gen_random_uuid()"),
+    )
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False
+    )
+    classifier_version: Mapped[str] = mapped_column(Text, nullable=False)
+    trained_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+    n_training_examples: Mapped[int] = mapped_column(Integer, nullable=False)
+    n_holdout: Mapped[int] = mapped_column(Integer, nullable=False)
+    holdout_accuracy: Mapped[float] = mapped_column(Float, nullable=False)
+    per_lane_metrics: Mapped[dict] = mapped_column(JSONB, nullable=False)
+    previous_active_accuracy: Mapped[float | None] = mapped_column(Float, nullable=True)
+    deployed: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    rejection_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+    __table_args__ = (
+        Index("ix_metrics_user_trained", "user_id", "trained_at"),
     )
 
 

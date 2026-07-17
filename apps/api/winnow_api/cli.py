@@ -21,6 +21,7 @@ from __future__ import annotations
 import typer
 
 from winnow_api.commands.bootstrap import bootstrap_cmd
+from winnow_api.commands.retrain_cli import retrain_cmd, rollback_cmd
 
 app = typer.Typer(
     help="Winnow — local-first AI inbox triage.",
@@ -29,6 +30,8 @@ app = typer.Typer(
 )
 
 app.command("bootstrap")(bootstrap_cmd)
+app.command("retrain")(retrain_cmd)
+app.command("rollback")(rollback_cmd)
 
 
 @app.callback()

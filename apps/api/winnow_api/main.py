@@ -74,9 +74,22 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
         app.state.tier_2_provider = FixtureProvider(loader)
 
+    scheduler = None
+    if settings.mode == "real":
+        from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+        from winnow_api.learning.scheduler import start_nightly_retrain
+
+        scheduler = AsyncIOScheduler()
+        start_nightly_retrain(scheduler, settings, settings.seed_email_dir)
+        scheduler.start()
+        app.state.scheduler = scheduler
+
     try:
         yield
     finally:
+        if scheduler is not None:
+            scheduler.shutdown(wait=False)
         engine.dispose()
 
 
@@ -112,6 +125,11 @@ else:
     from winnow_api.gmail.routes import router as gmail_router
 
     app.include_router(gmail_router)
+
+
+# Scheduler is registered in the lifespan (below) so the loop is up
+# and the DB engine exists before the first job could fire.
+_scheduler = None  # type: ignore[var-annotated]
 
 
 @app.get("/health")
