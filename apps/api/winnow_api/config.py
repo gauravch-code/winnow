@@ -88,6 +88,10 @@ class Settings(BaseSettings):
         default=24,
         description="TTL for a demo session cookie and its DB rows.",
     )
+    # Default from eval sweep; see docs/evals.md#threshold-selection.
+    # Do not change without re-running the sweep. Demo mode uses this
+    # because it has no per-user threshold (no users in demo mode).
+    demo_confidence_threshold: float = Field(default=0.75, ge=0.0, le=1.0)
     cors_origins: list[str] = Field(
         default_factory=lambda: ["http://localhost:3000", "http://localhost:3001"],
         description="Origins allowed for CORS. Only used in demo mode.",

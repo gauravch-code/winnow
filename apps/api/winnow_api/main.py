@@ -68,6 +68,12 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
                 message="Falling back to seeded ground-truth lanes. Run `uv run python -m winnow_api.classifier.train`.",
             )
 
+        # Demo tier-2 = pre-recorded fixtures. Live LLM calls are never
+        # made in demo mode; that's the whole $0 guarantee.
+        from winnow_api.agents.fixture_provider import FixtureProvider
+
+        app.state.tier_2_provider = FixtureProvider(loader)
+
     try:
         yield
     finally:
