@@ -96,6 +96,15 @@ class Settings(BaseSettings):
         default_factory=lambda: ["http://localhost:3000", "http://localhost:3001"],
         description="Origins allowed for CORS. Only used in demo mode.",
     )
+    # Gmail / Pub/Sub — real mode only.
+    pubsub_audience: str | None = Field(
+        default=None,
+        description="Expected 'aud' claim on Pub/Sub push JWTs. Set to the webhook URL.",
+    )
+    gmail_backfill_days: int = Field(
+        default=30,
+        description="How many days to backfill on first sync.",
+    )
 
     @model_validator(mode="after")
     def _check_mode_dependent_vars(self) -> "Settings":

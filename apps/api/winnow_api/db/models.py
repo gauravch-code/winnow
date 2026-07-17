@@ -66,6 +66,11 @@ class User(Base):
 
     llm_provider: Mapped[str] = mapped_column(Text, nullable=False, server_default="anthropic")
 
+    # Gmail sync bookkeeping: {history_id, last_sync_at, watch_expiration, watch_topic}.
+    # Populated by winnow_api.gmail.sync after `winnow gmail authorize`.
+    # NULL until Gmail is connected.
+    gmail_state: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
+
     # Default from eval sweep; see docs/evals.md#threshold-selection.
     # Do not change without re-running the sweep.
     confidence_threshold: Mapped[float] = mapped_column(Float, nullable=False, server_default="0.75")

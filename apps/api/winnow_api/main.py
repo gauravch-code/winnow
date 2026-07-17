@@ -106,6 +106,12 @@ if settings.mode == "demo":
         settings=settings,
     )
     app.include_router(demo_router)
+else:
+    # Real mode — Gmail sync routes. Local import matches the demo-side
+    # discipline (never pull the other mode's module graph into memory).
+    from winnow_api.gmail.routes import router as gmail_router
+
+    app.include_router(gmail_router)
 
 
 @app.get("/health")
