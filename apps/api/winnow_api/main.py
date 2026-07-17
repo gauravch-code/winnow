@@ -38,12 +38,35 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     app.state.engine = engine
 
     if settings.mode == "demo":
+        from pathlib import Path
+
+        from winnow_api.classifier import Classifier
         from winnow_api.demo.fixtures import FixtureLoader
 
         loader = FixtureLoader(settings.fixture_dir)
         loader.load()
         app.state.fixture_loader = loader
         log.info("demo_fixtures_ready", count=len(loader))
+
+        # Load the baseline tier-1 model. Absence is non-fatal — the
+        # seeder falls back to ground-truth labels and the API still
+        # boots, which keeps ``uv run pytest`` fast and lets first-time
+        # contributors see the UI before running the training script.
+        artifact_path = Path(__file__).resolve().parent / "classifier" / "artifacts" / "base.joblib"
+        if artifact_path.exists():
+            app.state.classifier = Classifier.load(artifact_path, version_label="base-0.1")
+            log.info(
+                "classifier_loaded",
+                version=app.state.classifier.version,
+                metrics=app.state.classifier.model.training_metrics,
+            )
+        else:
+            app.state.classifier = None
+            log.warning(
+                "classifier_artifact_missing",
+                path=str(artifact_path),
+                message="Falling back to seeded ground-truth lanes. Run `uv run python -m winnow_api.classifier.train`.",
+            )
 
     try:
         yield

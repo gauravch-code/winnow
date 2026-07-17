@@ -44,6 +44,9 @@ class EmailView(BaseModel):
     lane: Lane
     confidence: float
     tier: int
+    classifier_version: str | None
+    reasoning: str | None
+    top_features: list[dict] | None
 
 
 class MoveRequest(BaseModel):
@@ -72,7 +75,10 @@ def list_emails(request: Request, db: Session = Depends(get_db)) -> list[EmailVi
     sid = _session_id(request)
 
     settings = request.app.state.settings
-    ensure_session_seeded(db, sid, settings.seed_email_dir, settings.demo_seed_count)
+    classifier = getattr(request.app.state, "classifier", None)
+    ensure_session_seeded(
+        db, sid, settings.seed_email_dir, settings.demo_seed_count, classifier
+    )
 
     # Latest non-superseded decision per email, joined with the email row.
     latest = (
@@ -94,21 +100,7 @@ def list_emails(request: Request, db: Session = Depends(get_db)) -> list[EmailVi
         .order_by(Email.received_at.desc())
     ).all()
 
-    return [
-        EmailView(
-            id=email.id,
-            seed_email_id=email.seed_email_id,
-            sender_email=email.sender_email,
-            sender_name=email.sender_name,
-            subject=email.subject,
-            snippet=email.snippet or "",
-            received_at=email.received_at,
-            lane=decision.lane,  # type: ignore[arg-type]
-            confidence=decision.confidence,
-            tier=decision.tier,
-        )
-        for email, decision in rows
-    ]
+    return [_view(email, decision) for email, decision in rows]
 
 
 @router.patch("/emails/{email_id}/lane", response_model=EmailView)
@@ -183,4 +175,7 @@ def _view(email: Email, decision: TriageDecision) -> EmailView:
         lane=decision.lane,  # type: ignore[arg-type]
         confidence=decision.confidence,
         tier=decision.tier,
+        classifier_version=decision.classifier_version,
+        reasoning=decision.reasoning,
+        top_features=decision.top_features,
     )

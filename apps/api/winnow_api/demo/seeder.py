@@ -3,15 +3,15 @@
 Called lazily on the first ``GET /demo/emails`` for a session. Idempotent —
 a session that already owns emails is left alone.
 
-Initial lane assignment uses each seed email's ``ground_truth_lane`` so
-the demo has a plausible starting state before the classifier is trained.
-Once the classifier tier lands (Step 4), this initial assignment is
-replaced by real tier-1 inference.
+Initial lane assignments come from real tier-1 classifier inference
+against the seed emails' content — the demo shows what a fresh Winnow
+install would do on a fresh inbox, not what the ground-truth labels say.
+User PATCH overrides always win (they're stored as a superseding
+``TriageDecision`` with ``classifier_version='user-override'``).
 """
 
 from __future__ import annotations
 
-import json
 import uuid
 from pathlib import Path
 
@@ -19,6 +19,7 @@ import structlog
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from winnow_api.classifier import Classifier
 from winnow_api.db.models import Email, TriageDecision
 from winnow_seed_data.seed_email_schema import SeedEmail
 
@@ -38,10 +39,15 @@ def ensure_session_seeded(
     session_id: uuid.UUID,
     seed_dir: Path,
     count: int,
+    classifier: Classifier | None,
 ) -> int:
     """Insert ``count`` emails + initial triage decisions if the session is empty.
 
     Returns the number of emails inserted (0 if already seeded).
+
+    If ``classifier`` is None, falls back to each seed email's
+    ``ground_truth_lane`` — used only in tests that don't want to load
+    the ~90MB embedding model.
     """
     existing = db.execute(
         select(Email.id).where(Email.session_id == session_id).limit(1)
@@ -54,7 +60,9 @@ def ensure_session_seeded(
         log.warning("no_seed_emails_found", seed_dir=str(seed_dir))
         return 0
 
-    inserted = 0
+    # Build all Email rows first; classify in a single batch (one embedding
+    # pass, one predict call) rather than N per-email round trips.
+    emails: list[Email] = []
     for seed in seeds:
         email = Email(
             session_id=session_id,
@@ -72,25 +80,60 @@ def ensure_session_seeded(
             is_reply=seed.is_reply,
         )
         db.add(email)
-        db.flush()  # need email.id for the FK
+        emails.append(email)
+    db.flush()  # populate email.id for FK targets
 
-        # Placeholder tier-1 decision using ground truth. Replaced by real
-        # classifier inference in Step 4. Not marked prerecorded — this is
-        # not a tier-2 pathway.
-        decision = TriageDecision(
-            email_id=email.id,
-            session_id=session_id,
-            lane=seed.ground_truth_lane,
-            confidence=0.99,  # placeholder; classifier tier will overwrite
-            tier=1,
-            classifier_version="seeded-ground-truth",
-            top_features=[{"name": "seed_ground_truth", "value": seed.category, "weight": 1.0}],
-            reasoning=f"Initial seeded lane from category={seed.category}.",
-            latency_ms=0,
-        )
-        db.add(decision)
-        inserted += 1
+    if classifier is not None:
+        results = classifier.predict_many(emails)
+        for email, seed, result in zip(emails, seeds, results):
+            db.add(
+                TriageDecision(
+                    email_id=email.id,
+                    session_id=session_id,
+                    lane=result.lane,
+                    confidence=result.confidence,
+                    tier=1,
+                    classifier_version=result.classifier_version,
+                    top_features=result.top_features_json(),
+                    reasoning=_reasoning(result),
+                    latency_ms=result.latency_ms,
+                )
+            )
+    else:
+        for email, seed in zip(emails, seeds):
+            db.add(
+                TriageDecision(
+                    email_id=email.id,
+                    session_id=session_id,
+                    lane=seed.ground_truth_lane,
+                    confidence=0.99,
+                    tier=1,
+                    classifier_version="seeded-ground-truth",
+                    top_features=[
+                        {"name": "seed_ground_truth", "value": 1.0, "weight": 1.0}
+                    ],
+                    reasoning=f"Initial seeded lane from category={seed.category}.",
+                    latency_ms=0,
+                )
+            )
 
     db.commit()
-    log.info("demo_session_seeded", session_id=str(session_id), count=inserted)
-    return inserted
+    log.info(
+        "demo_session_seeded",
+        session_id=str(session_id),
+        count=len(emails),
+        classifier=classifier.version if classifier else "ground-truth",
+    )
+    return len(emails)
+
+
+def _reasoning(result) -> str:
+    """One-line human summary. Explainability panel gets the full top_features."""
+    top = result.top_features[0] if result.top_features else None
+    if top is None:
+        return f"Classified as {result.lane} at {result.confidence:.0%} confidence."
+    direction = "positive" if top.weight > 0 else "negative"
+    return (
+        f"Classified as {result.lane} at {result.confidence:.0%} confidence; "
+        f"strongest signal: {top.name} ({direction})."
+    )

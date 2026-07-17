@@ -8,6 +8,12 @@
  */
 export type Lane = 'needs_you' | 'informational' | 'hidden';
 
+export interface TopFeature {
+  name: string;
+  value: number;
+  weight: number;
+}
+
 export interface EmailView {
   id: string;
   seed_email_id: string | null;
@@ -19,6 +25,9 @@ export interface EmailView {
   lane: Lane;
   confidence: number;
   tier: number;
+  classifier_version: string | null;
+  reasoning: string | null;
+  top_features: TopFeature[] | null;
 }
 
 async function j<T>(res: Response): Promise<T> {
