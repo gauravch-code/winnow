@@ -1,0 +1,43 @@
+# Fly.io app config for the Winnow demo API.
+#
+# Free tier ended in 2024, so this ships against pay-as-you-go pricing —
+# roughly $2-5/mo for a shared-cpu-1x@512mb machine + a small managed
+# Postgres. Point at a Fly Postgres cluster and set the env vars listed
+# in DEPLOY.md before running `fly deploy`.
+
+app = "winnow-api"
+primary_region = "iad"
+
+[build]
+  dockerfile = "apps/api/Dockerfile"
+
+[env]
+  WINNOW_MODE = "demo"
+  # WINNOW_DATABASE_URL and WINNOW_IP_HASH_SALT come from `fly secrets`.
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+  [http_service.concurrency]
+    type = "requests"
+    hard_limit = 200
+    soft_limit = 150
+
+[[http_service.checks]]
+  interval = "15s"
+  timeout = "5s"
+  grace_period = "30s"
+  method = "GET"
+  path = "/health"
+
+[[vm]]
+  # 512MB fits the torch + MiniLM + FastAPI footprint. 256MB OOMs
+  # during the first tier-1 inference (torch allocator overhead).
+  size = "shared-cpu-1x"
+  memory = "512mb"
+  cpus = 1
