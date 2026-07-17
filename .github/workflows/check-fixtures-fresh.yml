@@ -1,0 +1,35 @@
+name: check-fixtures-fresh
+
+on:
+  pull_request:
+    paths:
+      - "apps/api/winnow_api/agents/prompts.py"
+      - "packages/seed-data/emails/**"
+      - "packages/seed-data/llm-responses/**"
+      - "packages/seed-data/generate.py"
+      - "packages/seed-data/check_fixtures_fresh.py"
+      - "packages/seed-data/winnow_seed_data/hashes.py"
+  push:
+    branches: [main]
+
+jobs:
+  check-fixtures-fresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Install workspace
+        # No sentence-transformers here — the freshness check reads
+        # committed fixture JSON and recomputes hashes; it does not
+        # invoke the classifier or the LLM.
+        run: |
+          uv sync --all-packages --no-install-workspace
+          uv pip install -e apps/api -e packages/seed-data
+
+      - name: Check fixture freshness
+        run: uv run python packages/seed-data/check_fixtures_fresh.py

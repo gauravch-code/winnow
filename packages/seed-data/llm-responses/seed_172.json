@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "seed_email_id": "seed_172",
+  "generated_at": "2026-07-16T00:00:00Z",
+  "generator": {
+    "provider": "stub",
+    "model": "rule-based-stub-v1",
+    "agent_version": "triage-agent-stub@0.1.0",
+    "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "seed_email_hash": "sha256:43ea9bad0f46e61214489dbee4c16ed33de58729dcf1e581aa184d263a5f6b0f"
+  },
+  "triage": {
+    "lane": "informational",
+    "confidence": 0.83,
+    "reasoning": "Personal note from Yara Haddad. One-off message. Reader would notice if this slipped through.",
+    "signals": [
+      {
+        "name": "personal_domain",
+        "weight": 0.34
+      },
+      {
+        "name": "direct_question",
+        "weight": 0.29
+      },
+      {
+        "name": "short_body",
+        "weight": 0.11
+      }
+    ]
+  },
+  "draft_reply": {
+    "included": false,
+    "subject": null,
+    "body_markdown": null,
+    "tone": null,
+    "assumptions": []
+  },
+  "trace": {
+    "agent_steps": [
+      {
+        "step": 1,
+        "tool": null,
+        "thought": "stub: category=personal, lane=informational",
+        "output_snippet": "Personal note from Yara Haddad. One-off message. Reader would notice if this slipped through."
+      }
+    ],
+    "tokens": {
+      "input": 74,
+      "output": 54
+    },
+    "cost_usd_at_generation": 0.00516,
+    "latency_ms_live": 1200
+  },
+  "playback": {
+    "simulated_latency_ms_range": [
+      1000,
+      1500
+    ],
+    "stream_chunks": null
+  }
+}

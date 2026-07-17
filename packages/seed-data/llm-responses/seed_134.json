@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "seed_email_id": "seed_134",
+  "generated_at": "2026-07-16T00:00:00Z",
+  "generator": {
+    "provider": "stub",
+    "model": "rule-based-stub-v1",
+    "agent_version": "triage-agent-stub@0.1.0",
+    "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "seed_email_hash": "sha256:14fa2b0485870a9454e46876297c845fde9062cf2a1e76ade20bece6941b1c4c"
+  },
+  "triage": {
+    "lane": "informational",
+    "confidence": 0.9,
+    "reasoning": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself.",
+    "signals": [
+      {
+        "name": "calendar_service",
+        "weight": 0.36
+      },
+      {
+        "name": "automated_sender",
+        "weight": 0.22
+      }
+    ]
+  },
+  "draft_reply": {
+    "included": false,
+    "subject": null,
+    "body_markdown": null,
+    "tone": null,
+    "assumptions": []
+  },
+  "trace": {
+    "agent_steps": [
+      {
+        "step": 1,
+        "tool": null,
+        "thought": "stub: category=calendar, lane=informational",
+        "output_snippet": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself."
+      }
+    ],
+    "tokens": {
+      "input": 80,
+      "output": 53
+    },
+    "cost_usd_at_generation": 0.005175,
+    "latency_ms_live": 1200
+  },
+  "playback": {
+    "simulated_latency_ms_range": [
+      1000,
+      1500
+    ],
+    "stream_chunks": null
+  }
+}

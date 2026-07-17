@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "seed_email_id": "seed_182",
+  "generated_at": "2026-07-16T00:00:00Z",
+  "generator": {
+    "provider": "stub",
+    "model": "rule-based-stub-v1",
+    "agent_version": "triage-agent-stub@0.1.0",
+    "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "seed_email_hash": "sha256:d2e4aaf000c3d105a45948252a0c2b4bfb64bd18de694db49e4ff5dc70ef8424"
+  },
+  "triage": {
+    "lane": "hidden",
+    "confidence": 0.94,
+    "reasoning": "Receipt from Airbnb. Filed for records, not action.",
+    "signals": [
+      {
+        "name": "receipt_service_domain",
+        "weight": 0.44
+      },
+      {
+        "name": "has_unsubscribe",
+        "weight": 0.16
+      }
+    ]
+  },
+  "draft_reply": {
+    "included": false,
+    "subject": null,
+    "body_markdown": null,
+    "tone": null,
+    "assumptions": []
+  },
+  "trace": {
+    "agent_steps": [
+      {
+        "step": 1,
+        "tool": null,
+        "thought": "stub: category=receipt, lane=hidden",
+        "output_snippet": "Receipt from Airbnb. Filed for records, not action."
+      }
+    ],
+    "tokens": {
+      "input": 68,
+      "output": 48
+    },
+    "cost_usd_at_generation": 0.00462,
+    "latency_ms_live": 1200
+  },
+  "playback": {
+    "simulated_latency_ms_range": [
+      1000,
+      1500
+    ],
+    "stream_chunks": null
+  }
+}
