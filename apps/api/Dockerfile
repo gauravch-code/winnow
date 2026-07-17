@@ -26,12 +26,14 @@ COPY packages/seed-data/pyproject.toml packages/seed-data/
 # Resolve + install into a venv. --frozen fails if uv.lock is stale,
 # which is the behavior we want for reproducible container builds.
 #
-# ``id=uv-cache`` is required by Railway's BuildKit (older versions
-# reject anonymous cache mounts with "flag ... is missing an id
-# argument"). Local Docker BuildKit accepts the same syntax, so this
-# builds identically on my laptop and on Railway.
-RUN --mount=type=cache,id=uv-cache,target=/root/.cache/uv \
-    uv venv /build/.venv && \
+# No BuildKit cache mount: Railway's BuildKit rejects the syntax in
+# multiple forms ("missing an id argument" for anonymous mounts,
+# "missing the cacheKey prefix" once id= is added). Railway's platform
+# already does layer-level caching, so the mount was optional. Local
+# ``docker build`` behaves identically without it — just a tiny bit
+# slower on repeat rebuilds, which is worth trading for a portable
+# Dockerfile.
+RUN uv venv /build/.venv && \
     VIRTUAL_ENV=/build/.venv uv sync --frozen --no-install-workspace
 
 # Now install the workspace packages themselves. Copy source last so
