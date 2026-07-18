@@ -66,6 +66,10 @@ class Settings(BaseSettings):
         description="LLM provider API key. Required when mode=real.",
     )
     llm_provider: str = "anthropic"
+    # Optional model override; None uses the provider's default from
+    # winnow_api.agents.provider.DEFAULT_MODELS. Set e.g. "gpt-4o-mini"
+    # for a cheaper OpenAI tier-2.
+    llm_model: str | None = None
 
     # Required in demo mode; unused in real mode.
     ip_hash_salt: str | None = Field(
