@@ -79,8 +79,18 @@ EXPOSE 8000
 HEALTHCHECK --interval=15s --timeout=5s --start-period=30s --retries=3 \
     CMD python -c "import os,urllib.request,sys; urllib.request.urlopen(f'http://localhost:{os.environ.get(\"PORT\",\"8000\")}/health',timeout=3); sys.exit(0)" || exit 1
 
-# Run migrations then start uvicorn. Bind to $PORT when a platform
-# injects one (Railway, Render, Fly's default), fall back to 8000 for
-# plain `docker run` locally. Railway routes traffic to $PORT, so a
-# hardcoded 8000 here would silently blackhole every request.
-CMD ["sh", "-c", "cd apps/api && alembic upgrade head && cd ../.. && uvicorn winnow_api.main:app --app-dir apps/api --host 0.0.0.0 --port ${PORT:-8000}"]
+# Run migrations then start uvicorn. Two things to note:
+#
+# 1. Bind to $PORT when a platform injects one (Railway, Render, Fly's
+#    default), fall back to 8000 for plain `docker run` locally.
+#    Hardcoding 8000 would silently blackhole every request on Railway.
+#
+# 2. Both alembic and uvicorn are invoked via ``python -m`` rather than
+#    the console scripts. Reason: uv/pip write console scripts with
+#    absolute shebangs pointing at the venv's python. The venv is
+#    created at /build/.venv in the builder stage and copied to
+#    /app/.venv in runtime, so ``#!/build/.venv/bin/python`` in the
+#    shebang points at a path that doesn't exist here.
+#    ``python -m alembic`` resolves via sys.path from the on-PATH
+#    python interpreter and works regardless.
+CMD ["sh", "-c", "cd apps/api && python -m alembic upgrade head && cd ../.. && python -m uvicorn winnow_api.main:app --app-dir apps/api --host 0.0.0.0 --port ${PORT:-8000}"]
