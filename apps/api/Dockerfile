@@ -74,13 +74,13 @@ USER winnow
 
 EXPOSE 8000
 
-# Healthcheck hits /health, which returns 200 iff the mode invariant
-# passed at boot. A failing container gets replaced by the platform.
+# Healthcheck hits /health on whatever port uvicorn actually bound to.
+# Uses $PORT so it stays consistent with the CMD below.
 HEALTHCHECK --interval=15s --timeout=5s --start-period=30s --retries=3 \
-    CMD python -c "import urllib.request,sys; urllib.request.urlopen('http://localhost:8000/health',timeout=3); sys.exit(0)" || exit 1
+    CMD python -c "import os,urllib.request,sys; urllib.request.urlopen(f'http://localhost:{os.environ.get(\"PORT\",\"8000\")}/health',timeout=3); sys.exit(0)" || exit 1
 
-# Run migrations then start uvicorn. Both platforms let us set the
-# start command explicitly (Railway: startCommand in railway.json;
-# Fly: [processes.app] cmd in fly.toml), so this ENTRYPOINT is only
-# the default.
-CMD ["sh", "-c", "cd apps/api && alembic upgrade head && cd ../.. && uvicorn winnow_api.main:app --app-dir apps/api --host 0.0.0.0 --port 8000"]
+# Run migrations then start uvicorn. Bind to $PORT when a platform
+# injects one (Railway, Render, Fly's default), fall back to 8000 for
+# plain `docker run` locally. Railway routes traffic to $PORT, so a
+# hardcoded 8000 here would silently blackhole every request.
+CMD ["sh", "-c", "cd apps/api && alembic upgrade head && cd ../.. && uvicorn winnow_api.main:app --app-dir apps/api --host 0.0.0.0 --port ${PORT:-8000}"]
