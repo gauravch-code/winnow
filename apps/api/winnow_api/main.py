@@ -74,6 +74,21 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
         app.state.tier_2_provider = FixtureProvider(loader)
 
+        # Warm the MiniLM embedding model at boot. It otherwise loads
+        # lazily on the first /demo/emails request — ~15s cold, during
+        # which a first-time visitor stares at a "Loading…" spinner that
+        # can gateway-timeout. Paying that cost here (invisible startup
+        # time) makes the first real request ~1-2s. Best-effort: a
+        # failure here must not stop the API from booting.
+        if app.state.classifier is not None:
+            try:
+                from winnow_api.classifier.embeddings import embed_one
+
+                embed_one("warmup", "warming the embedding model at boot")
+                log.info("embedding_model_warmed")
+            except Exception as exc:  # noqa: BLE001 — warmup is optional
+                log.warning("embedding_warmup_failed", error=str(exc))
+
     scheduler = None
     if settings.mode == "real":
         from apscheduler.schedulers.asyncio import AsyncIOScheduler

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArchitectureDiagram } from '../components/ArchitectureDiagram';
 
-const GITHUB_URL = 'https://github.com/gauravpvt/winnow';
+const GITHUB_URL = 'https://github.com/gauravch-code/winnow';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/gaurav-pvt/';
 
 export default function LandingPage() {
@@ -12,7 +12,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-6 pt-16 pb-24 sm:pt-24 sm:pb-32">
           <div className="flex items-center gap-2 text-xs text-emerald-300/80 mb-6">
             <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5">
-              v0.5-public-demo
+              v0.7-learning
             </span>
             <span className="text-white/40">·</span>
             <span className="text-white/60">local-first · MIT · Python + TypeScript</span>

@@ -4,9 +4,18 @@ Local-first AI inbox triage. Runs a small classifier on your machine for
 80%+ of email routing decisions, escalates only uncertain cases to an
 LLM, and never sends your inbox anywhere you didn't opt in to.
 
-**Status:** `v0.1-demo` — synthetic-data dashboard with drag-and-drop
-triage. Classifier tier, LLM tier, and Gmail integration land in later
-steps.
+**▶ [Try the live demo](https://winnow-eight.vercel.app/demo)** — synthetic
+data, real tier-1 classifier running live in your session, pre-recorded
+tier-2 LLM responses (keeps it free and abuse-proof). No signup, nothing
+touches a real inbox.
+
+**Status:** `v0.7-learning` — tiered classifier + LLM triage, explainability
+panel, nightly learning loop, and Gmail integration all shipped. Public demo
+deployed (Vercel + Railway). Eval harness (Step 10) and README polish
+(Step 11) are next.
+
+- **Demo site:** https://winnow-eight.vercel.app
+- **Demo API:** https://winnow-api-production-6039.up.railway.app (demo mode)
 
 ## Getting started (local dev)
 
