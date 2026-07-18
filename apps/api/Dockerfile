@@ -68,7 +68,14 @@ ENV PATH=/app/.venv/bin:$PATH \
     PYTHONDONTWRITEBYTECODE=1 \
     HF_HOME=/app/.hf_cache \
     WINNOW_FIXTURE_DIR=/app/packages/seed-data/llm-responses \
-    WINNOW_SEED_EMAIL_DIR=/app/packages/seed-data/emails
+    WINNOW_SEED_EMAIL_DIR=/app/packages/seed-data/emails \
+    PYTHONPATH=/app/apps/api:/app/packages/seed-data
+# ^ PYTHONPATH points at both workspace source roots. uv installs the
+# workspace members editable, and the editable .pth files bake in the
+# builder path (/build/packages/seed-data) which doesn't exist in this
+# runtime stage. Rather than rely on those dangling links, we put both
+# source trees on PYTHONPATH explicitly — self-contained and immune to
+# where the venv was built.
 
 USER winnow
 
