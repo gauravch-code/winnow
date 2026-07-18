@@ -17,33 +17,26 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /build
 
-# Copy workspace layout — uv reads pyproject.toml and uv.lock from the
-# root plus the two workspace members.
+# Copy the workspace root + both members' source. Two-phase install
+# (deps first, then source) would give slightly better local rebuild
+# caching, but ``uv sync --no-install-workspace`` at the workspace root
+# only installs the *root* project's deps — not workspace members'
+# deps — which is how the previous version silently shipped an image
+# without sentence-transformers, torch, etc. Combining into one COPY +
+# one sync is correct; Railway rebuilds from scratch every push so we
+# aren't losing meaningful caching.
 COPY pyproject.toml uv.lock ./
-COPY apps/api/pyproject.toml apps/api/
-COPY packages/seed-data/pyproject.toml packages/seed-data/
-
-# Resolve + install into a venv. --frozen fails if uv.lock is stale,
-# which is the behavior we want for reproducible container builds.
-#
-# No BuildKit cache mount: Railway's BuildKit rejects the syntax in
-# multiple forms ("missing an id argument" for anonymous mounts,
-# "missing the cacheKey prefix" once id= is added). Railway's platform
-# already does layer-level caching, so the mount was optional. Local
-# ``docker build`` behaves identically without it — just a tiny bit
-# slower on repeat rebuilds, which is worth trading for a portable
-# Dockerfile.
-RUN uv venv /build/.venv && \
-    VIRTUAL_ENV=/build/.venv uv sync --frozen --no-install-workspace
-
-# Now install the workspace packages themselves. Copy source last so
-# code changes don't invalidate the dep-install layer.
 COPY apps/api/ apps/api/
 COPY packages/seed-data/ packages/seed-data/
-RUN VIRTUAL_ENV=/build/.venv uv pip install \
-    --no-deps \
-    -e apps/api \
-    -e packages/seed-data
+
+# Resolve + install everything into a venv. ``--frozen`` enforces an
+# up-to-date uv.lock (fail-fast if a dep drifted). ``--all-packages``
+# installs the root project AND every workspace member editable, with
+# their transitive deps — the flag combination that actually gets
+# sentence-transformers, torch, apscheduler, typer, google-api into
+# the runtime image.
+RUN uv venv /build/.venv && \
+    VIRTUAL_ENV=/build/.venv uv sync --frozen --all-packages
 
 # Pre-download the MiniLM weights so first request doesn't pay the
 # ~90MB download at startup on a fresh container. Model lives in
