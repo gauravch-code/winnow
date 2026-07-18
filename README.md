@@ -1,28 +1,74 @@
 # Winnow
 
-Local-first AI inbox triage. Runs a small classifier on your machine for
-80%+ of email routing decisions, escalates only uncertain cases to an
-LLM, and never sends your inbox anywhere you didn't opt in to.
+**Local-first AI inbox triage.** A small classifier on your own machine
+handles 80%+ of email routing in milliseconds for free. An LLM sees only
+the cases the classifier isn't sure about — and only if you opt in with
+your own key. Your inbox never leaves your machine unless you say so.
 
 **▶ [Try the live demo](https://winnow-eight.vercel.app/demo)** — synthetic
-data, real tier-1 classifier running live in your session, pre-recorded
-tier-2 LLM responses (keeps it free and abuse-proof). No signup, nothing
-touches a real inbox.
+data, real tier-1 classifier running live in your browser session,
+pre-recorded tier-2 LLM responses. No signup, nothing touches a real inbox,
+costs nobody anything.
 
-**Status:** `v0.8-evals` — tiered classifier + LLM triage, explainability
-panel, nightly learning loop, Gmail integration, and the eval harness all
-shipped. Public demo deployed (Vercel + Railway). README polish (Step 11) is
-next.
+[![status](https://img.shields.io/badge/status-v1.0-brightgreen)](https://github.com/gauravch-code/winnow)
+[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![python](https://img.shields.io/badge/python-3.12%2B-blue)](apps/api/pyproject.toml)
+[![tests](https://img.shields.io/badge/tests-153%20passing-brightgreen)](apps/api/tests)
 
-- **Demo site:** https://winnow-eight.vercel.app
-- **Demo API:** https://winnow-api-production-6039.up.railway.app (demo mode)
+<!-- Maintainer: drop a 30s screen capture at docs/img/demo.gif and this renders. -->
+<!-- ![Winnow demo](docs/img/demo.gif) -->
+
+---
+
+## Why this exists
+
+Existing AI inbox tools are one of two things:
+
+1. **Hosted SaaS** that ingests all your email onto someone else's servers, or
+2. **Thin LLM wrappers** that fire a paid API call at every single message.
+
+Winnow is neither. It's a **tiered** system: a cheap, private, local model
+does the bulk of the work, and the expensive model is a scalpel, not a
+firehose. That means your mail stays local, the running cost is ~$0, and the
+system gets *better at handling things locally* the more you use it.
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Incoming email] --> B["Tier 1 — local classifier<br/>MiniLM embeddings + logistic regression<br/>~5 ms · CPU · $0"]
+    B -->|confident| L["Lane<br/>Needs You / Informational / Hidden"]
+    B -->|uncertain| C["Tier 2 — PydanticAI agent<br/>structured triage + draft reply<br/>opt-in · your API key"]
+    C --> L
+    L --> U["You act:<br/>move · archive · star · edit draft"]
+    U --> T[("training_examples")]
+    T -.nightly retrain.-> B
+```
+
+- **Tier 1 (local, free, private).** A scikit-learn logistic-regression
+  classifier over engineered features (sender domain, thread depth, urgency
+  words, time of day, …) plus `all-MiniLM-L6-v2` sentence embeddings. Runs on
+  CPU in milliseconds. Handles the large majority of triage decisions and
+  returns a signed per-feature explanation for every one.
+- **Tier 2 (LLM, opt-in).** A PydanticAI agent with a structured output
+  schema, invoked only when tier-1 confidence is below threshold, or when you
+  explicitly ask for a drafted reply. Bring your own key (Anthropic default;
+  OpenAI and Ollama behind a provider abstraction).
+- **Learning loop.** Every action you take — moving an email between lanes,
+  archiving, starring, editing a draft — becomes a labeled training example.
+  A nightly job retrains tier-1 on your own history, gated by guardrails
+  (won't retrain on too little data, won't deploy a model that regresses,
+  keeps the previous model for one-command rollback).
+- **Drafts only, never sends.** Tier-2 can draft a reply and surface the
+  assumptions it made, but Winnow never sends mail on your behalf. Deliberate
+  product call — you stay in the loop for anything irreversible.
 
 ## Evals
 
 Pure-classifier vs pure-LLM vs tiered, on a held-out 30% of the synthetic
-corpus. Full breakdown + threshold sweep: [`docs/evals.md`](docs/evals.md)
-and the [`/evals` page](https://winnow-eight.vercel.app/evals). Reproduce
-with `winnow eval`.
+corpus. Full breakdown + threshold sweep in [`docs/evals.md`](docs/evals.md)
+and on the [`/evals` page](https://winnow-eight.vercel.app/evals). Reproduce
+any time with `winnow eval`.
 
 | Strategy | Accuracy | Mean latency | Cost / 1000 | Escalated |
 |---|---|---|---|---|
@@ -30,64 +76,134 @@ with `winnow eval`.
 | Pure LLM (tier-2) | 100.0%\* | 1.20 s | $5.3012 | 100% |
 | **Tiered (Winnow)** | **100.0%\*** | **5.1 ms** | **$0.0000** | **0%** |
 
-The point isn't the accuracy column — the synthetic corpus is near-separable
-so everything scores ~100%. The point is the **latency and cost**: tiered
-gets the same routing as the LLM at classifier speed and $0, because tier-1
-is confident on clean data and escalates ~0% at the default threshold.
+The accuracy column isn't the interesting part — the synthetic corpus is
+near-separable, so every strategy scores ~100%. The **latency and cost** are
+the point: tiered gets the same routing as the always-on LLM at classifier
+speed and $0, because tier-1 is confident on clean mail and escalates ~0% at
+the default threshold.
 
 \* _Tier-2 fixtures in the public demo are stubs whose lanes mirror ground
-truth, so the LLM/tiered **accuracy** figures are illustrative, not
-meaningful. Latency and cost are modeled from real token counts at Opus
-pricing; classifier accuracy and escalation rate are measured. Run
-`packages/seed-data/generate.py` with a real key for genuine LLM accuracy._
+truth, so the LLM and tiered **accuracy** figures are illustrative rather
+than meaningful. Latency and cost are modeled from real token counts at Opus
+pricing; classifier accuracy and escalation rate are measured on held-out
+data. Run `packages/seed-data/generate.py` with a real key to publish genuine
+LLM accuracy._
 
-## Getting started (local dev)
+## How the demo stays at $0
 
-```
-# 1. Start Postgres
+The public demo **never calls a paid LLM API**. Not once.
+
+- **Tier 1 runs for real** — it's CPU-only and free, so every visitor gets
+  genuine live classifier decisions with real feature-importance
+  explanations, retraining on their own drag-and-drop edits within their
+  session.
+- **Tier 2 is pre-recorded.** Every synthetic email's tier-2 response is
+  generated once offline (`packages/seed-data/generate.py`), committed as a
+  JSON fixture, and served with a realistic simulated latency. The API badges
+  each response `tier_2_source: "prerecorded"` so the UI is honest about it.
+- **Novel emails** with no fixture get a graceful "run Winnow locally with
+  your own key to see the LLM handle this" placeholder.
+
+Session state is isolated per visitor by cookie and garbage-collected after
+24h. This is a strength, not a limitation — it's why anyone can try it
+without costing the maintainer money or risking abuse.
+
+## Quickstart (local demo)
+
+Prereqs: [uv](https://docs.astral.sh/uv/), Node 18+, Docker.
+
+```bash
+# 1. Postgres
 docker compose up -d postgres
 
-# 2. Install deps
+# 2. Python workspace (installs the API, the winnow CLI, uvicorn, alembic, ML deps)
 uv sync --all-packages
-uv pip install "uvicorn[standard]"
+
+# 3. Dashboard deps
 (cd apps/web && npm install)
 
-# 3. Migrate + generate seed emails
-cd apps/api && WINNOW_DATABASE_URL=postgresql+psycopg://winnow:winnow@localhost:5432/winnow \
-  ../../.venv/Scripts/alembic upgrade head && cd ../..
-.venv/Scripts/python packages/seed-data/generate_emails.py
+# 4. Point at the DB in demo mode (bash; PowerShell: $env:NAME='value')
+export WINNOW_MODE=demo
+export WINNOW_DATABASE_URL=postgresql+psycopg://winnow:winnow@localhost:5432/winnow
+export WINNOW_IP_HASH_SALT=local-dev-not-a-secret
 
-# 4. Boot the demo (two shells)
-.venv/Scripts/uvicorn winnow_api.main:app --port 8000 --app-dir apps/api
-cd apps/web && npm run dev
+# 5. Migrate + generate the 200 synthetic emails + train the tier-1 model
+(cd apps/api && uv run python -m alembic upgrade head)
+uv run python packages/seed-data/generate_emails.py
+uv run python -m winnow_api.classifier.train
 
-# 5. Open http://localhost:3000
+# 6. Boot API + dashboard (two shells)
+uv run python -m uvicorn winnow_api.main:app --app-dir apps/api --port 8000
+(cd apps/web && npm run dev)
+
+# 7. open http://localhost:3000
 ```
 
-Configuration comes from environment variables — see [`.env.example`](.env.example).
-`WINNOW_MODE=demo` requires an empty `users` table; `WINNOW_MODE=real`
-requires exactly one owner row. The API refuses to boot if either
-invariant is violated.
+Config is entirely environment variables — see [`.env.example`](.env.example).
+The API **refuses to boot** if `WINNOW_MODE` contradicts the database:
+`demo` mode with real users, or `real` mode with no owner row. Fail loud,
+fail early.
+
+## Running against your real Gmail
+
+Real mode is single-user (you) and gated behind `WINNOW_MODE=real` — the demo
+backend can't even import the Gmail modules. The `winnow` CLI drives setup:
+
+```bash
+export WINNOW_MODE=real
+export WINNOW_ENCRYPTION_KEY=$(python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())")
+export WINNOW_LLM_API_KEY=sk-ant-...          # your key; tier-2 only
+
+winnow bootstrap --email you@example.com       # create the owner row
+winnow gmail authorize --credentials-file ~/creds.json   # installed-app OAuth
+winnow gmail sync --full                       # backfill last 30 days
+winnow retrain                                 # once you've corrected some mail
+```
+
+The refresh token is encrypted at rest with `cryptography.fernet`. Gmail
+sync is incremental via `historyId` with a polling fallback and optional
+Pub/Sub push. See [`docs/architecture.md`](docs/architecture.md).
 
 ## Repository layout
 
 ```
 apps/
-  api/    FastAPI backend (real app + demo mode share this)
-  web/    Next.js 15 demo dashboard (App Router + Tailwind + dnd-kit)
+  api/        FastAPI backend — real app + demo share one codebase, split by WINNOW_MODE
+    winnow_api/
+      classifier/   tier-1: features, MiniLM embeddings, train, inference + explainability
+      agents/       tier-2: PydanticAI schema, prompt, provider factory, live + fixture providers
+      triage/       confidence-threshold orchestrator (tier-1 → maybe tier-2)
+      learning/     action→label mapping, nightly retrainer, guardrails, artifact rotation
+      gmail/        real-mode only: OAuth, API client, historyId sync, Pub/Sub webhook
+      eval/         pure-classifier vs pure-LLM vs tiered harness
+      demo/         session middleware, seeder, fixture loader, demo routes
+      db/           SQLAlchemy models + Alembic migrations
+  web/          Next.js 15 dashboard (App Router, Tailwind, dnd-kit)
+  site/         Marketing landing + embedded /demo + /evals
 packages/
-  seed-data/  Synthetic emails + Pydantic schemas for LLM fixtures
+  seed-data/    200 synthetic emails, tier-2 fixtures, generators, freshness check
+docs/           architecture.md, evals.md
 ```
+
+## Tech stack
+
+**Backend** Python 3.12 · FastAPI · Pydantic v2 · PydanticAI · SQLAlchemy 2 +
+Alembic · Postgres 16 · scikit-learn · sentence-transformers · APScheduler ·
+structlog
+**Frontend** Next.js 15 · TypeScript (strict) · Tailwind · shadcn/ui · dnd-kit
+**Infra** Docker Compose · Railway (demo API) · Vercel (site) · GitHub Actions
+**Tooling** uv · ruff · mypy · pytest (153 tests) · Vitest
 
 ## Explicitly out of scope
 
-- Multi-account support, non-Gmail providers, team inboxes, mobile app
-- Auto-sending replies (drafts only)
-- Live LLM calls in the public demo (pre-recorded fixtures instead)
+Deliberate non-goals, so the project stays focused:
+
+- Multi-account support, non-Gmail providers, team/shared inboxes, mobile app
+- **Auto-sending replies** — drafts only; you send
+- Calendar integration
+- Live LLM calls in the public demo — pre-recorded fixtures instead
 - Hosting Winnow-as-a-service for other people's real inboxes
 
-## Notes
+## License
 
-- **pnpm vs npm**: the plan specifies pnpm, but this repo uses npm for
-  the initial bootstrap so it works without corepack/global installs.
-  Swap in pnpm freely — `package.json` is unchanged.
+MIT — see [LICENSE](LICENSE).
