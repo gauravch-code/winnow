@@ -9,13 +9,37 @@ data, real tier-1 classifier running live in your session, pre-recorded
 tier-2 LLM responses (keeps it free and abuse-proof). No signup, nothing
 touches a real inbox.
 
-**Status:** `v0.7-learning` — tiered classifier + LLM triage, explainability
-panel, nightly learning loop, and Gmail integration all shipped. Public demo
-deployed (Vercel + Railway). Eval harness (Step 10) and README polish
-(Step 11) are next.
+**Status:** `v0.8-evals` — tiered classifier + LLM triage, explainability
+panel, nightly learning loop, Gmail integration, and the eval harness all
+shipped. Public demo deployed (Vercel + Railway). README polish (Step 11) is
+next.
 
 - **Demo site:** https://winnow-eight.vercel.app
 - **Demo API:** https://winnow-api-production-6039.up.railway.app (demo mode)
+
+## Evals
+
+Pure-classifier vs pure-LLM vs tiered, on a held-out 30% of the synthetic
+corpus. Full breakdown + threshold sweep: [`docs/evals.md`](docs/evals.md)
+and the [`/evals` page](https://winnow-eight.vercel.app/evals). Reproduce
+with `winnow eval`.
+
+| Strategy | Accuracy | Mean latency | Cost / 1000 | Escalated |
+|---|---|---|---|---|
+| Pure classifier (tier-1) | 100.0%\* | 4.6 ms | $0.0000 | 0% |
+| Pure LLM (tier-2) | 100.0%\* | 1.20 s | $5.3012 | 100% |
+| **Tiered (Winnow)** | **100.0%\*** | **5.1 ms** | **$0.0000** | **0%** |
+
+The point isn't the accuracy column — the synthetic corpus is near-separable
+so everything scores ~100%. The point is the **latency and cost**: tiered
+gets the same routing as the LLM at classifier speed and $0, because tier-1
+is confident on clean data and escalates ~0% at the default threshold.
+
+\* _Tier-2 fixtures in the public demo are stubs whose lanes mirror ground
+truth, so the LLM/tiered **accuracy** figures are illustrative, not
+meaningful. Latency and cost are modeled from real token counts at Opus
+pricing; classifier accuracy and escalation rate are measured. Run
+`packages/seed-data/generate.py` with a real key for genuine LLM accuracy._
 
 ## Getting started (local dev)
 
