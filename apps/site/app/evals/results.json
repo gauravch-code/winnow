@@ -1,0 +1,160 @@
+{
+  "generated_at": "2026-07-18T21:39:55.201410+00:00",
+  "n_train": 140,
+  "n_test": 60,
+  "seed": 42,
+  "test_fraction": 0.3,
+  "threshold": 0.75,
+  "tier_2_provenance": "stub",
+  "strategies": {
+    "pure_classifier": {
+      "name": "pure_classifier",
+      "n": 60,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "per_lane": {
+        "needs_you": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "informational": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 37
+        },
+        "hidden": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 12
+        }
+      },
+      "mean_latency_ms": 4.566911666673451,
+      "p95_latency_ms": 4.566911666673453,
+      "cost_per_1000_usd": 0.0,
+      "escalation_rate": 0.0,
+      "n_missing_fixture": 0
+    },
+    "pure_llm": {
+      "name": "pure_llm",
+      "n": 60,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "per_lane": {
+        "needs_you": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "informational": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 37
+        },
+        "hidden": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 12
+        }
+      },
+      "mean_latency_ms": 1200.0,
+      "p95_latency_ms": 1200.0,
+      "cost_per_1000_usd": 5.30125,
+      "escalation_rate": 1.0,
+      "n_missing_fixture": 0
+    },
+    "tiered": {
+      "name": "tiered",
+      "n": 60,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "per_lane": {
+        "needs_you": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "informational": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 37
+        },
+        "hidden": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 12
+        }
+      },
+      "mean_latency_ms": 5.103271666666842,
+      "p95_latency_ms": 5.103271666666842,
+      "cost_per_1000_usd": 0.0,
+      "escalation_rate": 0.0,
+      "n_missing_fixture": 0
+    }
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.75,
+      "escalation_rate": 0.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "cost_per_1000_usd": 0.0,
+      "mean_latency_ms": 5.329895000007428
+    },
+    {
+      "threshold": 0.99,
+      "escalation_rate": 0.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "cost_per_1000_usd": 0.0,
+      "mean_latency_ms": 4.7098799999730545
+    },
+    {
+      "threshold": 0.995,
+      "escalation_rate": 0.1,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "cost_per_1000_usd": 0.5307499999999999,
+      "mean_latency_ms": 127.17757833335781
+    },
+    {
+      "threshold": 0.999,
+      "escalation_rate": 0.8666666666666667,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "cost_per_1000_usd": 4.608249999999999,
+      "mean_latency_ms": 1048.9469033333444
+    },
+    {
+      "threshold": 0.9995,
+      "escalation_rate": 0.9833333333333333,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "cost_per_1000_usd": 5.20875,
+      "mean_latency_ms": 1188.6558050000046
+    },
+    {
+      "threshold": 0.9999,
+      "escalation_rate": 1.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "cost_per_1000_usd": 5.30125,
+      "mean_latency_ms": 1209.6666349999698
+    }
+  ],
+  "notes": [
+    "Classifier accuracy, all latencies, cost modeling, and escalation rate are measured on a held-out 30% of the synthetic corpus.",
+    "The synthetic corpus is intentionally clean and near-separable so the demo reads clearly; a real inbox is harder and tier-1 accuracy would be lower.",
+    "Tier-1 confidences saturate near 1.0 on this near-separable data (logistic regression pushes separable classes to the extremes), so the default 0.75 threshold escalates nothing \u2014 Winnow correctly spends $0 on the LLM when the classifier is sure. Escalation only turns on above ~0.99; the sweep below uses thresholds in that range to make the tradeoff visible. On a real inbox, confidences spread out and the threshold does meaningful work at more ordinary values.",
+    "TIER-2 IS STUBBED: the LLM fixtures used here are rule-based placeholders whose lanes mirror ground truth, so pure_llm and tiered ACCURACY are not meaningful. Latency and cost are modeled from token counts at Claude Opus pricing. Run packages/seed-data/generate.py with a real API key to publish genuine LLM accuracy."
+  ]
+}

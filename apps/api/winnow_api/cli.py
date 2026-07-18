@@ -21,6 +21,7 @@ from __future__ import annotations
 import typer
 
 from winnow_api.commands.bootstrap import bootstrap_cmd
+from winnow_api.commands.eval_cli import eval_cmd
 from winnow_api.commands.retrain_cli import retrain_cmd, rollback_cmd
 
 app = typer.Typer(
@@ -32,6 +33,7 @@ app = typer.Typer(
 app.command("bootstrap")(bootstrap_cmd)
 app.command("retrain")(retrain_cmd)
 app.command("rollback")(rollback_cmd)
+app.command("eval")(eval_cmd)
 
 
 @app.callback()
