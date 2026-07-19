@@ -10,10 +10,10 @@ data, real tier-1 classifier running live in your browser session,
 pre-recorded tier-2 LLM responses. No signup, nothing touches a real inbox,
 costs nobody anything.
 
-[![status](https://img.shields.io/badge/status-v1.0-brightgreen)](https://github.com/gauravch-code/winnow)
+[![status](https://img.shields.io/badge/status-v1.1-brightgreen)](https://github.com/gauravch-code/winnow)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.12%2B-blue)](apps/api/pyproject.toml)
-[![tests](https://img.shields.io/badge/tests-153%20passing-brightgreen)](apps/api/tests)
+[![tests](https://img.shields.io/badge/tests-166%20passing-brightgreen)](apps/api/tests)
 
 <!-- Maintainer: drop a 30s screen capture at docs/img/demo.gif and this renders. -->
 <!-- ![Winnow demo](docs/img/demo.gif) -->
@@ -144,25 +144,66 @@ The API **refuses to boot** if `WINNOW_MODE` contradicts the database:
 `demo` mode with real users, or `real` mode with no owner row. Fail loud,
 fail early.
 
-## Running against your real Gmail
+## Running it on your own Gmail
 
-Real mode is single-user (you) and gated behind `WINNOW_MODE=real` — the demo
-backend can't even import the Gmail modules. The `winnow` CLI drives setup:
+Real mode is single-user (you), self-hosted on your machine, and gated behind
+`WINNOW_MODE=real` — the demo backend can't even import the Gmail modules.
+Three parts: connect Google, configure secrets, run.
+
+### 1. One-time Google Cloud setup (the only manual part)
+
+Winnow talks to Gmail through your own OAuth client, so nothing is shared:
+
+1. [console.cloud.google.com](https://console.cloud.google.com) → create a project.
+2. **APIs & Services → Library** → enable **Gmail API**.
+3. **OAuth consent screen** → External → add your own address as a **Test user**.
+4. **Credentials → Create Credentials → OAuth client ID → Desktop app** →
+   download the JSON. Save it as `./credentials.json` (gitignored).
+
+### 2. Secrets — put them in `.env` (gitignored), never `.env.example`
 
 ```bash
-export WINNOW_MODE=real
-export WINNOW_ENCRYPTION_KEY=$(python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())")
-export WINNOW_LLM_API_KEY=sk-ant-...          # your key; tier-2 only
-
-winnow bootstrap --email you@example.com       # create the owner row
-winnow gmail authorize --credentials-file ~/creds.json   # installed-app OAuth
-winnow gmail sync --full                       # backfill last 30 days
-winnow retrain                                 # once you've corrected some mail
+cp .env.example .env
+```
+Then edit `.env`:
+```
+WINNOW_MODE=real
+WINNOW_ENCRYPTION_KEY=        # generate: python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+WINNOW_LLM_API_KEY=sk-...     # optional — enables the tier-2 "ask LLM" button
+WINNOW_LLM_PROVIDER=openai    # or anthropic
+WINNOW_LLM_MODEL=gpt-4o-mini
 ```
 
-The refresh token is encrypted at rest with `cryptography.fernet`. Gmail
-sync is incremental via `historyId` with a polling fallback and optional
-Pub/Sub push. See [`docs/architecture.md`](docs/architecture.md).
+### 3. Run
+
+Connect Gmail once on the host (the OAuth loopback needs your browser; the
+encrypted refresh token lands in Postgres), then start the stack:
+
+```bash
+docker compose -f docker-compose.full.yml up -d postgres     # DB first, for bootstrap
+uv sync --all-packages                                        # host tools for the one-time connect
+set -a && source .env && set +a                               # load .env into the shell
+
+winnow bootstrap --email you@gmail.com                        # create the owner row
+winnow gmail authorize --credentials-file ./credentials.json  # opens your browser
+winnow gmail sync --full                                      # backfill + classify last 30 days
+
+docker compose -f docker-compose.full.yml up --build          # Postgres + API + dashboard
+# open http://localhost:3000 — your inbox, triaged
+```
+
+In the dashboard: drag to correct a lane (every move trains tier-1), click
+**archive**/**star** (also training signal), or **ask LLM** to escalate an
+email to the tier-2 agent with your key. `winnow retrain` (or the nightly job)
+folds your corrections into a new model, with a regression guardrail and
+one-command `winnow rollback`.
+
+**Cost:** tier-1 runs locally for free; the paid LLM fires **only** when you
+click "ask LLM" (never per-sync), so a normal day costs cents or nothing.
+
+The refresh token is encrypted at rest with `cryptography.fernet`. Sync is
+incremental via `historyId` with a polling fallback and optional Pub/Sub push.
+Details in [`docs/architecture.md`](docs/architecture.md).
 
 ## Repository layout
 
@@ -175,6 +216,7 @@ apps/
       triage/       confidence-threshold orchestrator (tier-1 → maybe tier-2)
       learning/     action→label mapping, nightly retrainer, guardrails, artifact rotation
       gmail/        real-mode only: OAuth, API client, historyId sync, Pub/Sub webhook
+      realapp/      real-mode only: owner-scoped dashboard API (list, lane, archive, star, escalate)
       eval/         pure-classifier vs pure-LLM vs tiered harness
       demo/         session middleware, seeder, fixture loader, demo routes
       db/           SQLAlchemy models + Alembic migrations

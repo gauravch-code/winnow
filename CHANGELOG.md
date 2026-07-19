@@ -3,6 +3,16 @@
 Tags map to the 11-step build plan. Each was cut when its step's tests
 passed, so `git log --oneline --decorate` is a durable checkpoint history.
 
+## v1.1 — The real app
+Closes the gap between the demo and a tool you run daily. Owner-scoped
+dashboard API (`winnow_api/realapp/`: list, lane move, archive, star,
+escalate), the tier-1 classifier now loads in real mode (fixing a latent
+"everything is informational" bug), and live tier-2 wired in with the
+WINNOW_LLM_API_KEY → provider-env bridge. Mode-aware dashboard (`apps/web`)
+with "ask LLM" + draft display. One-command self-hosted stack
+(`docker-compose.full.yml` + `apps/web/Dockerfile`). Google-Cloud-OAuth
+run-on-your-Gmail guide. 166 tests.
+
 ## v1.0 — Polish
 Full README (why-this-exists, architecture diagram, verified quickstart,
 out-of-scope), `docs/architecture.md`, MIT `LICENSE`. All 11 steps complete;
