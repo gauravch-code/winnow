@@ -78,12 +78,15 @@ class GmailClient:
     # --- list + fetch ------------------------------------------------------
 
     def list_messages_since(self, since: datetime, page_size: int = 100) -> Iterator[str]:
-        """Yield message ids received after ``since``.
+        """Yield INBOX message ids received after ``since``.
 
-        Used for the initial backfill. Gmail's ``q=after:<unix>`` query
-        is second-precision and treats the boundary inclusively.
+        Used for the initial backfill. ``in:inbox`` scopes it to received
+        mail — without it, Gmail's ``after:`` query also returns Sent,
+        Spam, and All-Mail, and you don't triage your own outbox. This
+        matches the Pub/Sub watch, which is registered on labelIds=[INBOX].
+        Gmail's ``after:<unix>`` is second-precision and inclusive.
         """
-        query = f"after:{int(since.timestamp())}"
+        query = f"in:inbox after:{int(since.timestamp())}"
         token = None
         while True:
             resp = (

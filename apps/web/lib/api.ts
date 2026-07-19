@@ -65,8 +65,13 @@ async function j<T>(res: Response): Promise<T> {
   return (await res.json()) as T;
 }
 
-export async function fetchEmails(): Promise<EmailView[]> {
-  return j<EmailView[]>(await fetch(BASE, opts));
+export const PAGE_SIZE = 200;
+
+export async function fetchEmails(limit = PAGE_SIZE, offset = 0): Promise<EmailView[]> {
+  // Demo endpoint ignores the params (returns its fixed seed set); real
+  // mode paginates newest-first.
+  const url = `${BASE}?limit=${limit}&offset=${offset}`;
+  return j<EmailView[]>(await fetch(url, opts));
 }
 
 export async function moveEmail(id: string, to_lane: Lane): Promise<EmailView> {

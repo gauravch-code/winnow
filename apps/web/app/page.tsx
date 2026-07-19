@@ -2,7 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
-import { MODE, fetchEmails, moveEmail, type EmailView, type Lane as LaneId } from '../lib/api';
+import {
+  MODE,
+  PAGE_SIZE,
+  fetchEmails,
+  moveEmail,
+  type EmailView,
+  type Lane as LaneId,
+} from '../lib/api';
 import { Lane } from '../components/Lane';
 
 const LANE_ORDER: LaneId[] = ['needs_you', 'informational', 'hidden'];
@@ -10,16 +17,36 @@ const LANE_ORDER: LaneId[] = ['needs_you', 'informational', 'hidden'];
 export default function DashboardPage() {
   const [emails, setEmails] = useState<EmailView[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [hasMore, setHasMore] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(false);
 
   // PointerSensor with an activation distance so a plain click on the
   // card body doesn't spuriously start a drag.
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }));
 
   useEffect(() => {
-    fetchEmails()
-      .then(setEmails)
+    fetchEmails(PAGE_SIZE, 0)
+      .then((list) => {
+        setEmails(list);
+        setHasMore(list.length === PAGE_SIZE);
+      })
       .catch((e) => setError(String(e)));
   }, []);
+
+  // Append the next page. A short final page means we've reached the end.
+  async function loadMore() {
+    if (!emails || loadingMore) return;
+    setLoadingMore(true);
+    try {
+      const next = await fetchEmails(PAGE_SIZE, emails.length);
+      setEmails((cur) => (cur ? [...cur, ...next] : next));
+      setHasMore(next.length === PAGE_SIZE);
+    } catch (e) {
+      setError(String(e));
+    } finally {
+      setLoadingMore(false);
+    }
+  }
 
   async function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
@@ -88,13 +115,31 @@ export default function DashboardPage() {
           to pull and triage your inbox, then refresh.
         </div>
       ) : (
-        <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-          <div className="flex gap-4 items-start">
-            {LANE_ORDER.map((id) => (
-              <Lane key={id} id={id} emails={byLane[id]} onUpdate={handleUpdate} />
-            ))}
+        <>
+          <div className="mb-3 text-xs text-white/40">
+            Showing {emails.length} email{emails.length === 1 ? '' : 's'}
+            {isReal ? ' · newest first' : ''}
           </div>
-        </DndContext>
+          <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+            <div className="flex gap-4 items-start">
+              {LANE_ORDER.map((id) => (
+                <Lane key={id} id={id} emails={byLane[id]} onUpdate={handleUpdate} />
+              ))}
+            </div>
+          </DndContext>
+          {hasMore && (
+            <div className="mt-6 flex justify-center">
+              <button
+                type="button"
+                onClick={loadMore}
+                disabled={loadingMore}
+                className="rounded-md border border-white/15 bg-white/5 px-5 py-2 text-sm text-white/80 hover:bg-white/10 disabled:opacity-50"
+              >
+                {loadingMore ? 'Loading…' : `Load ${PAGE_SIZE} more`}
+              </button>
+            </div>
+          )}
+        </>
       )}
     </main>
   );

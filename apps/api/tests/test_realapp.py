@@ -157,6 +157,44 @@ def test_list_lane_filter(client, db, owner):
     assert [e["subject"] for e in r.json()] == ["b"]
 
 
+def test_list_pagination(client, db, owner):
+    # received_at increments so ordering is deterministic newest-first.
+    from datetime import timedelta
+
+    base = datetime(2026, 7, 1, tzinfo=timezone.utc)
+    for i in range(5):
+        e = Email(
+            user_id=owner.id,
+            gmail_message_id=f"M{i}",
+            sender_email="a@b.com",
+            sender_domain="b.com",
+            recipients={"to": ["me@example.com"], "cc": [], "bcc": []},
+            subject=f"e{i}",
+            body_text="body",
+            snippet=f"e{i}",
+            received_at=base + timedelta(hours=i),
+            thread_depth=1,
+            has_unsubscribe=False,
+            is_reply=False,
+        )
+        db.add(e)
+        db.flush()
+        db.add(
+            TriageDecision(
+                email_id=e.id, user_id=owner.id, lane="informational",
+                confidence=0.9, tier=1, classifier_version="x", reasoning="s", latency_ms=1,
+            )
+        )
+    db.commit()
+
+    first = client.get("/emails", params={"limit": 2, "offset": 0}).json()
+    assert [e["subject"] for e in first] == ["e4", "e3"]  # newest first
+    second = client.get("/emails", params={"limit": 2, "offset": 2}).json()
+    assert [e["subject"] for e in second] == ["e2", "e1"]
+    third = client.get("/emails", params={"limit": 2, "offset": 4}).json()
+    assert [e["subject"] for e in third] == ["e0"]  # short final page
+
+
 # --- lane move ------------------------------------------------------------
 
 

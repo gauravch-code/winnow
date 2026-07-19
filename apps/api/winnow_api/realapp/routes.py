@@ -127,8 +127,16 @@ def _view(email: Email, decision: TriageDecision) -> EmailView:
 def list_emails(
     request: Request,
     lane: Lane | None = Query(default=None),
+    limit: int = Query(default=200, ge=1, le=1000),
+    offset: int = Query(default=0, ge=0),
     db: Session = Depends(get_db),
 ) -> list[EmailView]:
+    """Newest-first page of the owner's triaged mail.
+
+    Paginated because a real inbox is thousands of emails and rendering
+    them all at once is slow. The dashboard loads a page, then requests
+    the next ``offset`` on "load more".
+    """
     owner = _owner(db)
 
     latest = (
@@ -152,6 +160,7 @@ def list_emails(
     if lane is not None:
         stmt = stmt.where(LatestDecision.lane == lane)
 
+    stmt = stmt.offset(offset).limit(limit)
     rows = db.execute(stmt).all()
     return [_view(email, decision) for email, decision in rows]
 
