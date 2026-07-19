@@ -22,7 +22,15 @@ const LANE_META: Record<LaneId, { title: string; accent: string; description: st
   },
 };
 
-export function Lane({ id, emails }: { id: LaneId; emails: EmailView[] }) {
+export function Lane({
+  id,
+  emails,
+  onUpdate,
+}: {
+  id: LaneId;
+  emails: EmailView[];
+  onUpdate?: (e: EmailView) => void;
+}) {
   const { setNodeRef, isOver } = useDroppable({ id });
   const meta = LANE_META[id];
 
@@ -43,7 +51,7 @@ export function Lane({ id, emails }: { id: LaneId; emails: EmailView[] }) {
       </div>
       <div className="p-3 space-y-2 min-h-[300px]">
         {emails.map((email) => (
-          <EmailCard key={email.id} email={email} />
+          <EmailCard key={email.id} email={email} onUpdate={onUpdate} />
         ))}
       </div>
     </div>

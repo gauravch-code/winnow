@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
-import { fetchEmails, moveEmail, type EmailView, type Lane as LaneId } from '../lib/api';
+import { MODE, fetchEmails, moveEmail, type EmailView, type Lane as LaneId } from '../lib/api';
 import { Lane } from '../components/Lane';
 
 const LANE_ORDER: LaneId[] = ['needs_you', 'informational', 'hidden'];
 
-export default function DemoPage() {
+export default function DashboardPage() {
   const [emails, setEmails] = useState<EmailView[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -43,6 +43,12 @@ export default function DemoPage() {
     }
   }
 
+  // Merge an updated email (from escalate lane-change / archive / star)
+  // back into board state.
+  function handleUpdate(updated: EmailView) {
+    setEmails((cur) => (cur ? cur.map((e) => (e.id === updated.id ? updated : e)) : cur));
+  }
+
   const byLane: Record<LaneId, EmailView[]> = {
     needs_you: [],
     informational: [],
@@ -50,16 +56,21 @@ export default function DemoPage() {
   };
   for (const email of emails ?? []) byLane[email.lane].push(email);
 
+  const isReal = MODE === 'real';
+
   return (
     <main className="min-h-screen p-6 max-w-[1600px] mx-auto">
       <header className="mb-6">
         <div className="flex items-baseline gap-3">
           <h1 className="text-2xl font-semibold">Winnow</h1>
-          <span className="text-sm text-white/50">demo · synthetic data</span>
+          <span className="text-sm text-white/50">
+            {isReal ? 'your inbox · local-first' : 'demo · synthetic data'}
+          </span>
         </div>
         <p className="text-sm text-white/60 mt-1">
-          Drag any email into a different lane. The classifier tier is not wired up yet — that
-          lands in Step 4. Tier-2 LLM responses in this demo are pre-recorded to keep it free.
+          {isReal
+            ? 'Your Gmail, triaged on your machine by the local classifier. Drag to correct a lane (it learns from every move), or click “ask LLM” to escalate an email to the tier-2 agent with your own key.'
+            : 'Drag any email into a different lane — the classifier retrains on your edits. Click “ask LLM” to see the pre-recorded tier-2 response.'}
         </p>
       </header>
 
@@ -70,12 +81,17 @@ export default function DemoPage() {
       )}
 
       {emails === null ? (
-        <div className="text-white/50">Loading synthetic inbox…</div>
+        <div className="text-white/50">Loading{isReal ? ' your inbox' : ' synthetic inbox'}…</div>
+      ) : emails.length === 0 && isReal ? (
+        <div className="text-white/50">
+          No emails yet. Run <code className="text-emerald-300/80">winnow gmail sync --full</code>{' '}
+          to pull and triage your inbox, then refresh.
+        </div>
       ) : (
         <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
           <div className="flex gap-4 items-start">
             {LANE_ORDER.map((id) => (
-              <Lane key={id} id={id} emails={byLane[id]} />
+              <Lane key={id} id={id} emails={byLane[id]} onUpdate={handleUpdate} />
             ))}
           </div>
         </DndContext>

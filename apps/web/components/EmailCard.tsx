@@ -3,11 +3,16 @@
 import { useState } from 'react';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import type { EmailView, TopFeature } from '../lib/api';
+import {
+  MODE,
+  archiveEmail,
+  escalateEmail,
+  starEmail,
+  type EmailView,
+  type EscalateResult,
+  type TopFeature,
+} from '../lib/api';
 
-// Friendly labels for the engineered feature names emitted by the API.
-// Anything not in this map falls through to a lightly-humanized version
-// of the raw name.
 const FEATURE_LABELS: Record<string, string> = {
   email_content_signal: 'email content (embedding)',
   sender_is_notification_domain: 'sender: notification service',
@@ -34,8 +39,18 @@ function label(name: string): string {
   return FEATURE_LABELS[name] ?? name.replaceAll('_', ' ');
 }
 
-export function EmailCard({ email }: { email: EmailView }) {
+export function EmailCard({
+  email,
+  onUpdate,
+}: {
+  email: EmailView;
+  onUpdate?: (e: EmailView) => void;
+}) {
   const [expanded, setExpanded] = useState(false);
+  const [escalating, setEscalating] = useState(false);
+  const [escalation, setEscalation] = useState<EscalateResult | null>(null);
+  const [actionErr, setActionErr] = useState<string | null>(null);
+
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: email.id,
     data: { email },
@@ -51,6 +66,36 @@ export function EmailCard({ email }: { email: EmailView }) {
     month: 'short',
     day: 'numeric',
   });
+
+  const stop = (e: React.PointerEvent) => e.stopPropagation();
+
+  async function onEscalate() {
+    setEscalating(true);
+    setActionErr(null);
+    try {
+      setEscalation(await escalateEmail(email.id));
+    } catch (e) {
+      setActionErr(String(e));
+    } finally {
+      setEscalating(false);
+    }
+  }
+
+  async function onArchive() {
+    try {
+      onUpdate?.(await archiveEmail(email.id));
+    } catch (e) {
+      setActionErr(String(e));
+    }
+  }
+
+  async function onStar() {
+    try {
+      onUpdate?.(await starEmail(email.id));
+    } catch (e) {
+      setActionErr(String(e));
+    }
+  }
 
   return (
     <div
@@ -69,17 +114,49 @@ export function EmailCard({ email }: { email: EmailView }) {
 
       <div className="flex items-center gap-2 mt-2">
         <ConfidenceBadge tier={email.tier} confidence={email.confidence} />
-        <button
-          type="button"
-          onPointerDown={(e) => e.stopPropagation()}
-          onClick={() => setExpanded((v) => !v)}
-          className="ml-auto text-[11px] text-white/50 hover:text-white/80 underline underline-offset-2"
-        >
-          {expanded ? 'hide why' : 'why?'}
-        </button>
+        <div className="ml-auto flex items-center gap-2">
+          <button
+            type="button"
+            onPointerDown={stop}
+            onClick={onEscalate}
+            disabled={escalating}
+            className="text-[11px] text-emerald-300/80 hover:text-emerald-200 disabled:opacity-50"
+          >
+            {escalating ? 'asking…' : 'ask LLM'}
+          </button>
+          <button
+            type="button"
+            onPointerDown={stop}
+            onClick={() => setExpanded((v) => !v)}
+            className="text-[11px] text-white/50 hover:text-white/80 underline underline-offset-2"
+          >
+            {expanded ? 'hide why' : 'why?'}
+          </button>
+        </div>
       </div>
 
+      {MODE === 'real' && (
+        <div className="flex items-center gap-3 mt-2" onPointerDown={stop}>
+          <button
+            type="button"
+            onClick={onArchive}
+            className="text-[11px] text-white/45 hover:text-white/80"
+          >
+            archive
+          </button>
+          <button
+            type="button"
+            onClick={onStar}
+            className="text-[11px] text-white/45 hover:text-amber-300"
+          >
+            star
+          </button>
+        </div>
+      )}
+
+      {actionErr && <div className="mt-2 text-[11px] text-rose-300/80">{actionErr}</div>}
       {expanded && <Explanation email={email} />}
+      {escalation && <Tier2Panel result={escalation} />}
     </div>
   );
 }
@@ -106,9 +183,7 @@ function Explanation({ email }: { email: EmailView }) {
       onPointerDown={(e) => e.stopPropagation()}
       className="mt-3 pt-3 border-t border-white/10 space-y-2 cursor-default"
     >
-      {email.reasoning && (
-        <div className="text-xs text-white/60">{email.reasoning}</div>
-      )}
+      {email.reasoning && <div className="text-xs text-white/60">{email.reasoning}</div>}
       <ul className="space-y-1">
         {top.map((f) => {
           const pct = Math.round((Math.abs(f.weight) / maxAbs) * 100);
@@ -135,9 +210,47 @@ function Explanation({ email }: { email: EmailView }) {
         })}
       </ul>
       {email.classifier_version && (
-        <div className="text-[10px] text-white/30">
-          classifier {email.classifier_version}
-        </div>
+        <div className="text-[10px] text-white/30">classifier {email.classifier_version}</div>
+      )}
+    </div>
+  );
+}
+
+function Tier2Panel({ result }: { result: EscalateResult }) {
+  return (
+    <div
+      onPointerDown={(e) => e.stopPropagation()}
+      className="mt-3 pt-3 border-t border-emerald-500/20 space-y-2 cursor-default"
+    >
+      <div className="flex items-center gap-2 text-[11px]">
+        <span className="rounded bg-emerald-500/15 text-emerald-200 px-1.5 py-0.5">tier 2</span>
+        <span className="text-white/40">{result.tier_2_source}</span>
+      </div>
+
+      {result.reason_unavailable ? (
+        <div className="text-xs text-white/60">{result.reason_unavailable}</div>
+      ) : (
+        <>
+          {result.reasoning && <div className="text-xs text-white/70">{result.reasoning}</div>}
+          {result.draft_included && (
+            <div className="rounded-md bg-black/30 border border-white/10 p-2">
+              <div className="text-[10px] uppercase tracking-wide text-white/40 mb-1">
+                Draft reply{result.draft_tone ? ` · ${result.draft_tone}` : ''}
+              </div>
+              {result.draft_subject && (
+                <div className="text-xs font-medium text-white/80">{result.draft_subject}</div>
+              )}
+              <div className="text-xs text-white/70 whitespace-pre-wrap mt-1">
+                {result.draft_body_markdown}
+              </div>
+              {result.draft_assumptions && result.draft_assumptions.length > 0 && (
+                <div className="mt-2 text-[10px] text-amber-200/70">
+                  Assumes: {result.draft_assumptions.join('; ')}
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
     </div>
   );
