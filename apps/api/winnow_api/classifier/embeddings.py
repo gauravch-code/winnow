@@ -45,7 +45,11 @@ def embedding_dim() -> int:
 
 def _prep_text(subject: str, body: str) -> str:
     subject = (subject or "").strip()
-    first_line = (body or "").strip().splitlines()[0] if body else ""
+    # A truthy body can still strip to empty (whitespace-only / HTML-only
+    # mail, common in a real inbox), leaving splitlines() == [] — so guard
+    # the index instead of assuming a first line exists.
+    lines = (body or "").strip().splitlines()
+    first_line = lines[0] if lines else ""
     return f"{subject}\n{first_line[:280]}"
 
 
