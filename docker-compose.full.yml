@@ -1,0 +1,69 @@
+# Full self-hosted stack — Postgres + API + dashboard, one command.
+#
+#   docker compose -f docker-compose.full.yml up --build
+#
+# Reads secrets from a .env file next to this one (gitignored). Minimum:
+#   WINNOW_MODE=real
+#   WINNOW_ENCRYPTION_KEY=...        (winnow generates one; see README)
+#   WINNOW_LLM_API_KEY=sk-...        (optional — enables tier-2 escalation)
+#   WINNOW_LLM_PROVIDER=openai
+#   WINNOW_LLM_MODEL=gpt-4o-mini
+#
+# One-time Gmail connect happens on the HOST (the OAuth loopback needs
+# your browser), and the encrypted token lands in this same Postgres, so
+# the containerized API picks it up:
+#   winnow bootstrap --email you@gmail.com
+#   winnow gmail authorize --credentials-file ./credentials.json
+#   winnow gmail sync --full
+# Then open http://localhost:3000.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: winnow
+      POSTGRES_PASSWORD: winnow
+      POSTGRES_DB: winnow
+    ports:
+      - "5432:5432"
+    volumes:
+      - winnow_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U winnow -d winnow"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      WINNOW_MODE: ${WINNOW_MODE:-real}
+      WINNOW_DATABASE_URL: postgresql+psycopg://winnow:winnow@postgres:5432/winnow
+      WINNOW_ENCRYPTION_KEY: ${WINNOW_ENCRYPTION_KEY:-}
+      WINNOW_LLM_API_KEY: ${WINNOW_LLM_API_KEY:-}
+      WINNOW_LLM_PROVIDER: ${WINNOW_LLM_PROVIDER:-openai}
+      WINNOW_LLM_MODEL: ${WINNOW_LLM_MODEL:-gpt-4o-mini}
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_WINNOW_MODE: real
+    environment:
+      # Server-side rewrite target — the browser only ever talks to :3000.
+      WINNOW_API_ORIGIN: http://api:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  winnow_pg_data:

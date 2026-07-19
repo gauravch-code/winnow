@@ -1,0 +1,25 @@
+# Keep the Docker build context lean and secret-free. Applies to both
+# apps/api and apps/web builds (compose sets context to the repo root).
+.git
+.github
+
+# Node
+**/node_modules
+**/.next
+
+# Python
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# Secrets + local state — never copy into an image layer
+.env
+**/credentials.json
+**/token.json
+
+# Logs / OS cruft
+*.log
+.DS_Store

@@ -10,6 +10,9 @@ const API_ORIGIN = process.env.WINNOW_API_ORIGIN ?? 'http://localhost:8000';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Standalone output bundles a minimal server + only the needed
+  // node_modules, so the Docker runtime image stays small.
+  output: 'standalone',
   async rewrites() {
     return [{ source: '/api/:path*', destination: `${API_ORIGIN}/:path*` }];
   },
