@@ -71,11 +71,25 @@ def sync_cmd(
     """Trigger a Gmail sync now. Default is incremental; --full backfills."""
     settings = get_settings()
     engine = create_engine(settings.database_url)
+    # Load the tier-1 model so ingested mail is actually classified — not
+    # dumped into "informational" via the no-classifier fallback. First
+    # call warms MiniLM (~15s); worth it so the inbox lands triaged.
+    from winnow_api.classifier import load_baseline
+
+    classifier = load_baseline()
+    if classifier is None:
+        typer.secho(
+            "No classifier artifact — run `winnow`… train first, or mail will be "
+            "unclassified. Continuing with tier-1 fallback.",
+            fg=typer.colors.YELLOW,
+            err=True,
+        )
+
     with Session(engine) as db:
         user = _owner_or_die(db)
         creds = load_credentials_for_user(user)
         client = GmailClient(creds)
-        sync = GmailSync(client, db, user, classifier=None)  # CLI runs without classifier for speed
+        sync = GmailSync(client, db, user, classifier=classifier)
         report = sync.sync_full(days=days) if full else sync.sync_incremental()
 
     typer.secho(
