@@ -7,6 +7,8 @@ import {
   PAGE_SIZE,
   fetchEmails,
   moveEmail,
+  retrain,
+  syncNow,
   type EmailView,
   type Lane as LaneId,
 } from '../lib/api';
@@ -76,6 +78,53 @@ export default function DashboardPage() {
     setEmails((cur) => (cur ? cur.map((e) => (e.id === updated.id ? updated : e)) : cur));
   }
 
+  const [busy, setBusy] = useState<'sync' | 'retrain' | null>(null);
+  const [status, setStatus] = useState<string | null>(null);
+
+  async function reloadFirstPage() {
+    const list = await fetchEmails(PAGE_SIZE, 0);
+    setEmails(list);
+    setHasMore(list.length === PAGE_SIZE);
+  }
+
+  async function handleSync() {
+    setBusy('sync');
+    setStatus('Syncing Gmail…');
+    try {
+      const r = await syncNow();
+      await reloadFirstPage();
+      setStatus(`Synced — ${r.ingested} new email${r.ingested === 1 ? '' : 's'}.`);
+    } catch (e) {
+      setStatus(`Sync failed: ${e}`);
+    } finally {
+      setBusy(null);
+    }
+  }
+
+  async function handleRetrain() {
+    setBusy('retrain');
+    setStatus('Retraining tier-1 on your corrections…');
+    try {
+      const r = await retrain();
+      if (r.deployed) {
+        const before = r.previous_active_accuracy;
+        const after = r.holdout_accuracy;
+        const delta =
+          before != null && after != null
+            ? ` (${(before * 100).toFixed(0)}% → ${(after * 100).toFixed(0)}% on holdout)`
+            : '';
+        await reloadFirstPage();
+        setStatus(`Retrained and deployed a new model${delta}.`);
+      } else {
+        setStatus(r.rejection_reason ?? `Retrain: ${r.outcome}`);
+      }
+    } catch (e) {
+      setStatus(`Retrain failed: ${e}`);
+    } finally {
+      setBusy(null);
+    }
+  }
+
   const byLane: Record<LaneId, EmailView[]> = {
     needs_you: [],
     informational: [],
@@ -93,6 +142,27 @@ export default function DashboardPage() {
           <span className="text-sm text-white/50">
             {isReal ? 'your inbox · local-first' : 'demo · synthetic data'}
           </span>
+          {isReal && (
+            <div className="ml-auto flex items-center gap-2">
+              {status && <span className="text-xs text-white/50 mr-1">{status}</span>}
+              <button
+                type="button"
+                onClick={handleSync}
+                disabled={busy !== null}
+                className="rounded-md border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/80 hover:bg-white/10 disabled:opacity-50"
+              >
+                {busy === 'sync' ? 'Syncing…' : 'Sync now'}
+              </button>
+              <button
+                type="button"
+                onClick={handleRetrain}
+                disabled={busy !== null}
+                className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs text-emerald-200 hover:bg-emerald-500/20 disabled:opacity-50"
+              >
+                {busy === 'retrain' ? 'Retraining…' : 'Retrain'}
+              </button>
+            </div>
+          )}
         </div>
         <p className="text-sm text-white/60 mt-1">
           {isReal

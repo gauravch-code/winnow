@@ -292,3 +292,14 @@ def test_escalate_503_without_provider(client, db, owner):
 def test_unknown_email_404(client, db, owner):
     r = client.patch(f"/emails/{uuid.uuid4()}/lane", json={"to_lane": "hidden"})
     assert r.status_code == 404
+
+
+def test_retrain_rejects_insufficient_examples(client, db, owner):
+    # Fresh owner has no training examples → guardrail rejects fast,
+    # before any embedding work. Locks the in-app retrain wiring.
+    r = client.post("/emails/retrain")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["deployed"] is False
+    assert body["n_training_examples"] >= 0
+    assert body["rejection_reason"]  # non-empty explanation

@@ -99,3 +99,28 @@ export async function archiveEmail(id: string): Promise<EmailView> {
 export async function starEmail(id: string): Promise<EmailView> {
   return j<EmailView>(await fetch(`${BASE}/${id}/star`, { ...opts, method: 'POST' }));
 }
+
+// Real mode only — pull new mail from Gmail and retrain tier-1 in-app.
+export interface SyncResult {
+  ingested: number;
+  skipped_duplicate: number;
+  strategy: string;
+  ended_history_id: string | null;
+}
+
+export async function syncNow(): Promise<SyncResult> {
+  return j<SyncResult>(await fetch('/api/gmail/sync', { ...opts, method: 'POST' }));
+}
+
+export interface RetrainResult {
+  outcome: string;
+  deployed: boolean;
+  holdout_accuracy: number | null;
+  previous_active_accuracy: number | null;
+  n_training_examples: number;
+  rejection_reason: string | null;
+}
+
+export async function retrain(): Promise<RetrainResult> {
+  return j<RetrainResult>(await fetch(`${BASE}/retrain`, { ...opts, method: 'POST' }));
+}

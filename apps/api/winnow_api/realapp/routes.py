@@ -351,3 +351,57 @@ async def escalate_email(
         tier_2_source=outcome.tier_2_source or "unavailable",
         reason_unavailable=outcome.tier_2_reason_unavailable,
     )
+
+
+class RetrainResponse(BaseModel):
+    outcome: str
+    deployed: bool
+    holdout_accuracy: float | None = None
+    previous_active_accuracy: float | None = None
+    n_training_examples: int
+    rejection_reason: str | None = None
+
+
+@router.post("/emails/retrain", response_model=RetrainResponse)
+def retrain_now(request: Request, db: Session = Depends(get_db)) -> RetrainResponse:
+    """Retrain tier-1 on the seed corpus + your corrections, then hot-swap
+    the model into the running app if it passes the guardrails.
+
+    Synchronous (runs in FastAPI's threadpool) — for a single-user local
+    app, clicking "retrain" and waiting a few seconds with a spinner is
+    the right UX. Guardrails still apply: skips under the minimum labeled
+    examples, rejects a model that regresses.
+    """
+    owner = _owner(db)
+    settings = request.app.state.settings
+
+    from winnow_api.learning.retrainer import RetrainOutcome, Retrainer
+
+    retrainer = Retrainer(
+        db=db,
+        user=owner,
+        seed_dir=settings.seed_email_dir,
+        min_examples=settings.retrain_min_examples,
+        regression_threshold=settings.retrain_regression_threshold,
+    )
+    report = retrainer.run()
+    deployed = report.outcome == RetrainOutcome.DEPLOYED
+
+    if deployed:
+        # Swap the freshly-trained model into the live app so the next
+        # classify/escalate uses it without an API restart.
+        from winnow_api.classifier import load_baseline
+
+        new = load_baseline()
+        if new is not None:
+            request.app.state.classifier = new
+            log.info("classifier_hot_swapped", version=new.version)
+
+    return RetrainResponse(
+        outcome=report.outcome.value,
+        deployed=deployed,
+        holdout_accuracy=report.holdout_accuracy,
+        previous_active_accuracy=report.previous_active_accuracy,
+        n_training_examples=report.n_training_examples,
+        rejection_reason=report.rejection_reason,
+    )
