@@ -1,8 +1,8 @@
 {
   "id": "seed_172",
-  "sender_email": "yara@hey.com",
-  "sender_name": "Yara Haddad",
-  "sender_domain": "hey.com",
+  "sender_email": "hi@lennysnewsletter.com",
+  "sender_name": "Lenny's Newsletter",
+  "sender_domain": "lennysnewsletter.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "photos from last weekend",
-  "body_text": "finally uploaded them! link in signature. no rush to look.",
-  "snippet": "finally uploaded them! link in signature. no rush to look.",
-  "received_at": "2026-07-15T10:38:00Z",
+  "subject": "[Lenny's Newsletter] what makes a great PM",
+  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: what makes a great PM.",
+  "received_at": "2026-07-07T08:46:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "personal",
+  "category": "newsletter",
   "ground_truth_lane": "informational"
 }

@@ -1,8 +1,8 @@
 {
   "id": "seed_119",
-  "sender_email": "notifications@linear.app",
-  "sender_name": "Linear",
-  "sender_domain": "linear.app",
+  "sender_email": "automated@airbnb.com",
+  "sender_name": "Airbnb",
+  "sender_domain": "airbnb.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[auth migration] Issue assigned to you",
-  "body_text": "You've been assigned a new issue. View in Linear.",
-  "snippet": "You've been assigned a new issue. View in Linear.",
-  "received_at": "2026-07-09T05:35:00Z",
+  "subject": "Reservation confirmed: Portland",
+  "body_text": "Total: $205.39\nCheck-in Aug 3.",
+  "snippet": "Total: $205.39",
+  "received_at": "2026-07-12T18:08:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,
-  "category": "notification",
-  "ground_truth_lane": "informational"
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
 }

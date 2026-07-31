@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[Stratechery] why one-on-ones are broken",
-  "body_text": "This week's issue: why one-on-ones are broken.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: why one-on-ones are broken.",
-  "received_at": "2026-07-14T21:23:00Z",
+  "subject": "[Stratechery] vector DBs, one year later",
+  "body_text": "This week's issue: vector DBs, one year later.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: vector DBs, one year later.",
+  "received_at": "2026-07-07T17:57:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,
   "category": "newsletter",
-  "ground_truth_lane": "informational"
+  "ground_truth_lane": "needs_you"
 }

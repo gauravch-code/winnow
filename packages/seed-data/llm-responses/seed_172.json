@@ -7,24 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:43ea9bad0f46e61214489dbee4c16ed33de58729dcf1e581aa184d263a5f6b0f"
+    "seed_email_hash": "sha256:d63c071eec1d6ded782fde31aae7c2575eaaaeba375bf45890764fe4f6492e23"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Yara Haddad. One-off message. Reader would notice if this slipped through.",
+    "confidence": 0.91,
+    "reasoning": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "has_unsubscribe",
+        "weight": 0.42
       },
       {
-        "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "name": "marketing_domain",
+        "weight": 0.27
       }
     ]
   },
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=informational",
-        "output_snippet": "Personal note from Yara Haddad. One-off message. Reader would notice if this slipped through."
+        "thought": "stub: category=newsletter, lane=informational",
+        "output_snippet": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {
-      "input": 74,
-      "output": 54
+      "input": 93,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.00516,
+    "cost_usd_at_generation": 0.00567,
     "latency_ms_live": 1200
   },
   "playback": {

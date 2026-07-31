@@ -1,24 +1,22 @@
 {
   "id": "seed_138",
-  "sender_email": "kenji@umbrella.com",
-  "sender_name": "Kenji Ito",
-  "sender_domain": "umbrella.com",
+  "sender_email": "auto-confirm@amazon.com",
+  "sender_name": "Amazon",
+  "sender_domain": "amazon.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [
-      "yara@umbrella.com"
-    ],
+    "cc": [],
     "bcc": []
   },
-  "subject": "Re: auth migration — approved",
-  "body_text": "Approved. Ship it whenever you're ready.",
-  "snippet": "Approved. Ship it whenever you're ready.",
-  "received_at": "2026-07-05T12:52:00Z",
-  "thread_depth": 3,
-  "has_unsubscribe": false,
-  "is_reply": true,
-  "category": "work",
+  "subject": "Your Amazon.com order of item(s)",
+  "body_text": "Order total: $217.72\nArriving Friday.",
+  "snippet": "Order total: $217.72",
+  "received_at": "2026-07-06T20:57:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "receipt",
   "ground_truth_lane": "informational"
 }

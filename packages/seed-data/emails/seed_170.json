@@ -1,22 +1,24 @@
 {
   "id": "seed_170",
-  "sender_email": "jack@importai.substack.com",
-  "sender_name": "Import AI",
-  "sender_domain": "substack.com",
+  "sender_email": "kenji@umbrella.com",
+  "sender_name": "Kenji Ito",
+  "sender_domain": "umbrella.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [],
+    "cc": [
+      "yara@umbrella.com"
+    ],
     "bcc": []
   },
-  "subject": "[Import AI] why one-on-ones are broken",
-  "body_text": "This week's issue: why one-on-ones are broken.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: why one-on-ones are broken.",
-  "received_at": "2026-07-12T05:51:00Z",
-  "thread_depth": 1,
-  "has_unsubscribe": true,
-  "is_reply": false,
-  "category": "newsletter",
+  "subject": "Re: auth migration — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-05T12:52:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
   "ground_truth_lane": "informational"
 }

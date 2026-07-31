@@ -7,24 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:64c77ccbe9a3cf7e08b40c127919eed601430caa0b5811f93f366a8c97bdb6d3"
+    "seed_email_hash": "sha256:42a7b4061b05f4f40427d0a96740495e837628f3efc4a9215149fc75de4566f6"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Sasha Kim. One-off message. Reader would notice if this slipped through.",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Kenji Ito. Continues an existing thread. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "known_sender_domain",
+        "weight": 0.32
+      },
+      {
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
         "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=informational",
-        "output_snippet": "Personal note from Sasha Kim. One-off message. Reader would notice if this slipped through."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Kenji Ito. Continues an existing thread. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 74,
-      "output": 54
+      "input": 71,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.00516,
+    "cost_usd_at_generation": 0.00534,
     "latency_ms_live": 1200
   },
   "playback": {

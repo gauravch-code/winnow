@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:cf6d81d9ba67f7cedc4739b15096d229068a02b6052d97b07e1bcc7de8ad43ab"
+    "seed_email_hash": "sha256:1fdbc8e0154375c9bc7703efa1183ebd3d11e0fa70fb6a3b292055beb465ca76"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.94,
-    "reasoning": "Receipt from Amazon. Filed for records, not action.",
+    "lane": "informational",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Linear. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "receipt_service_domain",
-        "weight": 0.44
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "has_unsubscribe",
-        "weight": 0.16
+        "name": "automated_sender",
+        "weight": 0.24
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from Amazon. Filed for records, not action."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Linear. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 70,
-      "output": 48
+      "input": 75,
+      "output": 53
     },
-    "cost_usd_at_generation": 0.00465,
+    "cost_usd_at_generation": 0.0051,
     "latency_ms_live": 1200
   },
   "playback": {

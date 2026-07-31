@@ -7,7 +7,7 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:d5f93c2d3b1da153578054355e344074ea0f665d1cd74b56357d99a56fd00e6e"
+    "seed_email_hash": "sha256:39af411d3dd1ebb96d4f4db70e08b34e7237e8028b297d8f3314063936db0ae7"
   },
   "triage": {
     "lane": "needs_you",

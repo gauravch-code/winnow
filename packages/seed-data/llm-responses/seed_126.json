@@ -7,23 +7,19 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:c74610fbb9f0eb2d62968e45d06103e838df74a034f747830eeaf1b105d3f22c"
+    "seed_email_hash": "sha256:8bb9f121cbeec7e9c39014936c2c793bfa2f689aba45ac41e32462b02c7cbb88"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.86,
-    "reasoning": "Work correspondence from Tomas Brandt. One-off message. Tier-1 was probably fine but the LLM confirms.",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Slack. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "known_sender_domain",
-        "weight": 0.32
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "thread_depth_gt_1",
-        "weight": 0.18
-      },
-      {
-        "name": "direct_question",
+        "name": "automated_sender",
         "weight": 0.24
       }
     ]
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=work, lane=informational",
-        "output_snippet": "Work correspondence from Tomas Brandt. One-off message. Tier-1 was probably fine but the LLM confirms."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Slack. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 81,
-      "output": 55
+      "input": 83,
+      "output": 53
     },
-    "cost_usd_at_generation": 0.00534,
+    "cost_usd_at_generation": 0.00522,
     "latency_ms_live": 1200
   },
   "playback": {

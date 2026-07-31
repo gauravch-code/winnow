@@ -7,19 +7,23 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:98c62f32d3b0dada4a0d37155f2b33dc7d73eaee3d73895aa986b9bcbd255ffd"
+    "seed_email_hash": "sha256:b86eee355e6c067ccf13d268a3de3e265b38d4ddf4ff5d764ab10dbdb803a8bf"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.88,
-    "reasoning": "Automated notification from GitHub. Reader already sees this activity in the source app.",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Nadia Farouk. Continues an existing thread. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "notification_service_domain",
-        "weight": 0.38
+        "name": "known_sender_domain",
+        "weight": 0.32
       },
       {
-        "name": "automated_sender",
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
+      },
+      {
+        "name": "direct_question",
         "weight": 0.24
       }
     ]
@@ -36,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=notification, lane=informational",
-        "output_snippet": "Automated notification from GitHub. Reader already sees this activity in the source app."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Nadia Farouk. Continues an existing thread. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 77,
-      "output": 53
+      "input": 71,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.00513,
+    "cost_usd_at_generation": 0.00534,
     "latency_ms_live": 1200
   },
   "playback": {

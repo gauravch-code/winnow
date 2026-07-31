@@ -7,7 +7,7 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:29bd229cd3808af5c74a03e43e0a7993159184c2ccf582225fe1dd27ec488824"
+    "seed_email_hash": "sha256:3645f26ab32dcb0916e040d6d2df5e28150e10a833607094f85f7cc2ff7a0e14"
   },
   "triage": {
     "lane": "needs_you",
@@ -30,7 +30,7 @@
   },
   "draft_reply": {
     "included": true,
-    "subject": "Re: dinner Saturday?",
+    "subject": "Re: did you see this?",
     "body_markdown": "Hi Yara,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
     "tone": "warm",
     "assumptions": [
@@ -47,10 +47,10 @@
       }
     ],
     "tokens": {
-      "input": 81,
+      "input": 77,
       "output": 56
     },
-    "cost_usd_at_generation": 0.005415,
+    "cost_usd_at_generation": 0.005355,
     "latency_ms_live": 1200
   },
   "playback": {

@@ -7,12 +7,12 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:71a1d22adcae2f05a74632af2134b2dced2bcb42b3089af439d9bf995f47cc2a"
+    "seed_email_hash": "sha256:27ec1f809ac8cb5988171a7e6608e720ccb94ac31a8a7ec6ead9fa4395853ae8"
   },
   "triage": {
-    "lane": "hidden",
+    "lane": "informational",
     "confidence": 0.94,
-    "reasoning": "Receipt from Amazon. Filed for records, not action.",
+    "reasoning": "Receipt from Stripe. Filed for records, not action.",
     "signals": [
       {
         "name": "receipt_service_domain",
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from Amazon. Filed for records, not action."
+        "thought": "stub: category=receipt, lane=informational",
+        "output_snippet": "Receipt from Stripe. Filed for records, not action."
       }
     ],
     "tokens": {
-      "input": 70,
+      "input": 71,
       "output": 48
     },
-    "cost_usd_at_generation": 0.00465,
+    "cost_usd_at_generation": 0.004665,
     "latency_ms_live": 1200
   },
   "playback": {

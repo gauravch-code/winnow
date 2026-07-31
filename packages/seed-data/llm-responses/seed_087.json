@@ -7,24 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:8692962cecfc1d8190fdc68d9e69bcd015279645c9f726231bcd3c2d99ebaa5a"
+    "seed_email_hash": "sha256:4ac7f46a18fd902977208fbe57c58cf41e268a4e31576366a9a320cfff412343"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.86,
-    "reasoning": "Work correspondence from Jamal Wright. One-off message. Tier-1 was probably fine but the LLM confirms.",
+    "lane": "hidden",
+    "confidence": 0.96,
+    "reasoning": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
     "signals": [
       {
-        "name": "known_sender_domain",
-        "weight": 0.32
+        "name": "suspicious_tld",
+        "weight": 0.41
       },
       {
-        "name": "thread_depth_gt_1",
-        "weight": 0.18
+        "name": "urgency_words",
+        "weight": 0.28
       },
       {
-        "name": "direct_question",
-        "weight": 0.24
+        "name": "unknown_sender",
+        "weight": 0.19
       }
     ]
   },
@@ -40,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=work, lane=informational",
-        "output_snippet": "Work correspondence from Jamal Wright. One-off message. Tier-1 was probably fine but the LLM confirms."
+        "thought": "stub: category=spam, lane=hidden",
+        "output_snippet": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hi"
       }
     ],
     "tokens": {
-      "input": 81,
-      "output": 55
+      "input": 82,
+      "output": 56
     },
-    "cost_usd_at_generation": 0.00534,
+    "cost_usd_at_generation": 0.00543,
     "latency_ms_live": 1200
   },
   "playback": {

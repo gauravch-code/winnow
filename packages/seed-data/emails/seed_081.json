@@ -1,24 +1,22 @@
 {
   "id": "seed_081",
-  "sender_email": "priya@contoso.com",
-  "sender_name": "Priya Shah",
-  "sender_domain": "contoso.com",
+  "sender_email": "notifications@linear.app",
+  "sender_name": "Linear",
+  "sender_domain": "linear.app",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [
-      "sasha@contoso.com"
-    ],
+    "cc": [],
     "bcc": []
   },
-  "subject": "Quick question about onboarding revamp",
-  "body_text": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the phase 2 dependencies.",
-  "snippet": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the pha",
-  "received_at": "2026-07-05T23:40:00Z",
+  "subject": "[Q3 planning] Issue assigned to you",
+  "body_text": "You've been assigned a new issue. View in Linear.",
+  "snippet": "You've been assigned a new issue. View in Linear.",
+  "received_at": "2026-07-02T21:19:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "work",
-  "ground_truth_lane": "needs_you"
+  "category": "notification",
+  "ground_truth_lane": "informational"
 }

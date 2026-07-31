@@ -1,8 +1,8 @@
 {
   "id": "seed_187",
-  "sender_email": "ben@stratechery.com",
-  "sender_name": "Stratechery",
-  "sender_domain": "stratechery.com",
+  "sender_email": "crew@morningbrew.com",
+  "sender_name": "Morning Brew",
+  "sender_domain": "morningbrew.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,10 +10,10 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[Stratechery] vector DBs, one year later",
-  "body_text": "This week's issue: vector DBs, one year later.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: vector DBs, one year later.",
-  "received_at": "2026-07-07T17:57:00Z",
+  "subject": "[Morning Brew] what makes a great PM",
+  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: what makes a great PM.",
+  "received_at": "2026-07-14T18:34:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,

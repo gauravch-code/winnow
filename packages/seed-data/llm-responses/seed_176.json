@@ -7,24 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:d3134a037ec13bef56135e4f46a26c395c88dfc8a8afaae1515f8b46c3584f8b"
+    "seed_email_hash": "sha256:e37a44cc2d2f88cc00e2de3b8444f6bd40f373d98c646ceba39d24390b6004bd"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.96,
-    "reasoning": "Unsolicited message from SEO Growth. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
+    "lane": "informational",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Marcus Bell. One-off message. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "suspicious_tld",
-        "weight": 0.41
+        "name": "known_sender_domain",
+        "weight": 0.32
       },
       {
-        "name": "urgency_words",
-        "weight": 0.28
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
-        "name": "unknown_sender",
-        "weight": 0.19
+        "name": "direct_question",
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=spam, lane=hidden",
-        "output_snippet": "Unsolicited message from SEO Growth. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Marcus Bell. One-off message. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 79,
-      "output": 56
+      "input": 76,
+      "output": 55
     },
-    "cost_usd_at_generation": 0.005385,
+    "cost_usd_at_generation": 0.005265,
     "latency_ms_live": 1200
   },
   "playback": {

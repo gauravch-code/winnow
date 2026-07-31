@@ -1,8 +1,8 @@
 {
   "id": "seed_149",
-  "sender_email": "team@mail.notion.so",
-  "sender_name": "Notion",
-  "sender_domain": "notion.so",
+  "sender_email": "priya@globex.com",
+  "sender_name": "Priya Shah",
+  "sender_domain": "globex.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Tomas Brandt shared a document with you",
-  "body_text": "A document has been shared. Click to view.",
-  "snippet": "A document has been shared. Click to view.",
-  "received_at": "2026-07-14T08:47:00Z",
+  "subject": "Quick question about onboarding revamp",
+  "body_text": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the pha",
+  "received_at": "2026-07-13T05:12:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": true,
+  "has_unsubscribe": false,
   "is_reply": false,
-  "category": "notification",
+  "category": "work",
   "ground_truth_lane": "informational"
 }

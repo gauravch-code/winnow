@@ -7,12 +7,12 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:a5d333e40b6d78e427c4c110ef257aefb5fb1b459a971cd53c7df929b3d6fef3"
+    "seed_email_hash": "sha256:a49e50ea51d2d6d7ea9acd89db67f6dc11a535d7f47ceb9bac87ec07168026a6"
   },
   "triage": {
     "lane": "informational",
     "confidence": 0.88,
-    "reasoning": "Automated notification from Slack. Reader already sees this activity in the source app.",
+    "reasoning": "Automated notification from Linear. Reader already sees this activity in the source app.",
     "signals": [
       {
         "name": "notification_service_domain",
@@ -37,14 +37,14 @@
         "step": 1,
         "tool": null,
         "thought": "stub: category=notification, lane=informational",
-        "output_snippet": "Automated notification from Slack. Reader already sees this activity in the source app."
+        "output_snippet": "Automated notification from Linear. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 83,
+      "input": 75,
       "output": 53
     },
-    "cost_usd_at_generation": 0.00522,
+    "cost_usd_at_generation": 0.0051,
     "latency_ms_live": 1200
   },
   "playback": {

@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:a76003e0ef2c91056728730d7938730e7dfa0d4f4ac7ad670b7a7cd6065c02c6"
+    "seed_email_hash": "sha256:caa58d18823002eddd8caf3ff02c7b3f28be6c53f33adae26259076c996a2679"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.94,
-    "reasoning": "Receipt from Uber. Filed for records, not action.",
+    "lane": "informational",
+    "confidence": 0.9,
+    "reasoning": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself.",
     "signals": [
       {
-        "name": "receipt_service_domain",
-        "weight": 0.44
+        "name": "calendar_service",
+        "weight": 0.36
       },
       {
-        "name": "has_unsubscribe",
-        "weight": 0.16
+        "name": "automated_sender",
+        "weight": 0.22
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from Uber. Filed for records, not action."
+        "thought": "stub: category=calendar, lane=informational",
+        "output_snippet": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself."
       }
     ],
     "tokens": {
-      "input": 72,
-      "output": 48
+      "input": 76,
+      "output": 53
     },
-    "cost_usd_at_generation": 0.00468,
+    "cost_usd_at_generation": 0.005115,
     "latency_ms_live": 1200
   },
   "playback": {

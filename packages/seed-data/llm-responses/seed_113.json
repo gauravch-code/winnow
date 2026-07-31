@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:3a6f65081f9d1a10b25e9522d6718f8e2b386e1dd51c0fd004e2b2d4be171382"
+    "seed_email_hash": "sha256:c290665fb2df53a68c05f21eb6dcbcd6eac02de0b6d5d778fa3c6f416c7b6a1f"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.9,
-    "reasoning": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself.",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Linear. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "calendar_service",
-        "weight": 0.36
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
         "name": "automated_sender",
-        "weight": 0.22
+        "weight": 0.24
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=calendar, lane=informational",
-        "output_snippet": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Linear. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 80,
+      "input": 75,
       "output": 53
     },
-    "cost_usd_at_generation": 0.005175,
+    "cost_usd_at_generation": 0.0051,
     "latency_ms_live": 1200
   },
   "playback": {

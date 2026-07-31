@@ -7,12 +7,12 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:5d174a1d2ef80f309daf8d30b75dbd91104cf099d7ee926f0a0a9f4d67e8b5bd"
+    "seed_email_hash": "sha256:2e24571a96875b2e4571886377fb8d34ad2ea4481927af0e1242fc852bf9631d"
   },
   "triage": {
     "lane": "informational",
     "confidence": 0.91,
-    "reasoning": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action.",
+    "reasoning": "Newsletter from Stratechery. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
         "name": "has_unsubscribe",
@@ -37,14 +37,14 @@
         "step": 1,
         "tool": null,
         "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action."
+        "output_snippet": "Newsletter from Stratechery. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {
-      "input": 95,
-      "output": 57
+      "input": 92,
+      "output": 56
     },
-    "cost_usd_at_generation": 0.0057,
+    "cost_usd_at_generation": 0.00558,
     "latency_ms_live": 1200
   },
   "playback": {

@@ -7,20 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:fe3eb7218ae10c1f0cf99497b817af43455673b3138d05e9abb313ef4524dd5d"
+    "seed_email_hash": "sha256:21fa6af9faadf5ed151808e21fdf3aaf2c5551e005de39755d5da47d1a985911"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.94,
-    "reasoning": "Receipt from DoorDash. Filed for records, not action.",
+    "lane": "needs_you",
+    "confidence": 0.83,
+    "reasoning": "Personal note from Marcus Bell. Continues an existing thread. Reader would notice if this slipped through.",
     "signals": [
       {
-        "name": "receipt_service_domain",
-        "weight": 0.44
+        "name": "personal_domain",
+        "weight": 0.34
       },
       {
-        "name": "has_unsubscribe",
-        "weight": 0.16
+        "name": "direct_question",
+        "weight": 0.29
+      },
+      {
+        "name": "short_body",
+        "weight": 0.11
       }
     ]
   },
@@ -36,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from DoorDash. Filed for records, not action."
+        "thought": "stub: category=personal, lane=needs_you",
+        "output_snippet": "Personal note from Marcus Bell. Continues an existing thread. Reader would notice if this slipped through."
       }
     ],
     "tokens": {
-      "input": 72,
-      "output": 48
+      "input": 80,
+      "output": 56
     },
-    "cost_usd_at_generation": 0.00468,
+    "cost_usd_at_generation": 0.0054,
     "latency_ms_live": 1200
   },
   "playback": {

@@ -1,8 +1,8 @@
 {
   "id": "seed_173",
-  "sender_email": "priya@hey.com",
-  "sender_name": "Priya Shah",
-  "sender_domain": "hey.com",
+  "sender_email": "jack@importai.substack.com",
+  "sender_name": "Import AI",
+  "sender_domain": "substack.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "photos from last weekend",
-  "body_text": "finally uploaded them! link in signature. no rush to look.",
-  "snippet": "finally uploaded them! link in signature. no rush to look.",
-  "received_at": "2026-07-12T06:47:00Z",
+  "subject": "[Import AI] why one-on-ones are broken",
+  "body_text": "This week's issue: why one-on-ones are broken.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: why one-on-ones are broken.",
+  "received_at": "2026-07-12T20:17:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "personal",
+  "category": "newsletter",
   "ground_truth_lane": "informational"
 }

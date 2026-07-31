@@ -1,8 +1,8 @@
 {
   "id": "seed_101",
-  "sender_email": "calendar-notification@google.com",
-  "sender_name": "Google Calendar",
-  "sender_domain": "google.com",
+  "sender_email": "sasha@globex.com",
+  "sender_name": "Sasha Kim",
+  "sender_domain": "globex.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Invitation: auth migration sync @ Thu 2:00 PM",
-  "body_text": "Sasha Kim has invited you to 'auth migration sync'. Accept, Decline, or Maybe.",
-  "snippet": "Sasha Kim has invited you to 'auth migration sync'. Accept, Decline, or Maybe.",
-  "received_at": "2026-07-14T04:14:00Z",
-  "thread_depth": 1,
+  "subject": "Re: search reindex — comments by Thursday?",
+  "body_text": "Hey — could you leave your comments on the search reindex doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
+  "snippet": "Hey — could you leave your comments on the search reindex doc by end of Thursday? I want to circulate the revised draft ",
+  "received_at": "2026-07-10T22:27:00Z",
+  "thread_depth": 2,
   "has_unsubscribe": false,
-  "is_reply": false,
-  "category": "calendar",
-  "ground_truth_lane": "informational"
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
 }

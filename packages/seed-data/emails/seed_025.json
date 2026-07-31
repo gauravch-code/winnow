@@ -1,8 +1,8 @@
 {
   "id": "seed_025",
-  "sender_email": "auto-confirm@amazon.com",
-  "sender_name": "Amazon",
-  "sender_domain": "amazon.com",
+  "sender_email": "receipts@stripe.com",
+  "sender_name": "Stripe",
+  "sender_domain": "stripe.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Your Amazon.com order of item(s)",
-  "body_text": "Order total: $147.1\nArriving Friday.",
-  "snippet": "Order total: $147.1",
-  "received_at": "2026-07-08T04:11:00Z",
+  "subject": "Receipt from Acme Co #79471",
+  "body_text": "Amount charged: $112.7\nCard ending 4242.",
+  "snippet": "Amount charged: $112.7",
+  "received_at": "2026-07-03T12:12:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,
   "category": "receipt",
-  "ground_truth_lane": "hidden"
+  "ground_truth_lane": "informational"
 }

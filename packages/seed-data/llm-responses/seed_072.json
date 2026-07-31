@@ -7,24 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:f66906b706e2529fa0682ba34608e1ca2e9ae26671ab5899ae9cc9263700bf53"
+    "seed_email_hash": "sha256:caa762fb1e1c7342906285dfa328e0f1f95708402e4118e2339ce9f13e811818"
   },
   "triage": {
-    "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Marcus Bell. Continues an existing thread. Reader would notice if this slipped through.",
+    "lane": "informational",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Slack. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "name": "automated_sender",
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Marcus Bell. Continues an existing thread. Reader would notice if this slipped through."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Slack. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 80,
-      "output": 56
+      "input": 83,
+      "output": 53
     },
-    "cost_usd_at_generation": 0.0054,
+    "cost_usd_at_generation": 0.00522,
     "latency_ms_live": 1200
   },
   "playback": {

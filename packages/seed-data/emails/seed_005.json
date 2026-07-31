@@ -1,8 +1,8 @@
 {
   "id": "seed_005",
-  "sender_email": "jamal@northwind.com",
-  "sender_name": "Jamal Wright",
-  "sender_domain": "northwind.com",
+  "sender_email": "newsletter@pragmaticengineer.com",
+  "sender_name": "The Pragmatic Engineer",
+  "sender_domain": "pragmaticengineer.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Quick question about search reindex",
-  "body_text": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase 2 dependencies.",
-  "snippet": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase ",
-  "received_at": "2026-07-10T07:23:00Z",
+  "subject": "[The Pragmatic Engineer] the incident that changed our on-call",
+  "body_text": "This week's issue: the incident that changed our on-call.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: the incident that changed our on-call.",
+  "received_at": "2026-07-05T17:58:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "work",
-  "ground_truth_lane": "needs_you"
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
 }

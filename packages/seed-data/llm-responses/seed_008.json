@@ -7,32 +7,32 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:74a1c6520d30ba1cc3a158cab3296f7ab2c2e8acb1932ae3222b325edb9a86fc"
+    "seed_email_hash": "sha256:aceb3f156dff1ba157f41bb3563b0c51631f71937206fa8a892af198f111317b"
   },
   "triage": {
     "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Priya Shah. Contains a direct ask. Reader would notice if this slipped through.",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Elena Rossi. Contains a direct ask. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "known_sender_domain",
+        "weight": 0.32
+      },
+      {
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
         "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "weight": 0.24
       }
     ]
   },
   "draft_reply": {
     "included": true,
-    "subject": "Re: dinner Saturday?",
-    "body_markdown": "Hi Priya,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
-    "tone": "warm",
+    "subject": "Re: Quick question about auth migration",
+    "body_markdown": "Hi Elena,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
+    "tone": "collegial",
     "assumptions": [
       "User can respond to this specific request without more context"
     ]
@@ -42,15 +42,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Priya Shah. Contains a direct ask. Reader would notice if this slipped through."
+        "thought": "stub: category=work, lane=needs_you",
+        "output_snippet": "Work correspondence from Elena Rossi. Contains a direct ask. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 81,
-      "output": 56
+      "input": 91,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.005415,
+    "cost_usd_at_generation": 0.00564,
     "latency_ms_live": 1200
   },
   "playback": {

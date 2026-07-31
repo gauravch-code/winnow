@@ -1,8 +1,8 @@
 {
   "id": "seed_129",
-  "sender_email": "kenji@umbrella.com",
-  "sender_name": "Kenji Ito",
-  "sender_domain": "umbrella.com",
+  "sender_email": "jack@importai.substack.com",
+  "sender_name": "Import AI",
+  "sender_domain": "substack.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Re: billing v2 — comments by Thursday?",
-  "body_text": "Hey — could you leave your comments on the billing v2 doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
-  "snippet": "Hey — could you leave your comments on the billing v2 doc by end of Thursday? I want to circulate the revised draft on F",
-  "received_at": "2026-07-13T07:11:00Z",
-  "thread_depth": 2,
-  "has_unsubscribe": false,
-  "is_reply": true,
-  "category": "work",
-  "ground_truth_lane": "needs_you"
+  "subject": "[Import AI] what makes a great PM",
+  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: what makes a great PM.",
+  "received_at": "2026-07-14T08:59:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
 }

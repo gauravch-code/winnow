@@ -7,24 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:4c4763c1db3f67573e790de2dc7585000261e98f70e66cd91e85fcb3385dcba4"
+    "seed_email_hash": "sha256:46ca2bc1b761d2ddf20c56b527d8ba55f4a0c75f7e773c852a8f411e1d33b967"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.96,
-    "reasoning": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
+    "lane": "informational",
+    "confidence": 0.94,
+    "reasoning": "Receipt from DoorDash. Filed for records, not action.",
     "signals": [
       {
-        "name": "suspicious_tld",
-        "weight": 0.41
+        "name": "receipt_service_domain",
+        "weight": 0.44
       },
       {
-        "name": "urgency_words",
-        "weight": 0.28
-      },
-      {
-        "name": "unknown_sender",
-        "weight": 0.19
+        "name": "has_unsubscribe",
+        "weight": 0.16
       }
     ]
   },
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=spam, lane=hidden",
-        "output_snippet": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hi"
+        "thought": "stub: category=receipt, lane=informational",
+        "output_snippet": "Receipt from DoorDash. Filed for records, not action."
       }
     ],
     "tokens": {
-      "input": 84,
-      "output": 56
+      "input": 72,
+      "output": 48
     },
-    "cost_usd_at_generation": 0.00546,
+    "cost_usd_at_generation": 0.00468,
     "latency_ms_live": 1200
   },
   "playback": {

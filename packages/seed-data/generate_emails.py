@@ -346,6 +346,38 @@ GENERATORS = {
 }
 
 
+# One-step lane neighbors for the ambiguity pass. We never jump
+# needs_you <-> hidden (that would be an absurd label); only adjacent
+# lanes, which keeps every flipped label defensible.
+_NEIGHBOR: dict[Lane, list[Lane]] = {
+    "needs_you": ["informational"],
+    "hidden": ["informational"],
+    "informational": ["needs_you", "hidden"],
+}
+
+
+def _inject_ambiguity(
+    emails: list[SeedEmail], rng: random.Random, fraction: float = 0.15
+) -> list[SeedEmail]:
+    """Reassign a deterministic fraction of emails to a plausible neighbor lane.
+
+    Real triage is full of genuinely borderline mail: an "FYI" that's
+    secretly a soft ask, a newsletter you actually act on, a receipt you
+    want to keep visible. Without this, the synthetic corpus is trivially
+    separable and every model scores a meaningless 100%. Flipping ~15% to
+    an adjacent lane gives the classifier real boundaries to be uncertain
+    about — so accuracy, confidence, and tier-2 escalation all become
+    realistic. Spam is left alone (it's an unambiguous signal).
+    """
+    eligible = [i for i, e in enumerate(emails) if e.category != "spam"]
+    n = int(len(emails) * fraction)
+    for i in rng.sample(eligible, min(n, len(eligible))):
+        e = emails[i]
+        new_lane = rng.choice(_NEIGHBOR[e.ground_truth_lane])
+        emails[i] = e.model_copy(update={"ground_truth_lane": new_lane})
+    return emails
+
+
 def main() -> None:
     rng = _rng()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -360,6 +392,9 @@ def main() -> None:
         for _ in range(count):
             emails.append(GENERATORS[category](rng, idx))
             idx += 1
+
+    # Make the corpus realistically hard (see docstring).
+    emails = _inject_ambiguity(emails, rng, fraction=0.08)
 
     # Shuffle so the ID order doesn't correlate with category — otherwise
     # the demo's "first 40" would all be newsletters.

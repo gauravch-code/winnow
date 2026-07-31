@@ -7,24 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:2e60ed54e8e1137d4185e174fe4d62db0605955dac11c920db271c24f9bf0162"
+    "seed_email_hash": "sha256:15debcae61d56e334ffaf6ce433075e6614e528ca14d70a1a33762c4f8fb3c01"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.96,
-    "reasoning": "Unsolicited message from HR at BigCo. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
+    "lane": "informational",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Jamal Wright. One-off message. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "suspicious_tld",
-        "weight": 0.41
+        "name": "known_sender_domain",
+        "weight": 0.32
       },
       {
-        "name": "urgency_words",
-        "weight": 0.28
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
-        "name": "unknown_sender",
-        "weight": 0.19
+        "name": "direct_question",
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=spam, lane=hidden",
-        "output_snippet": "Unsolicited message from HR at BigCo. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Jamal Wright. One-off message. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 84,
-      "output": 57
+      "input": 76,
+      "output": 55
     },
-    "cost_usd_at_generation": 0.005535,
+    "cost_usd_at_generation": 0.005265,
     "latency_ms_live": 1200
   },
   "playback": {

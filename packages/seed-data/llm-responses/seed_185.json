@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:bd6db762da01aeb7e2f8b06e38bb36e599ee7a6f8368760cc9df0d13331f6f11"
+    "seed_email_hash": "sha256:9345abe394d4d4329469ad76f8513ad18500575d2cc80b54a9272dc9b73acfcd"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.91,
-    "reasoning": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action.",
+    "lane": "hidden",
+    "confidence": 0.94,
+    "reasoning": "Receipt from Uber. Filed for records, not action.",
     "signals": [
       {
-        "name": "has_unsubscribe",
-        "weight": 0.42
+        "name": "receipt_service_domain",
+        "weight": 0.44
       },
       {
-        "name": "marketing_domain",
-        "weight": 0.27
+        "name": "has_unsubscribe",
+        "weight": 0.16
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=receipt, lane=hidden",
+        "output_snippet": "Receipt from Uber. Filed for records, not action."
       }
     ],
     "tokens": {
-      "input": 91,
-      "output": 57
+      "input": 72,
+      "output": 48
     },
-    "cost_usd_at_generation": 0.00564,
+    "cost_usd_at_generation": 0.00468,
     "latency_ms_live": 1200
   },
   "playback": {

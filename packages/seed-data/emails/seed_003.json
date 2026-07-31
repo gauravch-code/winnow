@@ -1,8 +1,8 @@
 {
   "id": "seed_003",
-  "sender_email": "winner@lucky-token-airdrop.xyz",
-  "sender_name": "Crypto Winners",
-  "sender_domain": "lucky-token-airdrop.xyz",
+  "sender_email": "tomas@gmail.com",
+  "sender_name": "Tomas Brandt",
+  "sender_domain": "gmail.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Boost your SEO by 300% — free consultation",
-  "body_text": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
-  "snippet": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
-  "received_at": "2026-07-11T11:42:00Z",
+  "subject": "did you see this?",
+  "body_text": "sent you an article, curious what you think when you get a chance",
+  "snippet": "sent you an article, curious what you think when you get a chance",
+  "received_at": "2026-07-05T23:15:00Z",
   "thread_depth": 1,
   "has_unsubscribe": false,
   "is_reply": false,
-  "category": "spam",
-  "ground_truth_lane": "hidden"
+  "category": "personal",
+  "ground_truth_lane": "needs_you"
 }

@@ -1,24 +1,22 @@
 {
   "id": "seed_191",
-  "sender_email": "diego@northwind.com",
-  "sender_name": "Diego Alvarez",
-  "sender_domain": "northwind.com",
+  "sender_email": "priya@hey.com",
+  "sender_name": "Priya Shah",
+  "sender_domain": "hey.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [
-      "sasha@northwind.com"
-    ],
+    "cc": [],
     "bcc": []
   },
-  "subject": "Quick question about auth migration",
-  "body_text": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase 2 dependencies.",
-  "snippet": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase ",
-  "received_at": "2026-07-11T08:04:00Z",
+  "subject": "photos from last weekend",
+  "body_text": "finally uploaded them! link in signature. no rush to look.",
+  "snippet": "finally uploaded them! link in signature. no rush to look.",
+  "received_at": "2026-07-12T06:47:00Z",
   "thread_depth": 1,
   "has_unsubscribe": false,
   "is_reply": false,
-  "category": "work",
-  "ground_truth_lane": "needs_you"
+  "category": "personal",
+  "ground_truth_lane": "informational"
 }

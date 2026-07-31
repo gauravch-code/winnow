@@ -1,8 +1,8 @@
 {
   "id": "seed_059",
-  "sender_email": "newsletter@pragmaticengineer.com",
-  "sender_name": "The Pragmatic Engineer",
-  "sender_domain": "pragmaticengineer.com",
+  "sender_email": "winner@lucky-token-airdrop.xyz",
+  "sender_name": "Crypto Winners",
+  "sender_domain": "lucky-token-airdrop.xyz",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[The Pragmatic Engineer] the incident that changed our on-call",
-  "body_text": "This week's issue: the incident that changed our on-call.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: the incident that changed our on-call.",
-  "received_at": "2026-07-05T17:58:00Z",
+  "subject": "Boost your SEO by 300% — free consultation",
+  "body_text": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
+  "snippet": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
+  "received_at": "2026-07-11T11:42:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": true,
+  "has_unsubscribe": false,
   "is_reply": false,
-  "category": "newsletter",
-  "ground_truth_lane": "informational"
+  "category": "spam",
+  "ground_truth_lane": "hidden"
 }

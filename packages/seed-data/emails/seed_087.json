@@ -1,8 +1,8 @@
 {
   "id": "seed_087",
-  "sender_email": "jamal@initech.com",
-  "sender_name": "Jamal Wright",
-  "sender_domain": "initech.com",
+  "sender_email": "winner@lucky-token-airdrop.xyz",
+  "sender_name": "Crypto Winners",
+  "sender_domain": "lucky-token-airdrop.xyz",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "auth migration: meeting notes",
-  "body_text": "Notes from the auth migration sync are attached. No action items for you — sharing for visibility.",
-  "snippet": "Notes from the auth migration sync are attached. No action items for you — sharing for visibility.",
-  "received_at": "2026-07-11T08:59:00Z",
+  "subject": "You've been selected — claim your $500 airdrop",
+  "body_text": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
+  "snippet": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
+  "received_at": "2026-07-14T16:18:00Z",
   "thread_depth": 1,
   "has_unsubscribe": false,
   "is_reply": false,
-  "category": "work",
-  "ground_truth_lane": "informational"
+  "category": "spam",
+  "ground_truth_lane": "hidden"
 }

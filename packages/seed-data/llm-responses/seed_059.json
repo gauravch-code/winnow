@@ -7,20 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:d5a50f6249b7a7ec749d0fca7219f9102a512720acc77a363040915aab763204"
+    "seed_email_hash": "sha256:8547aab724e9f4373282291be0a37c6316a1bbd637ed0bcfddc39c16043b51af"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.91,
-    "reasoning": "Newsletter from The Pragmatic Engineer. Subscribed content — worth existing in the inbox but does not require action.",
+    "lane": "hidden",
+    "confidence": 0.96,
+    "reasoning": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
     "signals": [
       {
-        "name": "has_unsubscribe",
-        "weight": 0.42
+        "name": "suspicious_tld",
+        "weight": 0.41
       },
       {
-        "name": "marketing_domain",
-        "weight": 0.27
+        "name": "urgency_words",
+        "weight": 0.28
+      },
+      {
+        "name": "unknown_sender",
+        "weight": 0.19
       }
     ]
   },
@@ -36,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from The Pragmatic Engineer. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=spam, lane=hidden",
+        "output_snippet": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hi"
       }
     ],
     "tokens": {
-      "input": 96,
-      "output": 58
+      "input": 84,
+      "output": 56
     },
-    "cost_usd_at_generation": 0.00579,
+    "cost_usd_at_generation": 0.00546,
     "latency_ms_live": 1200
   },
   "playback": {

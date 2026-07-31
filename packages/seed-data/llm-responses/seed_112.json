@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:b78df5c0ba9ae473dbe25a619bf363cc354f9e83641528c1268cfde98a3487a9"
+    "seed_email_hash": "sha256:0669a268dba2fbbaba3e0c436801df80eb4a146f7ee647e3be9c1db124a2ed59"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.88,
-    "reasoning": "Automated notification from Google Drive. Reader already sees this activity in the source app.",
+    "confidence": 0.9,
+    "reasoning": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself.",
     "signals": [
       {
-        "name": "notification_service_domain",
-        "weight": 0.38
+        "name": "calendar_service",
+        "weight": 0.36
       },
       {
         "name": "automated_sender",
-        "weight": 0.24
+        "weight": 0.22
       }
     ]
   },
@@ -36,13 +36,13 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=notification, lane=informational",
-        "output_snippet": "Automated notification from Google Drive. Reader already sees this activity in the source app."
+        "thought": "stub: category=calendar, lane=informational",
+        "output_snippet": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself."
       }
     ],
     "tokens": {
-      "input": 75,
-      "output": 54
+      "input": 80,
+      "output": 53
     },
     "cost_usd_at_generation": 0.005175,
     "latency_ms_live": 1200

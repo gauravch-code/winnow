@@ -1,8 +1,8 @@
 {
   "id": "seed_037",
-  "sender_email": "yara@northwind.com",
-  "sender_name": "Yara Haddad",
-  "sender_domain": "northwind.com",
+  "sender_email": "team@mail.notion.so",
+  "sender_name": "Notion",
+  "sender_domain": "notion.so",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "FYI: billing v2 weekly digest",
-  "body_text": "Weekly rollup for billing v2. Nothing needs your input this week.",
-  "snippet": "Weekly rollup for billing v2. Nothing needs your input this week.",
-  "received_at": "2026-07-03T18:05:00Z",
+  "subject": "Kenji Ito shared a document with you",
+  "body_text": "A document has been shared. Click to view.",
+  "snippet": "A document has been shared. Click to view.",
+  "received_at": "2026-07-07T12:58:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "work",
+  "category": "notification",
   "ground_truth_lane": "informational"
 }

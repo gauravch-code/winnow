@@ -1,6 +1,6 @@
 # Winnow evals
 
-_Generated 2026-07-18T21:39:55.201410+00:00 · held-out test set: 60 emails (30% of the synthetic corpus, seed 42) · tiered threshold 0.75._
+_Generated 2026-07-31T15:20:05.341159+00:00 · held-out test set: 60 emails (30% of the synthetic corpus, seed 42) · tiered threshold 0.75._
 
 > ⚠️ **Tier-2 is stubbed in this run.** The LLM fixtures are rule-based placeholders whose lanes mirror ground truth, so the **accuracy** columns for _Pure LLM_ and _Tiered_ are not meaningful. **Latency and cost are modeled** from token counts at Claude Opus pricing. Classifier accuracy, escalation rate, and all timing/cost figures are real.
 
@@ -8,9 +8,9 @@ _Generated 2026-07-18T21:39:55.201410+00:00 · held-out test set: 60 emails (30%
 
 | Strategy | Accuracy | Macro-F1 | Mean latency | p95 latency | Cost / 1000 | Escalated |
 |---|---|---|---|---|---|---|
-| Pure classifier (tier-1 only) | 100.0% | 1.000 | 4.6 ms | 4.6 ms | $0.0000 | 0.0% |
-| Pure LLM (tier-2 only) | 100.0% | 1.000 | 1.20 s | 1.20 s | $5.3012 | 100.0% |
-| Tiered (Winnow) | 100.0% | 1.000 | 5.1 ms | 5.1 ms | $0.0000 | 0.0% |
+| Pure classifier (tier-1 only) | 86.7% | 0.855 | 3.7 ms | 3.7 ms | $0.0000 | 0.0% |
+| Pure LLM (tier-2 only) | 100.0% | 1.000 | 1.20 s | 1.20 s | $5.2995 | 100.0% |
+| Tiered (Winnow) | 88.3% | 0.875 | 103.8 ms | 1.20 s | $0.4072 | 8.3% |
 
 ## Threshold selection
 
@@ -18,20 +18,20 @@ How the tiered strategy behaves as the tier-1 confidence threshold moves. Higher
 
 | Threshold | Escalated | Accuracy | Macro-F1 | Cost / 1000 | Mean latency |
 |---|---|---|---|---|---|
-| 0.75 | 0.0% | 100.0% | 1.000 | $0.0000 | 5.3 ms |
-| 0.99 | 0.0% | 100.0% | 1.000 | $0.0000 | 4.7 ms |
-| 0.995 | 10.0% | 100.0% | 1.000 | $0.5307 | 127.2 ms |
-| 0.999 | 86.7% | 100.0% | 1.000 | $4.6082 | 1.05 s |
-| 0.9995 | 98.3% | 100.0% | 1.000 | $5.2088 | 1.19 s |
-| 0.9999 | 100.0% | 100.0% | 1.000 | $5.3012 | 1.21 s |
+| 0.75 | 8.3% | 88.3% | 0.875 | $0.4072 | 103.6 ms |
+| 0.99 | 38.3% | 93.3% | 0.926 | $2.0100 | 463.6 ms |
+| 0.995 | 50.0% | 95.0% | 0.944 | $2.6290 | 603.8 ms |
+| 0.999 | 63.3% | 95.0% | 0.944 | $3.3245 | 763.8 ms |
+| 0.9995 | 78.3% | 96.7% | 0.963 | $4.1348 | 943.8 ms |
+| 0.9999 | 93.3% | 98.3% | 0.982 | $4.9437 | 1.12 s |
 
 ## Per-lane breakdown (tiered)
 
 | Lane | Precision | Recall | F1 | Support |
 |---|---|---|---|---|
-| needs_you | 1.000 | 1.000 | 1.000 | 11 |
-| informational | 1.000 | 1.000 | 1.000 | 37 |
-| hidden | 1.000 | 1.000 | 1.000 | 12 |
+| needs_you | 0.786 | 1.000 | 0.880 | 11 |
+| informational | 0.969 | 0.838 | 0.899 | 37 |
+| hidden | 0.786 | 0.917 | 0.846 | 12 |
 
 ## Notes
 

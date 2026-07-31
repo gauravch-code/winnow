@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:79804c70d252b4de559bb5fc5ab818ab994d335f9f0ef5e9e2133e13c8b50a76"
+    "seed_email_hash": "sha256:af1092c10671ce9c11466b3d16844afc948b86dd839bd85db174c7253fa4ac22"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.91,
-    "reasoning": "Newsletter from The Pragmatic Engineer. Subscribed content — worth existing in the inbox but does not require action.",
+    "lane": "needs_you",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Google Drive. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "has_unsubscribe",
-        "weight": 0.42
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "marketing_domain",
-        "weight": 0.27
+        "name": "automated_sender",
+        "weight": 0.24
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from The Pragmatic Engineer. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=notification, lane=needs_you",
+        "output_snippet": "Automated notification from Google Drive. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 96,
-      "output": 58
+      "input": 75,
+      "output": 54
     },
-    "cost_usd_at_generation": 0.00579,
+    "cost_usd_at_generation": 0.005175,
     "latency_ms_live": 1200
   },
   "playback": {

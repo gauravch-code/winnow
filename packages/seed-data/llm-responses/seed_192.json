@@ -7,24 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:d0c120983abf13cd3134938bce5ecd1d3bd80d82d726255881c91b6ea10033a3"
+    "seed_email_hash": "sha256:02938a0997026603ac899017687074917aa110095f3fb1e10ccefbaec17afe89"
   },
   "triage": {
     "lane": "hidden",
-    "confidence": 0.96,
-    "reasoning": "Unsolicited message from SEO Growth. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Slack. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "suspicious_tld",
-        "weight": 0.41
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "urgency_words",
-        "weight": 0.28
-      },
-      {
-        "name": "unknown_sender",
-        "weight": 0.19
+        "name": "automated_sender",
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=spam, lane=hidden",
-        "output_snippet": "Unsolicited message from SEO Growth. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide."
+        "thought": "stub: category=notification, lane=hidden",
+        "output_snippet": "Automated notification from Slack. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 79,
-      "output": 56
+      "input": 83,
+      "output": 53
     },
-    "cost_usd_at_generation": 0.005385,
+    "cost_usd_at_generation": 0.00522,
     "latency_ms_live": 1200
   },
   "playback": {

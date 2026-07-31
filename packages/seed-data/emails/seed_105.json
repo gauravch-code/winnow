@@ -1,8 +1,8 @@
 {
   "id": "seed_105",
-  "sender_email": "receipts@stripe.com",
-  "sender_name": "Stripe",
-  "sender_domain": "stripe.com",
+  "sender_email": "hi@lennysnewsletter.com",
+  "sender_name": "Lenny's Newsletter",
+  "sender_domain": "lennysnewsletter.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Receipt from Acme Co #47581",
-  "body_text": "Amount charged: $27.77\nCard ending 4242.",
-  "snippet": "Amount charged: $27.77",
-  "received_at": "2026-07-09T15:12:00Z",
+  "subject": "[Lenny's Newsletter] the incident that changed our on-call",
+  "body_text": "This week's issue: the incident that changed our on-call.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: the incident that changed our on-call.",
+  "received_at": "2026-07-04T01:17:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,
-  "category": "receipt",
-  "ground_truth_lane": "hidden"
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
 }

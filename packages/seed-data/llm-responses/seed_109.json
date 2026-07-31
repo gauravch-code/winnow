@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:9ac7d02475aa9d056fecaa9f19d37b36e6ecdacc275d1abed3eb188ca6c4024e"
+    "seed_email_hash": "sha256:c6c4223fe5ca03d3f7a14810653a5662d213fe09fff5a725213b5f8640647bf8"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.94,
-    "reasoning": "Receipt from Uber. Filed for records, not action.",
+    "lane": "informational",
+    "confidence": 0.91,
+    "reasoning": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
-        "name": "receipt_service_domain",
-        "weight": 0.44
+        "name": "has_unsubscribe",
+        "weight": 0.42
       },
       {
-        "name": "has_unsubscribe",
-        "weight": 0.16
+        "name": "marketing_domain",
+        "weight": 0.27
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from Uber. Filed for records, not action."
+        "thought": "stub: category=newsletter, lane=informational",
+        "output_snippet": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {
-      "input": 72,
-      "output": 48
+      "input": 93,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.00468,
+    "cost_usd_at_generation": 0.00567,
     "latency_ms_live": 1200
   },
   "playback": {

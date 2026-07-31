@@ -1,7 +1,7 @@
 {
   "id": "seed_128",
-  "sender_email": "drive-shares-noreply@google.com",
-  "sender_name": "Google Drive",
+  "sender_email": "calendar-notification@google.com",
+  "sender_name": "Google Calendar",
   "sender_domain": "google.com",
   "recipients": {
     "to": [
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Elena Rossi shared a document with you",
-  "body_text": "A document has been shared. Click to view.",
-  "snippet": "A document has been shared. Click to view.",
-  "received_at": "2026-07-09T00:10:00Z",
+  "subject": "Updated: 1:1 with Marcus Bell",
+  "body_text": "The event '1:1 with Marcus Bell' has been moved to next Tuesday at 3 PM.",
+  "snippet": "The event '1:1 with Marcus Bell' has been moved to next Tuesday at 3 PM.",
+  "received_at": "2026-07-03T15:20:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": true,
+  "has_unsubscribe": false,
   "is_reply": false,
-  "category": "notification",
+  "category": "calendar",
   "ground_truth_lane": "informational"
 }

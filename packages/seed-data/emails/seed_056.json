@@ -1,22 +1,24 @@
 {
   "id": "seed_056",
-  "sender_email": "calendar-notification@google.com",
-  "sender_name": "Google Calendar",
-  "sender_domain": "google.com",
+  "sender_email": "priya@contoso.com",
+  "sender_name": "Priya Shah",
+  "sender_domain": "contoso.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [],
+    "cc": [
+      "sasha@contoso.com"
+    ],
     "bcc": []
   },
-  "subject": "Invitation: Q3 planning sync @ Thu 2:00 PM",
-  "body_text": "Elena Rossi has invited you to 'Q3 planning sync'. Accept, Decline, or Maybe.",
-  "snippet": "Elena Rossi has invited you to 'Q3 planning sync'. Accept, Decline, or Maybe.",
-  "received_at": "2026-07-13T11:43:00Z",
+  "subject": "Quick question about onboarding revamp",
+  "body_text": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the onboarding revamp rollout plan? I want to make sure I understand the pha",
+  "received_at": "2026-07-05T23:40:00Z",
   "thread_depth": 1,
   "has_unsubscribe": false,
   "is_reply": false,
-  "category": "calendar",
-  "ground_truth_lane": "informational"
+  "category": "work",
+  "ground_truth_lane": "needs_you"
 }

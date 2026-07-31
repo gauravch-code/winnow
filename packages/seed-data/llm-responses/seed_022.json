@@ -7,19 +7,23 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:c412a34896a96f59a6a6b9d6364e60c3a339b4fdb71c0f830964ea5f7c9aad42"
+    "seed_email_hash": "sha256:c12f6146ddf0f407e2fee072046454c69a7530ab846feebe1289fbd1dc3d44df"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.88,
-    "reasoning": "Automated notification from Linear. Reader already sees this activity in the source app.",
+    "lane": "hidden",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Diego Alvarez. One-off message. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "notification_service_domain",
-        "weight": 0.38
+        "name": "known_sender_domain",
+        "weight": 0.32
       },
       {
-        "name": "automated_sender",
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
+      },
+      {
+        "name": "direct_question",
         "weight": 0.24
       }
     ]
@@ -36,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=notification, lane=informational",
-        "output_snippet": "Automated notification from Linear. Reader already sees this activity in the source app."
+        "thought": "stub: category=work, lane=hidden",
+        "output_snippet": "Work correspondence from Diego Alvarez. One-off message. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 75,
-      "output": 53
+      "input": 76,
+      "output": 55
     },
-    "cost_usd_at_generation": 0.0051,
+    "cost_usd_at_generation": 0.005265,
     "latency_ms_live": 1200
   },
   "playback": {

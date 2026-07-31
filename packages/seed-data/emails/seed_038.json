@@ -1,22 +1,24 @@
 {
   "id": "seed_038",
-  "sender_email": "diego@hey.com",
-  "sender_name": "Diego Alvarez",
-  "sender_domain": "hey.com",
+  "sender_email": "marcus@acme.com",
+  "sender_name": "Marcus Bell",
+  "sender_domain": "acme.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [],
+    "cc": [
+      "nadia@acme.com"
+    ],
     "bcc": []
   },
-  "subject": "did you see this?",
-  "body_text": "sent you an article, curious what you think when you get a chance",
-  "snippet": "sent you an article, curious what you think when you get a chance",
-  "received_at": "2026-07-12T10:33:00Z",
-  "thread_depth": 1,
+  "subject": "Re: billing v2 — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-04T17:23:00Z",
+  "thread_depth": 3,
   "has_unsubscribe": false,
-  "is_reply": false,
-  "category": "personal",
-  "ground_truth_lane": "needs_you"
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "informational"
 }

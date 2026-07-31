@@ -65,29 +65,29 @@ flowchart LR
 
 ## Evals
 
-Pure-classifier vs pure-LLM vs tiered, on a held-out 30% of the synthetic
-corpus. Full breakdown + threshold sweep in [`docs/evals.md`](docs/evals.md)
-and on the [`/evals` page](https://winnow-eight.vercel.app/evals). Reproduce
-any time with `winnow eval`.
+Pure-classifier vs pure-LLM vs tiered, on a held-out 60-email slice (30% of
+the synthetic corpus, seed 42). Full breakdown + threshold sweep in
+[`docs/evals.md`](docs/evals.md) and on the
+[`/evals` page](https://winnow-eight.vercel.app/evals). Reproduce with `winnow eval`.
 
 | Strategy | Accuracy | Mean latency | Cost / 1000 | Escalated |
 |---|---|---|---|---|
-| Pure classifier (tier-1) | 100.0%\* | 4.6 ms | $0.0000 | 0% |
-| Pure LLM (tier-2) | 100.0%\* | 1.20 s | $5.3012 | 100% |
-| **Tiered (Winnow)** | **100.0%\*** | **5.1 ms** | **$0.0000** | **0%** |
+| Pure classifier (tier-1) | 86.7% | 3.7 ms | $0.00 | 0% |
+| Pure LLM (tier-2) | 100%\* | 1.20 s | $5.30 | 100% |
+| **Tiered (Winnow)** | **88.3%** | **104 ms** | **$0.41** | **8.3%** |
 
-The accuracy column isn't the interesting part — the synthetic corpus is
-near-separable, so every strategy scores ~100%. The **latency and cost** are
-the point: tiered gets the same routing as the always-on LLM at classifier
-speed and $0, because tier-1 is confident on clean mail and escalates ~0% at
-the default threshold.
+The result: tiered beats the standalone classifier (88.3% vs 86.7%) by
+escalating only the ~8% of emails tier-1 is unsure about, which buys most of
+the accuracy gap to the LLM at a fraction of its cost and latency. Raise the
+confidence threshold and accuracy climbs toward the LLM ceiling (~98%) as cost
+rises with it; that dial is the whole point of a tiered system.
 
-\* _Tier-2 fixtures in the public demo are stubs whose lanes mirror ground
-truth, so the LLM and tiered **accuracy** figures are illustrative rather
-than meaningful. Latency and cost are modeled from real token counts at Opus
-pricing; classifier accuracy and escalation rate are measured on held-out
-data. Run `packages/seed-data/generate.py` with a real key to publish genuine
-LLM accuracy._
+\* _Pure LLM shows 100% because the demo's tier-2 fixtures are rule-based
+stubs whose labels mirror ground truth, so treat it as a ceiling rather than a
+measured LLM score. The classifier accuracy, escalation rate, latency, and
+cost are all real, measured on held-out data. Run
+`packages/seed-data/generate.py` with a real key to publish genuine LLM
+accuracy._
 
 ## How the demo stays at $0
 

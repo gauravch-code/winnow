@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:1bdf8a77fd74d4b68ee5d9c5565f4f52af63c0e618fe151bbce7f3fb5b5ce149"
+    "seed_email_hash": "sha256:d1e2ccb9a18f32cdc1a78e4a63bd35717f315b33649840d6e7abe813a5e3866e"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.91,
-    "reasoning": "Newsletter from Stratechery. Subscribed content — worth existing in the inbox but does not require action.",
+    "confidence": 0.9,
+    "reasoning": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself.",
     "signals": [
       {
-        "name": "has_unsubscribe",
-        "weight": 0.42
+        "name": "calendar_service",
+        "weight": 0.36
       },
       {
-        "name": "marketing_domain",
-        "weight": 0.27
+        "name": "automated_sender",
+        "weight": 0.22
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from Stratechery. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=calendar, lane=informational",
+        "output_snippet": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself."
       }
     ],
     "tokens": {
-      "input": 92,
-      "output": 56
+      "input": 76,
+      "output": 53
     },
-    "cost_usd_at_generation": 0.00558,
+    "cost_usd_at_generation": 0.005115,
     "latency_ms_live": 1200
   },
   "playback": {

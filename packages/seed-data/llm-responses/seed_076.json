@@ -7,19 +7,23 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:eee2690c8603a09b9b8666016ab8743ecd20205bc0e8ced29b41df0c84db523e"
+    "seed_email_hash": "sha256:a0dfa368a2c5c7ca18686ca0a1296683b919c479da3222b13de9c7b7addad555"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.88,
-    "reasoning": "Automated notification from Notion. Reader already sees this activity in the source app.",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Yara Haddad. Continues an existing thread. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "notification_service_domain",
-        "weight": 0.38
+        "name": "known_sender_domain",
+        "weight": 0.32
       },
       {
-        "name": "automated_sender",
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
+      },
+      {
+        "name": "direct_question",
         "weight": 0.24
       }
     ]
@@ -36,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=notification, lane=informational",
-        "output_snippet": "Automated notification from Notion. Reader already sees this activity in the source app."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Yara Haddad. Continues an existing thread. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 75,
-      "output": 53
+      "input": 71,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.0051,
+    "cost_usd_at_generation": 0.00534,
     "latency_ms_live": 1200
   },
   "playback": {

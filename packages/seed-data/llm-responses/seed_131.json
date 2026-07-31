@@ -7,23 +7,19 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:5267758f21edd7f7401ac608bbbce3b7786b29078b5dbcb8173f877e7abe8757"
+    "seed_email_hash": "sha256:a6a17afcd229163ed8cc1eedc4fe984caa3888a0db19a9e19f169f02214db867"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.86,
-    "reasoning": "Work correspondence from Tomas Brandt. Continues an existing thread. Tier-1 was probably fine but the LLM confirms.",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Google Drive. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "known_sender_domain",
-        "weight": 0.32
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "thread_depth_gt_1",
-        "weight": 0.18
-      },
-      {
-        "name": "direct_question",
+        "name": "automated_sender",
         "weight": 0.24
       }
     ]
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=work, lane=informational",
-        "output_snippet": "Work correspondence from Tomas Brandt. Continues an existing thread. Tier-1 was probably fine but the LLM confirms."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Google Drive. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 71,
-      "output": 57
+      "input": 75,
+      "output": 54
     },
-    "cost_usd_at_generation": 0.00534,
+    "cost_usd_at_generation": 0.005175,
     "latency_ms_live": 1200
   },
   "playback": {

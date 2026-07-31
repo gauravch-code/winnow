@@ -1,8 +1,8 @@
 {
   "id": "seed_033",
-  "sender_email": "calendar-notification@google.com",
-  "sender_name": "Google Calendar",
-  "sender_domain": "google.com",
+  "sender_email": "no-reply@doordash.com",
+  "sender_name": "DoorDash",
+  "sender_domain": "doordash.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Reminder: All-hands @ 10:00 AM tomorrow",
-  "body_text": "Reminder: you have an event 'All-hands' tomorrow at 10:00 AM.",
-  "snippet": "Reminder: you have an event 'All-hands' tomorrow at 10:00 AM.",
-  "received_at": "2026-07-08T00:30:00Z",
+  "subject": "Order confirmed from The Corner Bistro",
+  "body_text": "Total: $107.26\nEstimated arrival 25-35 min.",
+  "snippet": "Total: $107.26",
+  "received_at": "2026-07-03T21:13:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "calendar",
-  "ground_truth_lane": "informational"
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
 }

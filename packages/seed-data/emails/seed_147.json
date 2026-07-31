@@ -1,8 +1,8 @@
 {
   "id": "seed_147",
-  "sender_email": "crew@morningbrew.com",
-  "sender_name": "Morning Brew",
-  "sender_domain": "morningbrew.com",
+  "sender_email": "drive-shares-noreply@google.com",
+  "sender_name": "Google Drive",
+  "sender_domain": "google.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[Morning Brew] what makes a great PM",
-  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: what makes a great PM.",
-  "received_at": "2026-07-14T18:34:00Z",
+  "subject": "Priya Shah shared a document with you",
+  "body_text": "A document has been shared. Click to view.",
+  "snippet": "A document has been shared. Click to view.",
+  "received_at": "2026-07-15T13:52:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,
-  "category": "newsletter",
+  "category": "notification",
   "ground_truth_lane": "informational"
 }

@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:954023ae00b8e127cee70d69366de5a3d76b74e77b4ef9311eb636a89bb82892"
+    "seed_email_hash": "sha256:7d40b79a6dc6fb92cd1497c6b8b9134b33360828af5505961f2014e2b6fd3108"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.94,
-    "reasoning": "Receipt from Stripe. Filed for records, not action.",
+    "lane": "informational",
+    "confidence": 0.91,
+    "reasoning": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
-        "name": "receipt_service_domain",
-        "weight": 0.44
+        "name": "has_unsubscribe",
+        "weight": 0.42
       },
       {
-        "name": "has_unsubscribe",
-        "weight": 0.16
+        "name": "marketing_domain",
+        "weight": 0.27
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from Stripe. Filed for records, not action."
+        "thought": "stub: category=newsletter, lane=informational",
+        "output_snippet": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {
-      "input": 71,
-      "output": 48
+      "input": 93,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.004665,
+    "cost_usd_at_generation": 0.00567,
     "latency_ms_live": 1200
   },
   "playback": {

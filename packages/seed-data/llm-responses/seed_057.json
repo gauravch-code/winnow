@@ -7,12 +7,12 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:d5f403001539d0ca021d3d64da8b1787ed22736e4be284cb2fc3434d3d94ef28"
+    "seed_email_hash": "sha256:c9775bc02baa6f662c630920c06e82a7aa70d7e5cecc35d31e85761cb5ad0fb9"
   },
   "triage": {
     "lane": "informational",
     "confidence": 0.86,
-    "reasoning": "Work correspondence from Kenji Ito. One-off message. Tier-1 was probably fine but the LLM confirms.",
+    "reasoning": "Work correspondence from Tomas Brandt. Continues an existing thread. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
         "name": "known_sender_domain",
@@ -41,14 +41,14 @@
         "step": 1,
         "tool": null,
         "thought": "stub: category=work, lane=informational",
-        "output_snippet": "Work correspondence from Kenji Ito. One-off message. Tier-1 was probably fine but the LLM confirms."
+        "output_snippet": "Work correspondence from Tomas Brandt. Continues an existing thread. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 76,
-      "output": 55
+      "input": 71,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.005265,
+    "cost_usd_at_generation": 0.00534,
     "latency_ms_live": 1200
   },
   "playback": {

@@ -7,24 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:5461073892fca4996239be16946e80c20172983cbd3684789573abe8e468e30d"
+    "seed_email_hash": "sha256:90b1afff6aac73aca7a06ff1d553c34e0ce73432819f76fc86cc4f5ce955effe"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.96,
-    "reasoning": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
+    "lane": "informational",
+    "confidence": 0.91,
+    "reasoning": "Newsletter from Import AI. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
-        "name": "suspicious_tld",
-        "weight": 0.41
+        "name": "has_unsubscribe",
+        "weight": 0.42
       },
       {
-        "name": "urgency_words",
-        "weight": 0.28
-      },
-      {
-        "name": "unknown_sender",
-        "weight": 0.19
+        "name": "marketing_domain",
+        "weight": 0.27
       }
     ]
   },
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=spam, lane=hidden",
-        "output_snippet": "Unsolicited message from Crypto Winners. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hi"
+        "thought": "stub: category=newsletter, lane=informational",
+        "output_snippet": "Newsletter from Import AI. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {
-      "input": 82,
-      "output": 56
+      "input": 93,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.00543,
+    "cost_usd_at_generation": 0.00567,
     "latency_ms_live": 1200
   },
   "playback": {

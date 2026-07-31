@@ -1,8 +1,8 @@
 {
   "id": "seed_041",
-  "sender_email": "noreply@github.com",
-  "sender_name": "GitHub",
-  "sender_domain": "github.com",
+  "sender_email": "calendar-notification@google.com",
+  "sender_name": "Google Calendar",
+  "sender_domain": "google.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[auth-migration] Pull request #916 was merged",
-  "body_text": "Priya Shah merged pull request #916 into main.\n\nView on GitHub.",
-  "snippet": "Priya Shah merged pull request #916 into main.",
-  "received_at": "2026-07-16T04:59:00Z",
+  "subject": "Invitation: onboarding revamp sync @ Thu 2:00 PM",
+  "body_text": "Nadia Farouk has invited you to 'onboarding revamp sync'. Accept, Decline, or Maybe.",
+  "snippet": "Nadia Farouk has invited you to 'onboarding revamp sync'. Accept, Decline, or Maybe.",
+  "received_at": "2026-07-14T03:32:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": true,
+  "has_unsubscribe": false,
   "is_reply": false,
-  "category": "notification",
-  "ground_truth_lane": "informational"
+  "category": "calendar",
+  "ground_truth_lane": "needs_you"
 }

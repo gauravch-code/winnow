@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:1544af2f4d50a369f3731db91453063a34d980d51f53e08e521f57c6d6812276"
+    "seed_email_hash": "sha256:8d3d7e0b58883a3793b0150da9c732c3e3b05a6e175c5ea80a2bb0ff111aa95d"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.9,
-    "reasoning": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself.",
+    "lane": "needs_you",
+    "confidence": 0.91,
+    "reasoning": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
-        "name": "calendar_service",
-        "weight": 0.36
+        "name": "has_unsubscribe",
+        "weight": 0.42
       },
       {
-        "name": "automated_sender",
-        "weight": 0.22
+        "name": "marketing_domain",
+        "weight": 0.27
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=calendar, lane=informational",
-        "output_snippet": "Calendar notification. Reader isn't the organizer; no action needed beyond the calendar itself."
+        "thought": "stub: category=newsletter, lane=needs_you",
+        "output_snippet": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {
-      "input": 81,
-      "output": 53
+      "input": 91,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.00519,
+    "cost_usd_at_generation": 0.00564,
     "latency_ms_live": 1200
   },
   "playback": {

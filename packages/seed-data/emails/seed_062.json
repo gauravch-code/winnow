@@ -1,8 +1,8 @@
 {
   "id": "seed_062",
-  "sender_email": "winner@lucky-token-airdrop.xyz",
-  "sender_name": "Crypto Winners",
-  "sender_domain": "lucky-token-airdrop.xyz",
+  "sender_email": "jack@importai.substack.com",
+  "sender_name": "Import AI",
+  "sender_domain": "substack.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "You've been selected — claim your $500 airdrop",
-  "body_text": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
-  "snippet": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
-  "received_at": "2026-07-14T16:18:00Z",
+  "subject": "[Import AI] the case for tiny teams",
+  "body_text": "This week's issue: the case for tiny teams.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: the case for tiny teams.",
+  "received_at": "2026-07-11T04:24:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "spam",
-  "ground_truth_lane": "hidden"
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
 }

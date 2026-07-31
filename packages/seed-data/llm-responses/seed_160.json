@@ -7,12 +7,12 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:c30d3c9e071d26d4f6aaa9c51f48b838d5cd3dcaabb73033f5623b55834330b8"
+    "seed_email_hash": "sha256:c98712694f9d74cb820a89678959eeab2e67d6c0bd488422f09fd84a94b70425"
   },
   "triage": {
-    "lane": "needs_you",
+    "lane": "informational",
     "confidence": 0.86,
-    "reasoning": "Work correspondence from Tomas Brandt. Contains a direct ask. Tier-1 was probably fine but the LLM confirms.",
+    "reasoning": "Work correspondence from Tomas Brandt. Continues an existing thread. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
         "name": "known_sender_domain",
@@ -29,28 +29,26 @@
     ]
   },
   "draft_reply": {
-    "included": true,
-    "subject": "Re: Re: Q3 planning — comments by Thursday?",
-    "body_markdown": "Hi Tomas,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
-    "tone": "collegial",
-    "assumptions": [
-      "User can respond to this specific request without more context"
-    ]
+    "included": false,
+    "subject": null,
+    "body_markdown": null,
+    "tone": null,
+    "assumptions": []
   },
   "trace": {
     "agent_steps": [
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=work, lane=needs_you",
-        "output_snippet": "Work correspondence from Tomas Brandt. Contains a direct ask. Tier-1 was probably fine but the LLM confirms."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Tomas Brandt. Continues an existing thread. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 94,
+      "input": 71,
       "output": 57
     },
-    "cost_usd_at_generation": 0.005685,
+    "cost_usd_at_generation": 0.00534,
     "latency_ms_live": 1200
   },
   "playback": {

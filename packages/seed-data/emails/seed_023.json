@@ -1,8 +1,8 @@
 {
   "id": "seed_023",
-  "sender_email": "jack@importai.substack.com",
-  "sender_name": "Import AI",
-  "sender_domain": "substack.com",
+  "sender_email": "notifications@slack.com",
+  "sender_name": "Slack",
+  "sender_domain": "slack.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[Import AI] what makes a great PM",
-  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: what makes a great PM.",
-  "received_at": "2026-07-14T13:53:00Z",
+  "subject": "New message from Sasha Kim in #eng-general",
+  "body_text": "Sasha Kim: quick q — got a sec to look at the deploy?\n\nReply in Slack.",
+  "snippet": "Sasha Kim: quick q — got a sec to look at the deploy?",
+  "received_at": "2026-07-16T07:24:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,
-  "category": "newsletter",
+  "category": "notification",
   "ground_truth_lane": "informational"
 }

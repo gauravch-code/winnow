@@ -1,22 +1,24 @@
 {
   "id": "seed_090",
-  "sender_email": "marcus@contoso.com",
-  "sender_name": "Marcus Bell",
-  "sender_domain": "contoso.com",
+  "sender_email": "sasha@umbrella.com",
+  "sender_name": "Sasha Kim",
+  "sender_domain": "umbrella.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [],
+    "cc": [
+      "jamal@umbrella.com"
+    ],
     "bcc": []
   },
-  "subject": "Q3 planning: meeting notes",
-  "body_text": "Notes from the Q3 planning sync are attached. No action items for you — sharing for visibility.",
-  "snippet": "Notes from the Q3 planning sync are attached. No action items for you — sharing for visibility.",
-  "received_at": "2026-07-10T15:39:00Z",
+  "subject": "Quick question about search reindex",
+  "body_text": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the search reindex rollout plan? I want to make sure I understand the phase ",
+  "received_at": "2026-07-11T19:10:00Z",
   "thread_depth": 1,
   "has_unsubscribe": false,
   "is_reply": false,
   "category": "work",
-  "ground_truth_lane": "informational"
+  "ground_truth_lane": "needs_you"
 }

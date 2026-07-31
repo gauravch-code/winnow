@@ -7,20 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:665b0e875896c5a3919ed34171823c97eec25811ed546042edd92bdd4e4d5a54"
+    "seed_email_hash": "sha256:009e771c2dd39ce52e4ab7a763b29eb496679bb5e2c0ba3b055e1bf496974602"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.91,
-    "reasoning": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action.",
+    "confidence": 0.83,
+    "reasoning": "Personal note from Sasha Kim. One-off message. Reader would notice if this slipped through.",
     "signals": [
       {
-        "name": "has_unsubscribe",
-        "weight": 0.42
+        "name": "personal_domain",
+        "weight": 0.34
       },
       {
-        "name": "marketing_domain",
-        "weight": 0.27
+        "name": "direct_question",
+        "weight": 0.29
+      },
+      {
+        "name": "short_body",
+        "weight": 0.11
       }
     ]
   },
@@ -36,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=personal, lane=informational",
+        "output_snippet": "Personal note from Sasha Kim. One-off message. Reader would notice if this slipped through."
       }
     ],
     "tokens": {
-      "input": 93,
-      "output": 57
+      "input": 74,
+      "output": 54
     },
-    "cost_usd_at_generation": 0.00567,
+    "cost_usd_at_generation": 0.00516,
     "latency_ms_live": 1200
   },
   "playback": {

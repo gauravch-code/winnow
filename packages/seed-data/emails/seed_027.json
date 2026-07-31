@@ -1,8 +1,8 @@
 {
   "id": "seed_027",
-  "sender_email": "calendar-notification@google.com",
-  "sender_name": "Google Calendar",
-  "sender_domain": "google.com",
+  "sender_email": "priya@acme.com",
+  "sender_name": "Priya Shah",
+  "sender_domain": "acme.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Updated: 1:1 with Marcus Bell",
-  "body_text": "The event '1:1 with Marcus Bell' has been moved to next Tuesday at 3 PM.",
-  "snippet": "The event '1:1 with Marcus Bell' has been moved to next Tuesday at 3 PM.",
-  "received_at": "2026-07-03T15:20:00Z",
+  "subject": "FYI: billing v2 weekly digest",
+  "body_text": "Weekly rollup for billing v2. Nothing needs your input this week.",
+  "snippet": "Weekly rollup for billing v2. Nothing needs your input this week.",
+  "received_at": "2026-07-13T23:33:00Z",
   "thread_depth": 1,
   "has_unsubscribe": false,
   "is_reply": false,
-  "category": "calendar",
+  "category": "work",
   "ground_truth_lane": "informational"
 }

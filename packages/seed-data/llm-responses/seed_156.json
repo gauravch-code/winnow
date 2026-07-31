@@ -7,24 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:c7701db9406731b0c0ecd266101d8ee791116520431fc40ae3193799906b58cf"
+    "seed_email_hash": "sha256:23fbd99d4891b5d92a1baa8731bf8ea4a920f49f1b91b3eea3ea494fc0a6afb8"
   },
   "triage": {
-    "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Sasha Kim. Continues an existing thread. Reader would notice if this slipped through.",
+    "lane": "hidden",
+    "confidence": 0.94,
+    "reasoning": "Receipt from Uber. Filed for records, not action.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "receipt_service_domain",
+        "weight": 0.44
       },
       {
-        "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "name": "has_unsubscribe",
+        "weight": 0.16
       }
     ]
   },
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Sasha Kim. Continues an existing thread. Reader would notice if this slipped through."
+        "thought": "stub: category=receipt, lane=hidden",
+        "output_snippet": "Receipt from Uber. Filed for records, not action."
       }
     ],
     "tokens": {
-      "input": 80,
-      "output": 56
+      "input": 72,
+      "output": 48
     },
-    "cost_usd_at_generation": 0.0054,
+    "cost_usd_at_generation": 0.00468,
     "latency_ms_live": 1200
   },
   "playback": {

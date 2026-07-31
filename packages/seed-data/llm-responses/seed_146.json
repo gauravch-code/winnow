@@ -7,24 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:0cc20f02908cc52033c3c4b182789c7ba5f3e0ba8342bd19cfbe57e6a7c4df53"
+    "seed_email_hash": "sha256:5278712d078070ad6b50e35954d6f69771356fbf38ea8e25ec735f5a5e09323c"
   },
   "triage": {
-    "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Diego Alvarez. Continues an existing thread. Reader would notice if this slipped through.",
+    "lane": "informational",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Diego Alvarez. One-off message. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "known_sender_domain",
+        "weight": 0.32
+      },
+      {
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
         "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Diego Alvarez. Continues an existing thread. Reader would notice if this slipped through."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Diego Alvarez. One-off message. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 80,
-      "output": 56
+      "input": 76,
+      "output": 55
     },
-    "cost_usd_at_generation": 0.0054,
+    "cost_usd_at_generation": 0.005265,
     "latency_ms_live": 1200
   },
   "playback": {

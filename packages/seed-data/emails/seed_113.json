@@ -1,8 +1,8 @@
 {
   "id": "seed_113",
-  "sender_email": "calendar-notification@google.com",
-  "sender_name": "Google Calendar",
-  "sender_domain": "google.com",
+  "sender_email": "notifications@linear.app",
+  "sender_name": "Linear",
+  "sender_domain": "linear.app",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Updated: 1:1 with Yara Haddad",
-  "body_text": "The event '1:1 with Yara Haddad' has been moved to next Tuesday at 3 PM.",
-  "snippet": "The event '1:1 with Yara Haddad' has been moved to next Tuesday at 3 PM.",
-  "received_at": "2026-07-12T07:07:00Z",
+  "subject": "[auth migration] Issue assigned to you",
+  "body_text": "You've been assigned a new issue. View in Linear.",
+  "snippet": "You've been assigned a new issue. View in Linear.",
+  "received_at": "2026-07-09T05:35:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "calendar",
+  "category": "notification",
   "ground_truth_lane": "informational"
 }

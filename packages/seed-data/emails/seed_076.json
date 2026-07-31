@@ -1,8 +1,8 @@
 {
   "id": "seed_076",
-  "sender_email": "team@mail.notion.so",
-  "sender_name": "Notion",
-  "sender_domain": "notion.so",
+  "sender_email": "yara@initech.com",
+  "sender_name": "Yara Haddad",
+  "sender_domain": "initech.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Diego Alvarez shared a document with you",
-  "body_text": "A document has been shared. Click to view.",
-  "snippet": "A document has been shared. Click to view.",
-  "received_at": "2026-07-13T12:07:00Z",
-  "thread_depth": 1,
-  "has_unsubscribe": true,
-  "is_reply": false,
-  "category": "notification",
+  "subject": "Re: search reindex — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-13T06:50:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
   "ground_truth_lane": "informational"
 }

@@ -7,20 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:d2e4aaf000c3d105a45948252a0c2b4bfb64bd18de694db49e4ff5dc70ef8424"
+    "seed_email_hash": "sha256:3818532239b6c1822f63444043b0072cc5237e52ab38cf60c35128ec4d7bcf3b"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.94,
-    "reasoning": "Receipt from Airbnb. Filed for records, not action.",
+    "lane": "needs_you",
+    "confidence": 0.83,
+    "reasoning": "Personal note from Diego Alvarez. Continues an existing thread. Reader would notice if this slipped through.",
     "signals": [
       {
-        "name": "receipt_service_domain",
-        "weight": 0.44
+        "name": "personal_domain",
+        "weight": 0.34
       },
       {
-        "name": "has_unsubscribe",
-        "weight": 0.16
+        "name": "direct_question",
+        "weight": 0.29
+      },
+      {
+        "name": "short_body",
+        "weight": 0.11
       }
     ]
   },
@@ -36,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from Airbnb. Filed for records, not action."
+        "thought": "stub: category=personal, lane=needs_you",
+        "output_snippet": "Personal note from Diego Alvarez. Continues an existing thread. Reader would notice if this slipped through."
       }
     ],
     "tokens": {
-      "input": 68,
-      "output": 48
+      "input": 80,
+      "output": 56
     },
-    "cost_usd_at_generation": 0.00462,
+    "cost_usd_at_generation": 0.0054,
     "latency_ms_live": 1200
   },
   "playback": {

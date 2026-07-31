@@ -1,8 +1,8 @@
 {
   "id": "seed_122",
-  "sender_email": "notifications@slack.com",
-  "sender_name": "Slack",
-  "sender_domain": "slack.com",
+  "sender_email": "notifications@linear.app",
+  "sender_name": "Linear",
+  "sender_domain": "linear.app",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,10 +10,10 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "New message from Priya Shah in #eng-general",
-  "body_text": "Priya Shah: quick q — got a sec to look at the deploy?\n\nReply in Slack.",
-  "snippet": "Priya Shah: quick q — got a sec to look at the deploy?",
-  "received_at": "2026-07-12T14:02:00Z",
+  "subject": "[onboarding revamp] Issue assigned to you",
+  "body_text": "You've been assigned a new issue. View in Linear.",
+  "snippet": "You've been assigned a new issue. View in Linear.",
+  "received_at": "2026-07-08T19:36:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,

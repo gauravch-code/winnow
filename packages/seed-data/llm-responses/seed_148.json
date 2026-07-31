@@ -7,32 +7,32 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:32f5930a3112a846e5105094c9ae061fa84f34eb4f1979cf30f6849e35d75cfe"
+    "seed_email_hash": "sha256:1befc50ce2ff2be6a124fbd34539cddcdf1d99681401624f13b9ff48f64dfeea"
   },
   "triage": {
     "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Nadia Farouk. Contains a direct ask. Reader would notice if this slipped through.",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Priya Shah. Contains a direct ask. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "known_sender_domain",
+        "weight": 0.32
+      },
+      {
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
         "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "weight": 0.24
       }
     ]
   },
   "draft_reply": {
     "included": true,
-    "subject": "Re: did you see this?",
-    "body_markdown": "Hi Nadia,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
-    "tone": "warm",
+    "subject": "Re: Re: auth migration — comments by Thursday?",
+    "body_markdown": "Hi Priya,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
+    "tone": "collegial",
     "assumptions": [
       "User can respond to this specific request without more context"
     ]
@@ -42,15 +42,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Nadia Farouk. Contains a direct ask. Reader would notice if this slipped through."
+        "thought": "stub: category=work, lane=needs_you",
+        "output_snippet": "Work correspondence from Priya Shah. Contains a direct ask. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 77,
-      "output": 56
+      "input": 94,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.005355,
+    "cost_usd_at_generation": 0.005685,
     "latency_ms_live": 1200
   },
   "playback": {

@@ -1,8 +1,8 @@
 {
   "id": "seed_194",
-  "sender_email": "no-reply@doordash.com",
-  "sender_name": "DoorDash",
-  "sender_domain": "doordash.com",
+  "sender_email": "tomas@contoso.com",
+  "sender_name": "Tomas Brandt",
+  "sender_domain": "contoso.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Order confirmed from The Corner Bistro",
-  "body_text": "Total: $120.95\nEstimated arrival 25-35 min.",
-  "snippet": "Total: $120.95",
-  "received_at": "2026-07-03T01:56:00Z",
-  "thread_depth": 1,
-  "has_unsubscribe": true,
-  "is_reply": false,
-  "category": "receipt",
-  "ground_truth_lane": "hidden"
+  "subject": "Re: auth migration — comments by Thursday?",
+  "body_text": "Hey — could you leave your comments on the auth migration doc by end of Thursday? I want to circulate the revised draft on Friday morning.\n\nThanks!",
+  "snippet": "Hey — could you leave your comments on the auth migration doc by end of Thursday? I want to circulate the revised draft ",
+  "received_at": "2026-07-10T07:44:00Z",
+  "thread_depth": 2,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
+  "ground_truth_lane": "needs_you"
 }

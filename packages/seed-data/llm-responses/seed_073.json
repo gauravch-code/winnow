@@ -7,50 +7,44 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:03ab4803de4f37faaf05bd16981b393bcda93f8b85c0a6f96f2e7b37eb43cbb5"
+    "seed_email_hash": "sha256:2643004b35cacdc005fc9dc2eb4ec09761ba761a53a148d5682753560a4ea641"
   },
   "triage": {
-    "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Tomas Brandt. Contains a direct ask. Reader would notice if this slipped through.",
+    "lane": "informational",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Google Drive. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "name": "automated_sender",
+        "weight": 0.24
       }
     ]
   },
   "draft_reply": {
-    "included": true,
-    "subject": "Re: did you see this?",
-    "body_markdown": "Hi Tomas,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
-    "tone": "warm",
-    "assumptions": [
-      "User can respond to this specific request without more context"
-    ]
+    "included": false,
+    "subject": null,
+    "body_markdown": null,
+    "tone": null,
+    "assumptions": []
   },
   "trace": {
     "agent_steps": [
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Tomas Brandt. Contains a direct ask. Reader would notice if this slipped through."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Google Drive. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 77,
-      "output": 56
+      "input": 75,
+      "output": 54
     },
-    "cost_usd_at_generation": 0.005355,
+    "cost_usd_at_generation": 0.005175,
     "latency_ms_live": 1200
   },
   "playback": {

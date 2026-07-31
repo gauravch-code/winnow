@@ -7,44 +7,50 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:5ae84f3626030ca5b38b54bc1b696512e7b6f347fb4676a07d15b9fe7964375b"
+    "seed_email_hash": "sha256:4baab44f9d1aca27bd4f5ad0bcaf8008e6555c0f668a333c1b0c132d34d99112"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.91,
-    "reasoning": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action.",
+    "lane": "needs_you",
+    "confidence": 0.83,
+    "reasoning": "Personal note from Nadia Farouk. Contains a direct ask. Reader would notice if this slipped through.",
     "signals": [
       {
-        "name": "has_unsubscribe",
-        "weight": 0.42
+        "name": "personal_domain",
+        "weight": 0.34
       },
       {
-        "name": "marketing_domain",
-        "weight": 0.27
+        "name": "direct_question",
+        "weight": 0.29
+      },
+      {
+        "name": "short_body",
+        "weight": 0.11
       }
     ]
   },
   "draft_reply": {
-    "included": false,
-    "subject": null,
-    "body_markdown": null,
-    "tone": null,
-    "assumptions": []
+    "included": true,
+    "subject": "Re: did you see this?",
+    "body_markdown": "Hi Nadia,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
+    "tone": "warm",
+    "assumptions": [
+      "User can respond to this specific request without more context"
+    ]
   },
   "trace": {
     "agent_steps": [
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=personal, lane=needs_you",
+        "output_snippet": "Personal note from Nadia Farouk. Contains a direct ask. Reader would notice if this slipped through."
       }
     ],
     "tokens": {
-      "input": 93,
-      "output": 57
+      "input": 77,
+      "output": 56
     },
-    "cost_usd_at_generation": 0.00567,
+    "cost_usd_at_generation": 0.005355,
     "latency_ms_live": 1200
   },
   "playback": {

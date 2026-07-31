@@ -1,8 +1,8 @@
 {
   "id": "seed_007",
-  "sender_email": "tomas@acme.com",
-  "sender_name": "Tomas Brandt",
-  "sender_domain": "acme.com",
+  "sender_email": "calendar-notification@google.com",
+  "sender_name": "Google Calendar",
+  "sender_domain": "google.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Re: auth migration — approved",
-  "body_text": "Approved. Ship it whenever you're ready.",
-  "snippet": "Approved. Ship it whenever you're ready.",
-  "received_at": "2026-07-11T22:16:00Z",
-  "thread_depth": 3,
+  "subject": "Invitation: auth migration sync @ Thu 2:00 PM",
+  "body_text": "Sasha Kim has invited you to 'auth migration sync'. Accept, Decline, or Maybe.",
+  "snippet": "Sasha Kim has invited you to 'auth migration sync'. Accept, Decline, or Maybe.",
+  "received_at": "2026-07-14T04:14:00Z",
+  "thread_depth": 1,
   "has_unsubscribe": false,
-  "is_reply": true,
-  "category": "work",
+  "is_reply": false,
+  "category": "calendar",
   "ground_truth_lane": "informational"
 }

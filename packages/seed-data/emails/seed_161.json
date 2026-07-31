@@ -1,8 +1,8 @@
 {
   "id": "seed_161",
-  "sender_email": "ben@stratechery.com",
-  "sender_name": "Stratechery",
-  "sender_domain": "stratechery.com",
+  "sender_email": "diego@globex.com",
+  "sender_name": "Diego Alvarez",
+  "sender_domain": "globex.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[Stratechery] why one-on-ones are broken",
-  "body_text": "This week's issue: why one-on-ones are broken.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: why one-on-ones are broken.",
-  "received_at": "2026-07-14T10:00:00Z",
+  "subject": "Quick question about billing v2",
+  "body_text": "Do you have 15 min today to walk me through the billing v2 rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the billing v2 rollout plan? I want to make sure I understand the phase 2 de",
+  "received_at": "2026-07-02T22:11:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": true,
+  "has_unsubscribe": false,
   "is_reply": false,
-  "category": "newsletter",
-  "ground_truth_lane": "informational"
+  "category": "work",
+  "ground_truth_lane": "needs_you"
 }

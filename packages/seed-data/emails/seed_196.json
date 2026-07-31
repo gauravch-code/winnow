@@ -1,8 +1,8 @@
 {
   "id": "seed_196",
-  "sender_email": "winner@lucky-token-airdrop.xyz",
-  "sender_name": "Crypto Winners",
-  "sender_domain": "lucky-token-airdrop.xyz",
+  "sender_email": "no-reply@doordash.com",
+  "sender_name": "DoorDash",
+  "sender_domain": "doordash.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Boost your SEO by 300% — free consultation",
-  "body_text": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
-  "snippet": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
-  "received_at": "2026-07-12T01:29:00Z",
+  "subject": "Order confirmed from The Corner Bistro",
+  "body_text": "Total: $120.95\nEstimated arrival 25-35 min.",
+  "snippet": "Total: $120.95",
+  "received_at": "2026-07-03T01:56:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "spam",
-  "ground_truth_lane": "hidden"
+  "category": "receipt",
+  "ground_truth_lane": "informational"
 }

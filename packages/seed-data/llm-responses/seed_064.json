@@ -7,24 +7,24 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:13a0d0160858bb75fd14eed4537f058e5c2047272ce022acde63555459d3c200"
+    "seed_email_hash": "sha256:8867d5c7cd939496610211ae554f05c7d3aa063c24db999f015db4e02b82db1b"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.96,
-    "reasoning": "Unsolicited message from HR at BigCo. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide.",
+    "lane": "informational",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Yara Haddad. One-off message. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "suspicious_tld",
-        "weight": 0.41
+        "name": "known_sender_domain",
+        "weight": 0.32
       },
       {
-        "name": "urgency_words",
-        "weight": 0.28
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
-        "name": "unknown_sender",
-        "weight": 0.19
+        "name": "direct_question",
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +40,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=spam, lane=hidden",
-        "output_snippet": "Unsolicited message from HR at BigCo. Suspicious pattern (unfamiliar sender, urgency framing, or off-TLD). Safe to hide."
+        "thought": "stub: category=work, lane=informational",
+        "output_snippet": "Work correspondence from Yara Haddad. One-off message. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 82,
-      "output": 57
+      "input": 76,
+      "output": 55
     },
-    "cost_usd_at_generation": 0.005505,
+    "cost_usd_at_generation": 0.005265,
     "latency_ms_live": 1200
   },
   "playback": {

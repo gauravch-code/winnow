@@ -1,8 +1,8 @@
 {
   "id": "seed_088",
-  "sender_email": "sasha@hey.com",
-  "sender_name": "Sasha Kim",
-  "sender_domain": "hey.com",
+  "sender_email": "kenji@contoso.com",
+  "sender_name": "Kenji Ito",
+  "sender_domain": "contoso.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "photos from last weekend",
-  "body_text": "finally uploaded them! link in signature. no rush to look.",
-  "snippet": "finally uploaded them! link in signature. no rush to look.",
-  "received_at": "2026-07-06T01:05:00Z",
-  "thread_depth": 1,
+  "subject": "Re: onboarding revamp — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-04T17:55:00Z",
+  "thread_depth": 3,
   "has_unsubscribe": false,
-  "is_reply": false,
-  "category": "personal",
+  "is_reply": true,
+  "category": "work",
   "ground_truth_lane": "informational"
 }

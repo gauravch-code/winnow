@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:850e14f09190d686ebc2d9c1df2efc10209bbf6e4b63cf6c3eb331aa27bd7b5a"
+    "seed_email_hash": "sha256:9713183c5ddd925aa977e727bf9cf54d432114adbaa4e7ecc49c66000b9fc334"
   },
   "triage": {
-    "lane": "informational",
-    "confidence": 0.91,
-    "reasoning": "Newsletter from Stratechery. Subscribed content — worth existing in the inbox but does not require action.",
+    "lane": "hidden",
+    "confidence": 0.94,
+    "reasoning": "Receipt from Amazon. Filed for records, not action.",
     "signals": [
       {
-        "name": "has_unsubscribe",
-        "weight": 0.42
+        "name": "receipt_service_domain",
+        "weight": 0.44
       },
       {
-        "name": "marketing_domain",
-        "weight": 0.27
+        "name": "has_unsubscribe",
+        "weight": 0.16
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from Stratechery. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=receipt, lane=hidden",
+        "output_snippet": "Receipt from Amazon. Filed for records, not action."
       }
     ],
     "tokens": {
-      "input": 90,
-      "output": 56
+      "input": 70,
+      "output": 48
     },
-    "cost_usd_at_generation": 0.00555,
+    "cost_usd_at_generation": 0.00465,
     "latency_ms_live": 1200
   },
   "playback": {

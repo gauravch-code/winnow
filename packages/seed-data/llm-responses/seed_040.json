@@ -7,32 +7,32 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:1194887e632d16f9077292f5d890465c15b9809b6ed7280d5ba0efb3f20311a2"
+    "seed_email_hash": "sha256:ff83776e5fcff5154a4de445dd406d144deda1444a450cdefa2818d162cd13fc"
   },
   "triage": {
     "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Jamal Wright. Contains a direct ask. Reader would notice if this slipped through.",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Tomas Brandt. Contains a direct ask. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "known_sender_domain",
+        "weight": 0.32
+      },
+      {
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
         "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "weight": 0.24
       }
     ]
   },
   "draft_reply": {
     "included": true,
-    "subject": "Re: dinner Saturday?",
-    "body_markdown": "Hi Jamal,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
-    "tone": "warm",
+    "subject": "Re: Re: auth migration — comments by Thursday?",
+    "body_markdown": "Hi Tomas,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
+    "tone": "collegial",
     "assumptions": [
       "User can respond to this specific request without more context"
     ]
@@ -42,15 +42,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Jamal Wright. Contains a direct ask. Reader would notice if this slipped through."
+        "thought": "stub: category=work, lane=needs_you",
+        "output_snippet": "Work correspondence from Tomas Brandt. Contains a direct ask. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 81,
-      "output": 56
+      "input": 94,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.005415,
+    "cost_usd_at_generation": 0.005685,
     "latency_ms_live": 1200
   },
   "playback": {

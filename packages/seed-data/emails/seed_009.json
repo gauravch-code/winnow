@@ -1,8 +1,8 @@
 {
   "id": "seed_009",
-  "sender_email": "hi@lennysnewsletter.com",
-  "sender_name": "Lenny's Newsletter",
-  "sender_domain": "lennysnewsletter.com",
+  "sender_email": "ben@stratechery.com",
+  "sender_name": "Stratechery",
+  "sender_domain": "stratechery.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,10 +10,10 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[Lenny's Newsletter] the incident that changed our on-call",
-  "body_text": "This week's issue: the incident that changed our on-call.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: the incident that changed our on-call.",
-  "received_at": "2026-07-03T14:32:00Z",
+  "subject": "[Stratechery] what makes a great PM",
+  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: what makes a great PM.",
+  "received_at": "2026-07-09T21:01:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,

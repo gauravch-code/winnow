@@ -1,8 +1,8 @@
 {
   "id": "seed_131",
-  "sender_email": "tomas@contoso.com",
-  "sender_name": "Tomas Brandt",
-  "sender_domain": "contoso.com",
+  "sender_email": "drive-shares-noreply@google.com",
+  "sender_name": "Google Drive",
+  "sender_domain": "google.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "Re: search reindex — approved",
-  "body_text": "Approved. Ship it whenever you're ready.",
-  "snippet": "Approved. Ship it whenever you're ready.",
-  "received_at": "2026-07-11T08:57:00Z",
-  "thread_depth": 3,
-  "has_unsubscribe": false,
-  "is_reply": true,
-  "category": "work",
+  "subject": "Nadia Farouk shared a document with you",
+  "body_text": "A document has been shared. Click to view.",
+  "snippet": "A document has been shared. Click to view.",
+  "received_at": "2026-07-10T07:37:00Z",
+  "thread_depth": 1,
+  "has_unsubscribe": true,
+  "is_reply": false,
+  "category": "notification",
   "ground_truth_lane": "informational"
 }

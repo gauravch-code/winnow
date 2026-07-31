@@ -1,8 +1,8 @@
 {
   "id": "seed_015",
-  "sender_email": "leads@growth-hackers-pro.biz",
-  "sender_name": "SEO Growth",
-  "sender_domain": "growth-hackers-pro.biz",
+  "sender_email": "newsletter@pragmaticengineer.com",
+  "sender_name": "The Pragmatic Engineer",
+  "sender_domain": "pragmaticengineer.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "You've been selected — claim your $500 airdrop",
-  "body_text": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
-  "snippet": "Congratulations! You qualify for our exclusive token distribution. Click here to claim before Friday.",
-  "received_at": "2026-07-04T11:01:00Z",
+  "subject": "[The Pragmatic Engineer] the incident that changed our on-call",
+  "body_text": "This week's issue: the incident that changed our on-call.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: the incident that changed our on-call.",
+  "received_at": "2026-07-16T04:29:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "spam",
-  "ground_truth_lane": "hidden"
+  "category": "newsletter",
+  "ground_truth_lane": "informational"
 }

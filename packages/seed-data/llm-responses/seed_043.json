@@ -7,7 +7,7 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:6e14333fbd685e2d5181570cef7bd393d8dbc23200c248d2825d423404656110"
+    "seed_email_hash": "sha256:8dfeb88788259bd2fb36bf31da2e02defbcd1050ab80d339e428000b21f95e21"
   },
   "triage": {
     "lane": "informational",
@@ -41,10 +41,10 @@
       }
     ],
     "tokens": {
-      "input": 94,
+      "input": 90,
       "output": 56
     },
-    "cost_usd_at_generation": 0.00561,
+    "cost_usd_at_generation": 0.00555,
     "latency_ms_live": 1200
   },
   "playback": {

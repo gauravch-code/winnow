@@ -1,22 +1,24 @@
 {
   "id": "seed_086",
-  "sender_email": "notifications@slack.com",
-  "sender_name": "Slack",
-  "sender_domain": "slack.com",
+  "sender_email": "diego@northwind.com",
+  "sender_name": "Diego Alvarez",
+  "sender_domain": "northwind.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [],
+    "cc": [
+      "sasha@northwind.com"
+    ],
     "bcc": []
   },
-  "subject": "New message from Nadia Farouk in #eng-general",
-  "body_text": "Nadia Farouk: quick q — got a sec to look at the deploy?\n\nReply in Slack.",
-  "snippet": "Nadia Farouk: quick q — got a sec to look at the deploy?",
-  "received_at": "2026-07-14T15:06:00Z",
+  "subject": "Quick question about auth migration",
+  "body_text": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase 2 dependencies.",
+  "snippet": "Do you have 15 min today to walk me through the auth migration rollout plan? I want to make sure I understand the phase ",
+  "received_at": "2026-07-11T08:04:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": true,
+  "has_unsubscribe": false,
   "is_reply": false,
-  "category": "notification",
+  "category": "work",
   "ground_truth_lane": "informational"
 }

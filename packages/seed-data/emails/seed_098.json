@@ -1,8 +1,8 @@
 {
   "id": "seed_098",
-  "sender_email": "jack@importai.substack.com",
-  "sender_name": "Import AI",
-  "sender_domain": "substack.com",
+  "sender_email": "winner@lucky-token-airdrop.xyz",
+  "sender_name": "Crypto Winners",
+  "sender_domain": "lucky-token-airdrop.xyz",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[Import AI] what makes a great PM",
-  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
-  "snippet": "This week's issue: what makes a great PM.",
-  "received_at": "2026-07-14T08:59:00Z",
+  "subject": "Boost your SEO by 300% — free consultation",
+  "body_text": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
+  "snippet": "Our proven system helps businesses like yours dominate Google. Reply YES for a free 15-minute call.",
+  "received_at": "2026-07-12T01:29:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": true,
+  "has_unsubscribe": false,
   "is_reply": false,
-  "category": "newsletter",
-  "ground_truth_lane": "informational"
+  "category": "spam",
+  "ground_truth_lane": "hidden"
 }

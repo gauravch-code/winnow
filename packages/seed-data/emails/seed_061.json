@@ -1,8 +1,8 @@
 {
   "id": "seed_061",
-  "sender_email": "jamal@umbrella.com",
-  "sender_name": "Jamal Wright",
-  "sender_domain": "umbrella.com",
+  "sender_email": "jack@importai.substack.com",
+  "sender_name": "Import AI",
+  "sender_domain": "substack.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "FYI: Q3 planning weekly digest",
-  "body_text": "Weekly rollup for Q3 planning. Nothing needs your input this week.",
-  "snippet": "Weekly rollup for Q3 planning. Nothing needs your input this week.",
-  "received_at": "2026-07-03T19:13:00Z",
+  "subject": "[Import AI] what makes a great PM",
+  "body_text": "This week's issue: what makes a great PM.\n\n3 things worth your time, 2 charts, 1 recommendation.\n\nRead the full issue online. Unsubscribe at any time.",
+  "snippet": "This week's issue: what makes a great PM.",
+  "received_at": "2026-07-14T13:53:00Z",
   "thread_depth": 1,
-  "has_unsubscribe": false,
+  "has_unsubscribe": true,
   "is_reply": false,
-  "category": "work",
+  "category": "newsletter",
   "ground_truth_lane": "informational"
 }

@@ -7,44 +7,50 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:871da87835bb5714a86dba149fda30228a0bcfe8f924f0607b8a8cde6c768b73"
+    "seed_email_hash": "sha256:0ca5113878828ee2eabfb011e5487c192472d3a83f8aea905492a4b44a775de2"
   },
   "triage": {
-    "lane": "hidden",
-    "confidence": 0.94,
-    "reasoning": "Receipt from DoorDash. Filed for records, not action.",
+    "lane": "needs_you",
+    "confidence": 0.83,
+    "reasoning": "Personal note from Yara Haddad. Contains a direct ask. Reader would notice if this slipped through.",
     "signals": [
       {
-        "name": "receipt_service_domain",
-        "weight": 0.44
+        "name": "personal_domain",
+        "weight": 0.34
       },
       {
-        "name": "has_unsubscribe",
-        "weight": 0.16
+        "name": "direct_question",
+        "weight": 0.29
+      },
+      {
+        "name": "short_body",
+        "weight": 0.11
       }
     ]
   },
   "draft_reply": {
-    "included": false,
-    "subject": null,
-    "body_markdown": null,
-    "tone": null,
-    "assumptions": []
+    "included": true,
+    "subject": "Re: did you see this?",
+    "body_markdown": "Hi Yara,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
+    "tone": "warm",
+    "assumptions": [
+      "User can respond to this specific request without more context"
+    ]
   },
   "trace": {
     "agent_steps": [
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=receipt, lane=hidden",
-        "output_snippet": "Receipt from DoorDash. Filed for records, not action."
+        "thought": "stub: category=personal, lane=needs_you",
+        "output_snippet": "Personal note from Yara Haddad. Contains a direct ask. Reader would notice if this slipped through."
       }
     ],
     "tokens": {
-      "input": 72,
-      "output": 48
+      "input": 77,
+      "output": 56
     },
-    "cost_usd_at_generation": 0.00468,
+    "cost_usd_at_generation": 0.005355,
     "latency_ms_live": 1200
   },
   "playback": {

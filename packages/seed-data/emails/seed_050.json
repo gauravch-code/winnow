@@ -1,8 +1,8 @@
 {
   "id": "seed_050",
-  "sender_email": "noreply@github.com",
-  "sender_name": "GitHub",
-  "sender_domain": "github.com",
+  "sender_email": "receipts@stripe.com",
+  "sender_name": "Stripe",
+  "sender_domain": "stripe.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "[auth-migration] Pull request #222 was merged",
-  "body_text": "Sasha Kim merged pull request #222 into main.\n\nView on GitHub.",
-  "snippet": "Sasha Kim merged pull request #222 into main.",
-  "received_at": "2026-07-15T23:28:00Z",
+  "subject": "Receipt from Acme Co #69799",
+  "body_text": "Amount charged: $67.92\nCard ending 4242.",
+  "snippet": "Amount charged: $67.92",
+  "received_at": "2026-07-07T01:14:00Z",
   "thread_depth": 1,
   "has_unsubscribe": true,
   "is_reply": false,
-  "category": "notification",
-  "ground_truth_lane": "informational"
+  "category": "receipt",
+  "ground_truth_lane": "hidden"
 }

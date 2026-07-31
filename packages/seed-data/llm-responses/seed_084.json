@@ -7,20 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:de6efcab4170f3037a21baf144493b32978389344d681203d339b9166118e62f"
+    "seed_email_hash": "sha256:9b8aa09047d646a5c991eff0d5f793b7ea2e731e74677b34a7076fe0e7ed2ede"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.88,
-    "reasoning": "Automated notification from Linear. Reader already sees this activity in the source app.",
+    "confidence": 0.91,
+    "reasoning": "Newsletter from The Pragmatic Engineer. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
-        "name": "notification_service_domain",
-        "weight": 0.38
+        "name": "has_unsubscribe",
+        "weight": 0.42
       },
       {
-        "name": "automated_sender",
-        "weight": 0.24
+        "name": "marketing_domain",
+        "weight": 0.27
       }
     ]
   },
@@ -36,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=notification, lane=informational",
-        "output_snippet": "Automated notification from Linear. Reader already sees this activity in the source app."
+        "thought": "stub: category=newsletter, lane=informational",
+        "output_snippet": "Newsletter from The Pragmatic Engineer. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {
-      "input": 75,
-      "output": 53
+      "input": 92,
+      "output": 58
     },
-    "cost_usd_at_generation": 0.0051,
+    "cost_usd_at_generation": 0.00573,
     "latency_ms_live": 1200
   },
   "playback": {

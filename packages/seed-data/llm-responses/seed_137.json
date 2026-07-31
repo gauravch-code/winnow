@@ -7,32 +7,32 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:638a1c3a362f0e85988f835d00ba8e38d5f4972f1b557b40101dae850e65b04d"
+    "seed_email_hash": "sha256:a47c16437e2f65a52062af8114d052c2e6e0265ffa76c71a568d9ea72e2e8202"
   },
   "triage": {
     "lane": "needs_you",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Tomas Brandt. Contains a direct ask. Reader would notice if this slipped through.",
+    "confidence": 0.86,
+    "reasoning": "Work correspondence from Jamal Wright. Contains a direct ask. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "known_sender_domain",
+        "weight": 0.32
+      },
+      {
+        "name": "thread_depth_gt_1",
+        "weight": 0.18
       },
       {
         "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "weight": 0.24
       }
     ]
   },
   "draft_reply": {
     "included": true,
-    "subject": "Re: did you see this?",
-    "body_markdown": "Hi Tomas,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
-    "tone": "warm",
+    "subject": "Re: Quick question about search reindex",
+    "body_markdown": "Hi Jamal,\n\nThanks for the note — I'll take a look and get back to you.\n\nBest,\nMe",
+    "tone": "collegial",
     "assumptions": [
       "User can respond to this specific request without more context"
     ]
@@ -42,15 +42,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=needs_you",
-        "output_snippet": "Personal note from Tomas Brandt. Contains a direct ask. Reader would notice if this slipped through."
+        "thought": "stub: category=work, lane=needs_you",
+        "output_snippet": "Work correspondence from Jamal Wright. Contains a direct ask. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {
-      "input": 77,
-      "output": 56
+      "input": 91,
+      "output": 57
     },
-    "cost_usd_at_generation": 0.005355,
+    "cost_usd_at_generation": 0.00564,
     "latency_ms_live": 1200
   },
   "playback": {

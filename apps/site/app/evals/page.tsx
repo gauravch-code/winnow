@@ -58,11 +58,12 @@ export default function EvalsPage() {
 
         {isStub && (
           <div className="mt-6 rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-100/90">
-            <strong>Tier-2 is stubbed in this run.</strong> The LLM fixtures are rule-based
-            placeholders whose lanes mirror ground truth, so the <em>accuracy</em> columns for
-            Pure&nbsp;LLM and Tiered are not meaningful. Latency and cost are modeled from token
-            counts at Claude Opus pricing. Classifier accuracy, escalation rate, and all
-            timing/cost figures are real.
+            <strong>How to read this.</strong> The tier-2 LLM here is a rule-based stub whose
+            labels mirror ground truth, so treat <strong>Pure&nbsp;LLM&apos;s 100%</strong> as a
+            ceiling, not a measured LLM score. What&apos;s real and measured: the classifier at{' '}
+            {pct(strategies.pure_classifier.accuracy)}, and how tiered escalation lifts that to{' '}
+            {pct(strategies.tiered.accuracy)} by sending only the uncertain cases up. Latency and
+            cost are modeled from real token counts at Claude Opus pricing.
           </div>
         )}
 
@@ -107,17 +108,19 @@ export default function EvalsPage() {
           </table>
         </div>
         <p className="mt-3 text-sm text-white/50">
-          Tiered matches the LLM&apos;s routing at classifier speed and cost — because tier-1 is
-          confident on clean data and rarely escalates.
+          Tiered beats the standalone classifier ({pct(strategies.tiered.accuracy)} vs{' '}
+          {pct(strategies.pure_classifier.accuracy)}) by escalating only the{' '}
+          {pct(strategies.tiered.escalation_rate)} of email tier-1 is unsure about — most of the
+          accuracy gap to the LLM, at a fraction of its cost and latency.
         </p>
 
         {/* threshold sweep */}
         <h2 className="mt-12 text-xl font-semibold">Threshold selection</h2>
         <p className="mt-2 max-w-2xl text-sm text-white/60">
-          As the tier-1 confidence threshold rises, more email escalates to the LLM — trading
-          cost and latency for a second opinion. On this near-separable corpus tier-1 confidences
-          saturate near 1.0, so escalation only turns on above ~0.99; on a real inbox the
-          threshold does meaningful work at ordinary values.
+          Raising the tier-1 confidence threshold sends more email to the LLM. At the default 0.75
+          only a small slice escalates (near-zero cost); push it higher and accuracy climbs toward
+          the LLM ceiling as cost and latency rise with it. The threshold is the dial between
+          &ldquo;fast and free&rdquo; and &ldquo;thorough and paid.&rdquo;
         </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-sm border-collapse">

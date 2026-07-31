@@ -7,12 +7,12 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:69af2d8ca9c5666429490624faba515ea72b8e6a58637343a164bb4f8d5e8118"
+    "seed_email_hash": "sha256:c77d2e2d8ca1750a68c031d6a1929ee193115e7a8ddf3e6ca250c457577ca565"
   },
   "triage": {
-    "lane": "informational",
+    "lane": "hidden",
     "confidence": 0.91,
-    "reasoning": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action.",
+    "reasoning": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action.",
     "signals": [
       {
         "name": "has_unsubscribe",
@@ -36,8 +36,8 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=newsletter, lane=informational",
-        "output_snippet": "Newsletter from Lenny's Newsletter. Subscribed content — worth existing in the inbox but does not require action."
+        "thought": "stub: category=newsletter, lane=hidden",
+        "output_snippet": "Newsletter from Morning Brew. Subscribed content — worth existing in the inbox but does not require action."
       }
     ],
     "tokens": {

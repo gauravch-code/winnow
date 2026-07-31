@@ -7,24 +7,20 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:5dc7583bdc9a78c47347be0ee9519613a37fe06a0be0e2d4086a4dfc96c6ac7b"
+    "seed_email_hash": "sha256:a2ba160ca09e00c3bb5e1882917bc50efbdaa01f56dffdecd00263943deb5f44"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.83,
-    "reasoning": "Personal note from Nadia Farouk. One-off message. Reader would notice if this slipped through.",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Notion. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "personal_domain",
-        "weight": 0.34
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "direct_question",
-        "weight": 0.29
-      },
-      {
-        "name": "short_body",
-        "weight": 0.11
+        "name": "automated_sender",
+        "weight": 0.24
       }
     ]
   },
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=personal, lane=informational",
-        "output_snippet": "Personal note from Nadia Farouk. One-off message. Reader would notice if this slipped through."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Notion. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 74,
-      "output": 54
+      "input": 75,
+      "output": 53
     },
-    "cost_usd_at_generation": 0.00516,
+    "cost_usd_at_generation": 0.0051,
     "latency_ms_live": 1200
   },
   "playback": {

@@ -1,22 +1,24 @@
 {
   "id": "seed_046",
-  "sender_email": "noreply@github.com",
-  "sender_name": "GitHub",
-  "sender_domain": "github.com",
+  "sender_email": "nadia@contoso.com",
+  "sender_name": "Nadia Farouk",
+  "sender_domain": "contoso.com",
   "recipients": {
     "to": [
       "me@winnow.dev"
     ],
-    "cc": [],
+    "cc": [
+      "elena@contoso.com"
+    ],
     "bcc": []
   },
-  "subject": "[billing-v2] Pull request #335 was merged",
-  "body_text": "Elena Rossi merged pull request #335 into main.\n\nView on GitHub.",
-  "snippet": "Elena Rossi merged pull request #335 into main.",
-  "received_at": "2026-07-08T09:03:00Z",
-  "thread_depth": 1,
-  "has_unsubscribe": true,
-  "is_reply": false,
-  "category": "notification",
+  "subject": "Re: auth migration — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-13T20:29:00Z",
+  "thread_depth": 3,
+  "has_unsubscribe": false,
+  "is_reply": true,
+  "category": "work",
   "ground_truth_lane": "informational"
 }

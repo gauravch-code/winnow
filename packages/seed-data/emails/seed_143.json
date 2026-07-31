@@ -1,7 +1,7 @@
 {
   "id": "seed_143",
-  "sender_email": "marcus@contoso.com",
-  "sender_name": "Marcus Bell",
+  "sender_email": "elena@contoso.com",
+  "sender_name": "Elena Rossi",
   "sender_domain": "contoso.com",
   "recipients": {
     "to": [
@@ -10,13 +10,13 @@
     "cc": [],
     "bcc": []
   },
-  "subject": "FYI: search reindex weekly digest",
-  "body_text": "Weekly rollup for search reindex. Nothing needs your input this week.",
-  "snippet": "Weekly rollup for search reindex. Nothing needs your input this week.",
-  "received_at": "2026-07-03T05:23:00Z",
-  "thread_depth": 1,
+  "subject": "Re: Q3 planning — approved",
+  "body_text": "Approved. Ship it whenever you're ready.",
+  "snippet": "Approved. Ship it whenever you're ready.",
+  "received_at": "2026-07-13T06:59:00Z",
+  "thread_depth": 3,
   "has_unsubscribe": false,
-  "is_reply": false,
+  "is_reply": true,
   "category": "work",
   "ground_truth_lane": "informational"
 }

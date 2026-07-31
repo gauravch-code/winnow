@@ -7,12 +7,12 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:f6f6a7e5b2a5149e1fd975cc5a0d9fb5c416b74981ac378ce382912d8f21c51f"
+    "seed_email_hash": "sha256:4516f6b17081b9a5c284b5c181e07615001d5eae6a05a5f5a72d9ada5f627ce3"
   },
   "triage": {
     "lane": "informational",
     "confidence": 0.86,
-    "reasoning": "Work correspondence from Diego Alvarez. One-off message. Tier-1 was probably fine but the LLM confirms.",
+    "reasoning": "Work correspondence from Tomas Brandt. One-off message. Tier-1 was probably fine but the LLM confirms.",
     "signals": [
       {
         "name": "known_sender_domain",
@@ -41,7 +41,7 @@
         "step": 1,
         "tool": null,
         "thought": "stub: category=work, lane=informational",
-        "output_snippet": "Work correspondence from Diego Alvarez. One-off message. Tier-1 was probably fine but the LLM confirms."
+        "output_snippet": "Work correspondence from Tomas Brandt. One-off message. Tier-1 was probably fine but the LLM confirms."
       }
     ],
     "tokens": {

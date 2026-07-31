@@ -7,23 +7,19 @@
     "model": "rule-based-stub-v1",
     "agent_version": "triage-agent-stub@0.1.0",
     "prompt_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "seed_email_hash": "sha256:e4b781eeda392ca4418a23e50475733502efd20dc736fb9aab0e6264bdb422dc"
+    "seed_email_hash": "sha256:f75fdf6e93e19eaef2544dc62470ab5cbd25b9baa64bee47d56bff6efb83e006"
   },
   "triage": {
     "lane": "informational",
-    "confidence": 0.86,
-    "reasoning": "Work correspondence from Marcus Bell. One-off message. Tier-1 was probably fine but the LLM confirms.",
+    "confidence": 0.88,
+    "reasoning": "Automated notification from Google Drive. Reader already sees this activity in the source app.",
     "signals": [
       {
-        "name": "known_sender_domain",
-        "weight": 0.32
+        "name": "notification_service_domain",
+        "weight": 0.38
       },
       {
-        "name": "thread_depth_gt_1",
-        "weight": 0.18
-      },
-      {
-        "name": "direct_question",
+        "name": "automated_sender",
         "weight": 0.24
       }
     ]
@@ -40,15 +36,15 @@
       {
         "step": 1,
         "tool": null,
-        "thought": "stub: category=work, lane=informational",
-        "output_snippet": "Work correspondence from Marcus Bell. One-off message. Tier-1 was probably fine but the LLM confirms."
+        "thought": "stub: category=notification, lane=informational",
+        "output_snippet": "Automated notification from Google Drive. Reader already sees this activity in the source app."
       }
     ],
     "tokens": {
-      "input": 81,
-      "output": 55
+      "input": 75,
+      "output": 54
     },
-    "cost_usd_at_generation": 0.00534,
+    "cost_usd_at_generation": 0.005175,
     "latency_ms_live": 1200
   },
   "playback": {
