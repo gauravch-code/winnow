@@ -5,10 +5,7 @@ handles 80%+ of email routing in milliseconds for free. An LLM sees only
 the cases the classifier isn't sure about — and only if you opt in with
 your own key. Your inbox never leaves your machine unless you say so.
 
-**▶ [Try the live demo](https://winnow-eight.vercel.app/demo)** — synthetic
-data, real tier-1 classifier running live in your browser session,
-pre-recorded tier-2 LLM responses. No signup, nothing touches a real inbox,
-costs nobody anything.
+**▶ Run the demo locally in 5 minutes — see the Quickstart below. Synthetic data, real classifier, no signup needed.
 
 [![status](https://img.shields.io/badge/status-v1.1-brightgreen)](https://github.com/gauravch-code/winnow)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
