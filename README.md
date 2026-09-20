@@ -35,13 +35,13 @@ system gets *better at handling things locally* the more you use it.
 
 ```mermaid
 flowchart LR
-    A[Incoming email] --> B["Tier 1 — local classifier<br/>MiniLM embeddings + logistic regression<br/>~5 ms · CPU · $0"]
-    B -->|confident| L["Lane<br/>Needs You / Informational / Hidden"]
-    B -->|uncertain| C["Tier 2 — PydanticAI agent<br/>structured triage + draft reply<br/>opt-in · your API key"]
+    A[Incoming email] --> B[Tier 1 local classifier]
+    B -->|High confidence| L[Lane assignment]
+    B -->|Low confidence| C[Tier 2 optional LLM]
     C --> L
-    L --> U["You act:<br/>move · archive · star · edit draft"]
-    U --> T[("training_examples")]
-    T -.nightly retrain.-> B
+    L --> U[User action]
+    U --> T[Training examples]
+    T -->|Nightly retrain| B
 ```
 
 - **Tier 1 (local, free, private).** A scikit-learn logistic-regression
