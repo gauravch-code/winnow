@@ -33,15 +33,24 @@ system gets *better at handling things locally* the more you use it.
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A[Incoming email] --> B[Tier 1 local classifier]
-    B -->|High confidence| L[Lane assignment]
-    B -->|Low confidence| C[Tier 2 optional LLM]
-    C --> L
-    L --> U[User action]
-    U --> T[Training examples]
-    T -->|Nightly retrain| B
+```text
+Incoming email
+      |
+      v
+Tier 1: local classifier (~5 ms, CPU, $0)
+      |
+      +-- high confidence --> Needs You / Informational / Hidden
+      |
+      +-- low confidence ---> Tier 2: optional LLM
+                                  |
+                                  v
+                         Structured triage + draft
+                                  |
+                                  v
+User action (move / archive / star / edit)
+      |
+      v
+Training example --> nightly retrain --> Tier 1
 ```
 
 - **Tier 1 (local, free, private).** A scikit-learn logistic-regression
