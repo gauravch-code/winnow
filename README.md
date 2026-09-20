@@ -5,7 +5,9 @@ handles 80%+ of email routing in milliseconds for free. An LLM sees only
 the cases the classifier isn't sure about — and only if you opt in with
 your own key. Your inbox never leaves your machine unless you say so.
 
-**▶ Run the demo locally in 5 minutes — see the Quickstart below. Synthetic data, real classifier, no signup needed.
+**[Try the hosted interactive demo](https://gauravch-code.github.io/winnow/)** — synthetic email, deterministic decisions, prerecorded Tier 2, no signup or API key.
+
+**Run the real classifier locally in 5 minutes** — see the Quickstart below. Synthetic data, real inference, no signup needed.
 
 [![status](https://img.shields.io/badge/status-v1.1-brightgreen)](https://github.com/gauravch-code/winnow)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
